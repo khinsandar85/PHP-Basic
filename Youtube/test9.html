@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecture 7 - Static Position </title>
+    <style>
+        .div1 {
+            background-color: chocolate;
+            color: white;
+            padding: 2rem;
+            display: inline-block;
+        }
+        .div2 {
+            background-color: darkblue;
+            color: white;
+            padding: 2rem;
+            display: inline-block;
+            position: relative;
+            top: 50px;
+            left: -50px;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <div class="div1">
+        Div One
+    </div>
+    <div class="div2">
+        Div Two
+    </div>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date of Birth</title>
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            background-color: aliceblue;
+        }
+        .container {
+            width: 340px;
+            height: 400px;
+            margin: auto;
+            background-color: black;
+            border-top: 10px solid black;
+            border-bottom: 10px solid black;
+        }
+        .top {
+            background-color: antiquewhite;
+            padding: 1rem 0rem;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            font-size: 2rem;
+            color: orange;
+        }
+
+        .bottom {
+            background-color: darkblue;
+            text-align: center;
+            color: white;
+            height: 330px;
+        }
+
+        .day_name {
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 1.5rem;
+            padding: 1rem 0rem;
+        }
+
+        .date {
+            font-size: 5rem;
+            font-family: serif;
+            padding: 1.5rem 0rem;
+        }
+
+        .year {
+            font-size: 3rem;
+            font-family: serif;
+            padding: 1.5rem 0rem;
+        }
+
+    </style>
+</head>
+<body onload="init()">
+    <div class="container">
+        <div class="top"></div>
+        <div class="bottom">
+            <div class="day_name"></div>
+            <div class="date"></div>
+            <div class="year"></div>
+        </div>
+    </div>
+
+
+    <script>;
+
+        let birth = new Date("8 February 2023");
+        let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+        let show_month = () => {
+            let m_index = birth.getMonth();
+            document.querySelector(".top").innerHTML =months[m_index];
+        }
+
+        let show_day = () => {
+            document.querySelector(".day_name").innerHTML = days[birth.getDay()];
+        }
+
+        let init = () => {
+            show_month();
+            show_day();
+            let d = birth.getDate();
+
+            document.querySelector(".date").innerHTML = d<10 ?  "0"+ d : d ;
+            document.querySelector(".year").innerHTML = birth.getFullYear();
+        }
+
+
+    </script>
+</body>
+</html>

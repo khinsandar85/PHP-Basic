@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Attendence</title>
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+        }
+
+        .outer {
+            margin: auto;
+        }
+
+        .inner {
+            margin-bottom: 1rem;
+        }
+
+        label {
+            font-size: 1.5rem;
+            padding: 1rem;
+            font-weight: bold;
+            color: #067074;
+        }
+
+        input {
+            width: 15rem;
+            height: 2rem;
+        }
+
+        .btn {
+            margin: 2% 35%;
+            width: 8rem;
+            height: 2rem;
+            border: none;
+            border-radius: 5px;
+            background-color: #067074;
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: wheat;
+        }
+
+        #ans {
+            text-align: center;
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: brown;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="inner">
+            <label for="">Year</label> 
+            <input type="number" name="inputYear" id="inputYear">
+        </div>
+        <div class="inner">
+            <button class="btn" onclick="showYear()">Show</button>
+        </div>
+        <p id="ans"></p>
+    </div>
+
+    <script>
+        function showYear() {
+            let num = parseInt(inputYear.value);
+
+            switch(y) {
+                case 1: ans.innerHTML = "First Year."; break;
+                case 2: ans.innerHTML = "Second Year."; break;
+                case 3: ans.innerHTML = "Third Year."; break;
+                case 4: ans.innerHTML = "Final Year."; break;
+                default: ans.innerHTML = "Invalid Year."; 
+            }
+            ans.innerHTML = num + (num%2 == 0 ? " is even." : " is odd.");
+        }
+    </script>
+</body>
+</html>

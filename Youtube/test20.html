@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 14 - Smooth Changing Gradient Color</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .btn {
+            text-decoration: none;
+            font-family: Consoles;
+            font-weight: bold;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            padding: 1rem 2rem;
+            color: white;
+            border-radius: 5px;
+            background-size: 200%;
+            /* background-size: 100% or 300%; */
+            transition: 1s;
+        }
+
+        .bgG {
+            background-image: linear-gradient(to left, rgb(242, 185, 80), rgb(89, 195, 233), rgb(242, 185, 80));
+            animation: changeColor 2s linear infinite alternate-reverse;
+        }
+
+        @keyframes changeColor {
+            from {background-position: left;}    
+            to {background-position: right;}    
+        }
+
+        /* .bgG:hover {
+            background-position: right;
+        } */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="#" class="btn bgG">Order Now</a>
+    </div>
+</body>
+</html>

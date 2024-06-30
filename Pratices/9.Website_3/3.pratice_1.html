@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <title>Practice</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #4c8f96;
+            --bg-secondary: #222842;
+            --bg-active: #335f64;
+            --bg-white: #ededed;
+            --border-primary: #5fb3bd;
+        }
+
+        .title {
+            background-color: var(--bg-primary);
+
+        }
+
+        .title_box {
+            height: 130px;
+            margin: 0% 16%;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .title_box div {
+            margin-top: 35px;
+        }
+
+        .title_box div p {
+            color: white;
+            font-size: 60px;
+            text-transform: uppercase;
+            padding: 20px;
+            background-color: var(--bg-secondary);
+        }
+
+        .title_box div:nth-child(2) {
+            width: 500px;
+            padding-top: 3%;
+            margin-top: 5%;
+        }
+
+        .title_box div a {
+            text-decoration: none;
+            text-transform: uppercase;
+            color: white;
+            border-radius: 4px;
+            background-color: var(--bg-secondary);
+            padding: 1% 2.5%;
+            margin-left: 1.49%;
+        }
+
+        .title_box div a:hover {
+            opacity: .8;
+        }
+
+        .active {
+            background-color: var(--bg-active) !important;
+        }
+        
+        .banner, 
+        .img_row,
+        .testimonial {
+            background-color: var(--bg-white);
+            border: 2px solid var(--bg-white);
+        }
+
+        .banner_box {
+            margin: 5% 16%;
+            height: 500px;
+            background-color: white;
+            position: relative;
+        }
+
+        .banner_box img {
+            height: 500px;
+        }
+
+        .banner_text {
+            position: absolute;
+            font-size: 27px;
+            top: 32%;
+            left: 50%;
+        }
+
+        .img_box {
+            margin: 5% 16% 0% 16%;
+            height: 500px;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .bg_img {
+            position: relative;
+            width: 215px;
+        }
+
+        .bg_img h3 {
+            color: #000;
+            font-size: 20px;
+            font-weight: normal;
+            padding: 10px 0 5px;
+            text-transform: capitalize;
+        }
+
+        .bg_img p {
+            color: #464646;
+            font-size: 17px;
+            line-height: 160%;
+            margin: 0;
+        }
+
+        .bg_img p a {
+            color: #464646;
+        }
+
+        .cover_img {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+        }
+
+        .testimonial_box {
+            margin: 0% 16% 3% 16%;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .featured {
+            width: 49%;
+            background-color: white;
+            border: 5px solid var(--border-primary);
+            border-radius: 5px;
+            padding: 4% 2%;
+            position: relative;
+        }
+
+        .featured h2 {
+            position: absolute;
+            top: -5%;
+            padding: 2% 4%;
+            color: white;
+            text-transform: capitalize;
+            font-weight: normal;
+            font-size: 25px;
+            background-color: var(--bg-secondary);
+        }
+
+        .featured h3 {
+            position: absolute;
+            top: 6%;
+            left: 25%;
+        }
+
+        .featured p,
+        .section p {
+            line-height: 160%;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        .featured p a {
+            color: #464646;
+        }
+
+        .section {
+            width: 49%;
+        }
+
+        .article {
+            background-color: #519194;
+            border: 5px solid var(--border-primary);
+            border-radius: 5px;
+            padding: 4%;
+            position: relative;
+            color: white;
+        }
+
+        .section p a {
+            color: white;
+        }
+
+        .section h5 {
+            text-align: right;
+            font-size: 22px;
+        }
+        
+        .article h2 {
+            position: absolute;
+            top: -14%;
+            padding: 2% 4%;
+            color: white;
+            text-transform: capitalize;
+            font-weight: normal;
+            font-size: 25px;
+            background-color: var(--bg-secondary);
+        }
+
+        .newsletter {
+            margin-top: 30px;
+            background-color: #519194;
+            border: 5px solid var(--border-primary);
+            border-radius: 5px;
+            position: relative;
+            color: white;
+            display: flex;
+        }
+
+        .newsletter img {
+            position: absolute;
+            top: -16px;
+        }
+
+        .newsletter p {
+            padding: 5% 5% 7% 50%;
+            font-size: 19px;
+            line-height: 180%;
+        }
+
+        .footer {
+            background-color: #4c8f96;
+            height: 130px;
+            position: relative;
+        }
+
+        .footer p {
+            text-align: center;
+            color: white;
+            padding: 55px;
+        }
+        
+        .footer_bottom {
+            height: 50px;
+            background-color: var(--bg-white);
+        }
+        
+        .footer_icon {
+            position: absolute;
+            right: 17%;
+            top: 24%;
+            width: 180px;
+            padding: 20px;
+            background-color: #3d676c8c;
+        }
+
+        .footer_icon a {
+            color: #324f52;
+            text-decoration: none;
+            margin: 1% 5%;
+        }
+
+        .footer_icon a:hover {
+            color: #090c0c;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">
+            <div class="title_box">
+                <div>
+                    <p>zizurz</p>
+                </div>
+                <div>
+                    <a href="#home" class="active">home</a>
+                    <a href="#about">about</a>
+                    <a href="#hairstyles">hairstyles</a>
+                    <a href="#news">news</a>
+                    <a href="#contact">contact</a>
+                </div>
+            </div>
+        </div>
+        <div class="banner">
+            <div class="banner_box">
+                <img src="./img/hair_1.jpg" alt="">
+                <div class="banner_text">
+                    <h1>Great hairstyle comes from the experts.</h1>
+                </div>
+            </div>
+        </div>
+        <div class="img_row">
+            <div class="img_box">
+                <div class="bg_img">
+                    <img src="./img/hair_8.png" alt="">
+                    <h3>best hairstylists</h3>
+                    <p>
+                        Want an easier solution for a 
+                        <a href="#" >Free Website</a>
+                        ? Head straight to 
+                        <a href="#">Wix</a> 
+                        and immediately start customizing your website!
+                        This is just a place holder, so you can see what the site would look like.
+                    </p>
+                    <div class="cover_img">
+                        <img src="./img/hair_2.jpg" alt="">
+                    </div>
+                </div>
+                <div class="bg_img">
+                    <img src="./img/hair_8.png" alt="">
+                    <h3>featured hairstyle</h3>
+                    <p>
+                        <a href="#">Wix</a> 
+                        is an online website builder with a simple drag 
+                        &amp; drop interface, meaning you do the work online and instantly 
+                        publish to the web. Nothing to download, nothing to upload.
+                    </p>
+                    <div class="cover_img">
+                        <img src="./img/hair_3.jpg" alt="">
+                    </div>
+                </div>
+                <div class="bg_img">
+                    <img src="./img/hair_8.png" alt="">
+                    <h3>hair care</h3>
+                    <p>
+                        All 
+                        <a href="#">Wix</a> 
+                        templates are fully customizable and free to use. Just pick one you 
+                        like, click Edit, and enter the online editor. Change, add, and remove items as you like.
+                    </p>
+                    <div class="cover_img">
+                        <img src="./img/hair_4.jpg" alt="">
+                    </div>
+                </div>
+                <div class="bg_img">
+                    <img src="./img/hair_8.png" alt="">
+                    <h3>we "hair" you</h3>
+                    <p>
+                        <a href="#">Wix</a> 
+                        also offers a ton of free design elements right inside the editor, 
+                        like images, icons, animation files, and interactive widgets. Publish your 
+                        <a href="#">Free Website</a> 
+                        in minutes!
+                    </p>
+                    <div class="cover_img">
+                        <img src="./img/hair_5.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="testimonial">
+            <div class="testimonial_box">
+                <div class="featured">
+                    <h2>featured</h2>
+                    <img src="./img/hair_6.jpg" alt="hair">
+                    <h3>Hair, I just meet you</h3>
+                    <p>
+                        This website template has been designed by 
+                        <a href="#">Free Website Templates</a> 
+                        for you, for free. You can replace all this text with your own text.
+                        You can remove any link to our website from this website template, 
+                        you're free to use this website template without linking back to us.
+                        If you're having problems editing this website template, then don't 
+                        hesitate to ask for help on the 
+                        <a href="#">Forums</a>.
+                    </p>
+                    <p>
+                        Want an easier solution for a 
+                        <a href="#" >Free Website</a>? Head straight to 
+                        <a href="#">Wix</a> 
+                        and immediately start customizing your website!
+                        <a href="#">Wix</a> 
+                        is an online website builder with a simple drag &amp; 
+                        drop interface, meaning you do the work online and 
+                        instantly publish to the web. Nothing to download, nothing to upload.
+                    </p>
+                    <p>
+                        All <a href="#">Wix</a> 
+                        templates are fully customizable and free to use. Just pick one you like, 
+                        click Edit, and enter the online editor. Change, add, and remove items as you like.
+                        <a href="#">Wix</a> also offers a ton of free design elements right inside 
+                        the editor, like images, icons, animation files, and interactive widgets. Publish your 
+                        <a href="#">Free Website</a> 
+                        in minutes!
+                    </p>
+                </div>
+                <div class="section">
+                    <div class="article">
+                        <h2>hairstyle</h2>
+                        <p>
+                            This website template has been designed by 
+                            <a href="#">Free Website Templates</a> 
+                            for you, for free. You can replace all this text with your own text.
+                            You can remove any link to our website from this website template, you're free 
+                            to use this website template without linking back to us.If you're having problems 
+                            editing this website template, then don't hesitate to ask for help on the 
+                            <a href="#">Forums</a>.
+                        </p>
+                        <h5>Mike M.</h5>
+                    </div>
+                    <div class="newsletter">
+                        <img src="./img/hair_7.png" alt="">
+                        <p>
+                            Are you losing your hair? Let us help you in bringing back your confidence. <span>Call Us at 1800-0000-0000</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="footer_box">
+                <div class="footer_icon">
+                    <a href="http://freewebsitetemplates.com/go/twitter/">
+                        <i class="bi bi-twitter"></i>
+                    </a>
+                    <a href="http://freewebsitetemplates.com/go/facebook/">
+                        <i class="bi bi-facebook"></i>
+                    </a>
+                    <a href="http://freewebsitetemplates.com/go/googleplus/">
+                        <i class="bi bi-google"></i>
+                    </a>
+                    <a href="http://pinterest.com/fwtemplates/">
+                        <i class="bi bi-pinterest"></i>
+                    </a>
+                </div>
+                <p>
+                    &copy; copyright 2023 | all rights reserved.
+                </p>
+            </div>
+        </div>
+        <div class="footer_bottom"></div>
+    </div>    
+</body>
+</html>

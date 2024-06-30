@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Income & Expense</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+        body {
+            background-color: rgb(83, 83, 83);
+        }
+
+        .container {
+            width: 90%;
+            margin-left: 5%;
+            background-color: white;
+            border-radius: 5px;
+        }
+
+        .container h1 {
+            padding: 1rem 0px 0px 20px;
+            margin-bottom: 25px;
+            font-size: 45px;
+            font-family: 'Lobster', cursive;
+            color: #d61cd6;
+            text-shadow: 2px 2px 3px gray;
+        }
+
+        .outer {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .left {
+            width: 400px;
+            margin-left: 25px;
+        }
+
+        .inputForm {
+            background-color: whitesmoke;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            box-shadow: 7px 7px 7px #f1c8f1;
+        }
+
+        .income_input {
+            color: #d61cd6;
+        }
+
+        .expense_input {
+            color: teal;
+        }
+
+        .income_input label {
+            color: #c902c9;
+        }
+
+        .row {
+            display: flex;
+        }
+
+        .row label {
+            width: 30%;
+            font-weight: bold;
+            margin-top: 8px;
+        }
+
+        .row input {
+            height: 1.5rem;
+            width: 65%;
+            border: 1px solid rgb(185, 182, 182);
+            border-radius: 5px;
+            margin: 10px 0px;
+        }
+
+        .btn_div {
+            display: flex;
+        }
+        
+        button {
+            margin: auto;
+            height: 2rem;
+            width: 8.5rem;
+            border-radius: 8px;
+            color: white;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+        }
+
+        #btn_income {
+            background-color: #d61cd6;
+        }
+
+        #btn_expense {
+            background-color: teal;
+        }
+
+        .right {
+            width: 800px;
+            margin-left: 2rem ;
+        }
+
+        .totalDiv {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            background-color: whitesmoke;
+            padding: 1rem 0.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 7px 7px 7px #f1c8f1;
+        }
+
+        .total {
+            flex-grow: 1;
+        }
+
+        .total_header {
+            color: darkblue;
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        .all {
+            margin-bottom: 6rem;
+        }
+
+        .all .row div {
+            flex-grow: 1;
+            width: 100%;
+        }
+
+        .all button {
+            width: 2rem;
+            background-color: crimson;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .all_income h2 {
+            color: darkblue;
+            font-variant: small-caps;
+            display: inline-block;
+            padding: 1% 2%;
+            background-color: whitesmoke;
+            border-radius: 0.5rem;
+            box-shadow: 7px 7px 7px #f1c8f1;
+        }
+
+        .header {
+            font-weight: bold;
+            font-size: 1.3rem;
+            text-align: center;
+        }
+
+        .data {
+            font-size: 1.2rem;
+            margin: 15px 0px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 5px 0px;
+            border-bottom: 1px solid gray;
+        }
+
+        .data div {
+            display: flex;
+            justify-content: center;
+        }
+
+        .data div:last-child {
+            display: inline-block;
+            text-align: center;
+        }
+
+        .all_expense h2 {
+            color: darkblue;
+            font-variant: small-caps;
+            display: inline-block;
+            padding: 1% 2%;
+            background-color: whitesmoke;
+            border-radius: 0.5rem;
+            box-shadow: 7px 7px 7px #f1c8f1;
+        }
+
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <h1>Income & Expense Project</h1>
+        <div class="outer">
+            <div class="left">
+                <div class="income_input inputForm">
+                    <h2>Insert Income</h2>
+                    <div class="row">
+                        <label for="">Name</label>
+                        <input type="text" name="" id="income_name">
+                    </div>
+                    <div class="row">
+                        <label for="">Amount</label>
+                        <input type="number" name="" id="income_amount" >
+                    </div>
+                    <div class="row">
+                        <label for="">Date</label>
+                        <input type="text" name="" id="income_date" placeholder="Date" onfocus="(this.type='date')">
+                    </div>
+                    <div class="btn_div">
+                        <button id="btn_income" onclick="check_income_btn()">Insert Income</button>
+                    </div>
+                </div>
+                <div class="expense_input inputForm">
+                    <h2>Insert Expense</h2>
+                    <div class="row">
+                        <label for="">Name</label>
+                        <input type="text" name="" id="expense_name">
+                    </div>
+                    <div class="row">
+                        <label for="">Amount</label>
+                        <input type="number" name="" id="expense_amount">
+                    </div>
+                    <div class="row">
+                        <label for="">Date</label>
+                        <input type="text" name="" id="expense_date" placeholder="Date" onfocus="(this.type='date')">
+                    </div>
+                    <div class="btn_div">
+                        <button id="btn_expense" onclick="check_expense_btn()">Insert Expense</button>
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                <div class="totalDiv">
+                    <div class="row total_header">
+                        <div class="total">
+                            <i class="fa fa-plus-square"></i>
+                            Income
+                            <i class="fa fa-dollar-sign"></i>
+                        </div>
+                        <div class="total">
+                            <i class="fa fa-minus-square"></i>
+                            Expense
+                            <i class="fa fa-dollar-sign"></i>
+                        </div>
+                        <div class="total">
+                            Balance 
+                            <i class="fa fa-dollar-sign"></i>
+                        </div>
+                    </div>
+                    <div class="row header">
+                        <div class="total" id="income_total">0</div>
+                        <div class="total" id="expense_total">0</div>
+                        <div class="total" id="balance">0 </div>
+                    </div>
+                </div>
+                <div class="all_income all" id="all_income">
+                    <h2>All Income</h2>
+                    <div class="row header">
+                        <div>Income Name</div>
+                        <div>Date</div>
+                        <div>Amount</div>
+                        <div>Manage</div>
+                    </div>
+                </div>
+                <div class="all_expense all" id="all_expense">
+                    <h2>All Expense</h2>
+                    <div class="row header">
+                        <div>Income Name</div>
+                        <div>Date</div>
+                        <div>Amount</div>
+                        <div>Manage</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let editDiv;
+        let editDiv2;
+
+        function check_income_btn() {
+            if(btn_income.innerHTML == "Insert Income") {
+                add_income();
+            }
+            else {
+                update_income();
+            }
+        }
+
+        function check_expense_btn() {
+            if(btn_expense.innerHTML == "Insert Expense") {
+                add_expense();
+            }
+            else {
+                update_expense();
+            }
+        }
+
+        function add_income() {
+            console.log("add");
+
+            let name = income_name.value;
+            let amt = + income_amount.value;
+            let d = income_date.value;
+
+            let outDiv = document.createElement("div");
+            outDiv.classList.add("row", "data");
+
+            let showName = document.createElement("div");
+            showName.innerHTML = name;
+
+            let showDate = document.createElement("div");
+            showDate.innerHTML = d;
+            
+            let showAmount = document.createElement("div");
+            showAmount.innerHTML = amt;
+
+            let btnDiv = document.createElement("div");
+            btnDiv.innerHTML = `<button onclick="editIncome(this)"><i class="fa fa-edit"></i></button>`;
+            btnDiv.innerHTML += `<button onclick="delIncome(this)"><i class="fa fa-trash-alt"></i></button>`;
+
+            outDiv.appendChild(showName);
+            outDiv.appendChild(showDate);
+            outDiv.appendChild(showAmount);
+            outDiv.appendChild(btnDiv);
+
+            //sum to income total
+            let incomeValue = +income_total.innerHTML;
+            incomeValue += amt;
+            income_total.innerHTML = incomeValue;
+
+            //sum to balance
+            let balanceValue = +balance.innerHTML;
+            balanceValue += amt;
+            balance.innerHTML = balanceValue;
+
+            all_income.appendChild(outDiv);
+
+            income_name.value = "";
+            income_amount.value = "";
+            income_date.value = "";
+
+        }
+    
+        function add_expense() {
+
+            let name = expense_name.value;
+            let amt = + expense_amount.value;
+            let d = expense_date.value;
+
+            let outDiv = document.createElement("div");
+            outDiv.classList.add("row", "data");
+
+            let showName = document.createElement("div");
+            showName.innerHTML = name;
+
+            let showDate = document.createElement("div");
+            showDate.innerHTML = d;
+
+            let showAmount = document.createElement("div");
+            showAmount.innerHTML = amt;
+
+            let btnDiv = document.createElement("div");
+            btnDiv.innerHTML = `<button onclick="editExpense(this)"><i class="fa fa-edit"></i></button>`;
+            btnDiv.innerHTML += `<button onclick="delExpense(this)"><i class="fa fa-trash-alt"></i></button>`;
+
+            outDiv.appendChild(showName);
+            outDiv.appendChild(showDate);
+            outDiv.appendChild(showAmount);
+            outDiv.appendChild(btnDiv);
+
+            //sum to expense total
+            let expenseValue = +expense_total.innerHTML;
+            expenseValue += amt;
+            expense_total.innerHTML = expenseValue;
+
+            //subtract to balance
+            let balanceValue = +balance.innerHTML;
+            balanceValue -= amt;
+            balance.innerHTML = balanceValue;
+
+            all_expense.appendChild(outDiv);
+
+
+            expense_name.value = "";
+            expense_amount.value = "";
+            expense_date.value = "";
+
+            }
+
+        function editIncome(event) {
+            let outDiv = event.parentNode.parentNode;
+            editDiv = outDiv;
+
+            let arr = outDiv.children;
+            let name = arr[0].innerHTML;
+            let date = arr[1].innerHTML;
+            let amount = +arr[2].innerHTML;
+
+            income_name.value = name;
+            income_date.type = Text;
+            income_date.value = date;
+            income_amount.value = amount;
+
+            btn_income.innerHTML = "Update Income";
+
+        }
+
+        function update_income() {
+            //new
+            let name = income_name.value;
+            let amt = +income_amount.value;
+            let d = income_date.value;
+
+            //old
+            let arr = editDiv.children;
+
+            let old_amount = +arr[2].innerHTML; 
+            let income_value = +income_total.innerHTML;
+            income_value -= old_amount;
+            income_value += amt;
+            income_total.innerHTML = income_value;
+
+            let b = +balance.innerHTML;
+            b -= old_amount;
+            b += amt;
+            balance.innerHTML = b;
+
+            arr[0].innerHTML = name;
+            arr[1].innerHTML = d;
+            arr[2].innerHTML = amt;
+
+            btn_income.innerHTML = "Insert Income";
+            income_name.value = "";
+            income_amount.value = "";
+            income_date.value = "";
+        }
+
+        function delIncome(event) {
+            let outDiv = event.parentNode.parentNode;
+            let arr = outDiv.children;
+            let amt = +arr[2].innerHTML;
+
+            let incomeValue = +income_total.innerHTML;
+            incomeValue -= amt;
+            income_total.innerHTML = incomeValue;
+
+            let balanceValue = + balance.innerHTML;
+            balanceValue -= amt;
+            balance.innerHTML = balanceValue;
+
+
+            all_income.removeChild(outDiv);
+        }
+    
+        function update_expense() {
+            //new 
+            let name = expense_name.value;
+            let amt = +expense_amount.value;
+            let d = expense_date.value;
+
+            //old 
+            let arr = editDiv2.children;
+            let old_amount = +arr[2].innerHTML;
+            let expense_value = +expense_total.innerHTML;
+            expense_value -= old_amount;
+            expense_value += amt;
+            expense_total.innerHTML = expense_value;
+
+            let b = +balance.innerHTML;
+            b += old_amount;
+            b -= amt;
+            balance.innerHTML = b;
+
+            console.log(b, old_amount);
+
+            arr[0].innerHTML = name;
+            arr[1].innerHTML = d;
+            arr[2].innerHTML = amt;
+
+            btn_expense.innerHTML = "Insert Expense";
+            expense_name.value = "";
+            expense_amount.value = "";
+            expense_date.value = "";
+        }
+
+        function editExpense(event) {
+            let outDiv = event.parentNode.parentNode;
+            editDiv2 = outDiv;
+
+            let arr = outDiv.children;
+            let name = arr[0].innerHTML;
+            let date = arr[1].innerHTML;
+            let amount = +arr[2].innerHTML;
+
+            expense_name.value = name;
+            expense_date.type = Text;
+            expense_date.value = date;
+            expense_amount.value = amount;
+
+            btn_expense.innerHTML = "Update Expense";
+        }
+
+        function delExpense(event) {
+            let outDiv = event.parentNode.parentNode;
+            let arr = outDiv.children;
+            let amount = +arr[2].innerHTML;
+
+            let expenseValue = +expense_total.innerHTML;
+            expenseValue -= amount;
+            expense_total.innerHTML = expenseValue;
+
+            let balanceValue = +balance.innerHTML;
+            balanceValue += amount;
+            balance.innerHTML = balanceValue;
+
+            all_expense.removeChild(outDiv);
+        }
+    </script>
+</body>
+</html>

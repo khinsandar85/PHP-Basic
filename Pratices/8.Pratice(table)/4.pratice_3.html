@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pratice 3</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: rgb(237, 246, 254);
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            margin: 20% 0px;
+        }
+        caption {
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 35%;
+            border: 1px solid black;
+        }
+        th {
+            width: 100px;
+            border: 1px solid black;
+            padding: 5px 20px;
+        }
+        td {
+            border: 1px solid black;
+            padding: 5px 3px;
+            text-align: left;
+        }
+        td:first-of-type {
+            width: 120px;
+            padding: 5px;            
+            text-align: center;
+            font-weight: bold;
+        }
+        tr:first-child th:last-child {
+            padding: 5px 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <table cellspacing="0">
+            <caption>A test with merged cells</caption>
+            <thead>
+                <tr>
+                    <th rowspan="2"> </th>
+                    <th colspan="2">Average</th>
+                    <th rowspan="2">Red eyes</th>
+                </tr>
+                <tr>
+                    <th>height</th>
+                    <th>weight</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Males</td>
+                    <td>1.9</td>
+                    <td>0.003</td>
+                    <td>40%</td>
+                </tr>
+                <tr>
+                    <td>Females</td>
+                    <td>1.7</td>
+                    <td>0.002</td>
+                    <td>43%</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduce</title>
+    <style>
+        form {
+            width: 300px;
+            height: 300px;
+            background-color: aliceblue;
+            padding: 3%;
+        }
+
+        input {
+            padding: 3%;
+            margin: 2%;
+        }
+
+        label {
+            margin: -8%;
+            padding: 4% 10%;
+        }
+
+        input[type="submit"] {
+            clear: both;
+            margin-right: 50%;
+            margin-top: 10%;
+
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <div>
+            <label for="">Name</label> <br>
+            <input type="text" name="userName" id="userName">
+        </div>
+        <div>
+            <label for="">Age</label> <br>
+            <input type="text" name="age" id="age">
+        </div>
+        <div>
+            <input type="submit" value="Submit" onclick="myBio()">
+        </div>
+    </form>
+
+    <script>
+        function myBio() {
+            if( userName.value == "" ) {
+                alert(" Please Enter Your Name! ");
+            }
+            else if ( age.value == "" ) {
+                alert(' Please Enter Your Age! ');
+            }
+            else {
+                alert("Hello!  "+ userName.value );
+            }
+        }
+    </script>
+</body>
+</html>

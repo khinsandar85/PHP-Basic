@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hover</title>
+    <style>
+        div {
+            width: 500px;
+            height: 300px;
+            cursor: pointer;
+        }
+
+        div img {
+            width: 100%;
+            max-width: 500px;
+            max-height: 300px;
+            transition: .4s;
+        }
+
+        div p {
+            margin-left: 40%;
+            font-size: 30px;
+            text-transform: capitalize;
+        }
+    </style>
+</head>
+<body>
+    <div onmouseover="overImage()" onmouseout="outerImage()">
+        <img src="../img/plant_1.webp" id="image" alt="">
+        <p id="test"></p>
+    </div>
+
+    <script>
+        function overImage() {
+            image.src = "../img/plant_2.jpg";
+            test.innerHTML = "Hover Image";
+        }
+        function outerImage() {
+            image.src = "../img/plant_1.webp";
+            test.innerHTML = "";
+        }
+    </script>
+</body>
+</html>

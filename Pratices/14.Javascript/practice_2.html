@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <style>
+        body {
+            background-color: black;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 98vw;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 40px;
+            padding: 2%;
+            color: white;
+        }
+
+        .img_container {
+            padding: 0% 8% 6% 8%;
+        }
+
+        .img_box {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+
+        .a, .b {
+            width: 49.5%;
+            height: 379px;
+        }
+
+        .a {
+            background-color: #67ceeb;
+        }
+
+        .a p {
+            text-align: center;
+            margin-top: 30%;
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        .img_a, .img_b,
+        #img_a, #img_b {
+            transition: .4s;
+            width: 100%;
+        }
+
+
+        .img_box_2 {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .c_box {
+            height: 650px;
+            width: 32%;
+        }
+
+        .img_c {
+            height: 645px;
+            width: 100%;
+        }
+
+        .ej_box {
+            width: 67%;
+        }
+
+        .ef_box {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .e, .f {
+            width: 49.2%;
+            height: 255px; 
+        }
+
+        .img_e, .img_f {
+            width: 100%;
+            height: 255px;
+        }
+
+        .gj_box {
+            width: 100%;
+            height: 360px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .gh_box {
+            width: 65%;
+            height: 388px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .g, .h {
+            width: 48.6%;
+        }
+
+        .g {
+            background-color: #67ceeb;
+            height: 375px;
+        }
+
+        .g p {
+            text-align: center;
+            margin-top: 34%;
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        #btn_g {
+            margin-left: 24%;
+            margin-top: 10%;
+            width: 40px;
+            height: 40px;
+            border-radius: 4px;
+            border: none;
+            font-weight: bold;
+            font-size: 19px;
+            border: 2px solid white;
+            cursor: pointer;
+        }
+
+        #btn_g:hover {
+            color: white;
+            background-color: transparent;
+        }
+
+        #btn_g:active {
+            color: white;
+            background-color: black;
+        }
+
+        .img_g, .img_h,
+        #img_g {
+            width: 100%;
+            height: 376px;
+        }
+
+        #bg_g_box button:nth-child(1) {
+            border: 1px solid black;
+            width: 30px;
+            height: 30px;
+            background-color: transparent;
+            font-weight: normal;
+            margin-left: 85%;
+            margin-top: 8px;
+            border-radius: 50%;
+        }
+
+        #img_h {
+            /* opacity: 1; */
+            transition: .4s;
+            animation: fade 5s alternate infinite;
+        }
+
+        @keyframes fade {
+            0% { opacity: 0.2 }
+            25% { opacity: 0.5 }
+            50% { opacity: 7 }
+            75% { opacity: 0.8 }
+            100% { opacity: 1 }
+        }
+
+        .ij_box {
+            height: 372px;
+            width: 33.4%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .i, .j {
+            width: 100%;
+            height: 179px;
+            background-color: #67ceeb;
+        }
+
+        .img_i, .img_j {
+            height: 180px;
+            width: 100%;
+        }
+
+        .img_i {
+            transform: rotateX(0deg);
+            animation: img_i_rotate 4s linear infinite alternate-reverse;
+        }
+
+        @keyframes img_i_rotate {
+            0%,100% { transform: rotateX(90deg) }
+            25% { transform: rotateX(45deg) }
+            50% { transform: rotateX(0deg) }
+            25% { transform: rotateX(45deg) }
+        }
+
+        .img_j {
+            transform: rotateY(0deg);
+            animation: img_j_rotate 4s linear infinite alternate-reverse;
+        }
+
+        @keyframes img_j_rotate {
+            0%,100% { transform: rotateY(90deg) }
+            25% { transform: rotateY(45deg) }
+            50% { transform: rotateY(0deg) }
+            25% { transform: rotateY(45deg) }
+        }
+
+        img {
+            cursor: pointer;
+            box-shadow: 0 0 5px gray;
+        }
+
+    </style>
+</head>
+<body onload="change_img_h()">
+    <div class="container">
+        <div class="title">
+            <p>~ Image Gallery ~</p>
+        </div>
+        <div class="img_container">
+            <div class="img_box">                    
+                <div class="a" id="a" onclick="click_a()">
+                    <div id="img_a_box">
+                        <img class="img_a" id="img_a" src="./img/p_1.jpg" alt="a">
+                    </div>
+                </div>
+                <div class="b" id="b" onclick="click_b()">
+                    <img class="img_b" id="img_b" src="./img/p_2.webp" alt="b">
+                </div>
+            </div>
+            <div class="img_box_2">
+                <div class="c_box">
+                    <div class="c" id="c" onclick="click_c()">
+                        <img class="img_c" id="img_c" src="./img/p_3.jpg" alt="c">
+                    </div>
+                </div>
+                <div class="ej_box">     
+                    <div class="ef_box">                                            
+                        <div class="e">
+                            <img onclick="click_e(this)" class="img_e" id="img_e" src="./img/p_4.jpg" alt="e">
+                        </div>
+                        <div class="f">
+                            <img onclick="click_f(this)" class="img_f" id="img_f" src="./img/p_5.jpg" alt="f">
+                        </div>
+                    </div>
+                    <div class="gj_box">
+                        <div class="gh_box">                                               
+                            <div class="g" id="g">
+                                <div id="img_g_box">
+                                    <img onclick="click_g()" class="img_g" id="img_g" src="./img/p_6.jpg" alt="g">
+                                </div>
+                                <div id="bg_g_box">
+                                    <button id="btn_g" onclick="click_gBox()">X</button>
+                                    <p id="g_box_txt"></p>
+                                    <button id="btn_g" onclick="click_plus()">+</button>
+                                    <button id="btn_g" onclick="click_minus()">-</button>    
+                                </div>    
+                            </div>
+                            <div class="h">
+                                <img class="img_h" id="img_h" src="./img/p_7.jpg" alt="h">
+                            </div>
+                        </div>
+                        <div class="ij_box">                                                    
+                            <div class="i">
+                                <img class="img_i" src="./img/p_1.jpg" alt="i">
+                            </div>
+                            <div class="j">
+                                <img class="img_j" src="./img/p_2.webp" alt="j">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let p_tag = document.createElement("p");
+        let p_txt = document.createTextNode("Hello Paris!");
+        bg_g_box.style.display = "none";
+        let img_arr = ["p_3.jpg", "p_6.jpg", "p_7.jpg", "p_11.jpg", "p_12.jpg"];
+        let i = 0;
+
+        function click_a() {
+            if(img_a_box.innerHTML != "") {
+                img_a_box.innerHTML = "";
+                p_tag.appendChild(p_txt);
+                a.appendChild(p_tag);
+            }
+            else { 
+                p_tag.remove();
+                let img_tag = document.createElement("img");
+                img_tag.src = "./img/p_1.jpg";
+                img_tag.setAttribute("id", "img_a");
+                img_a_box.appendChild(img_tag);
+            }
+        }
+
+        function click_b() {
+            if( img_b.style.transform == "scale(1)") {
+                img_b.style.transform = "scale(0.8)";
+                b.style.backgroundColor = "#67ceeb";
+            }
+            else { 
+                img_b.style.transform = "scale(1)";
+            }
+        }
+
+        function click_c() {
+            if( img_c.style.transform == "rotateY(0deg)") {
+                img_c.style.transform = "rotateY(180deg)";
+                b.style.backgroundColor = "#67ceeb";
+            }
+            else { 
+                img_c.style.transform = "rotateY(0deg)";
+            }
+        }
+
+        function click_e(data) {
+            if( data.src.includes("p_4.jpg")) {
+                img_e.src = "./img/p_9.jpg";
+            }
+            else { 
+                img_e.src = "./img/p_4.jpg";
+            }
+        }
+
+        function click_f(data) {
+            if( data.src.includes("p_5.jpg")) {
+                img_f.src = "./img/p_10.jpg";
+            }
+            else { 
+                img_f.src = "./img/p_5.jpg";
+            }
+        }
+
+        function click_g() {
+            bg_g_box.style.display = "inline";
+
+            if ( img_g.style.display != "none") {
+                img_g.style.display = "none";
+                g_box_txt.innerHTML = "1";
+            }
+            else { 
+                img_g.style.display = "inline";
+                bg_g_box.style.display = "none";
+            }
+        }
+
+        function click_plus() {
+            let str = g_box_txt.innerHTML;
+            let num = Number(str);
+
+            if (num != 1) {
+                let sum = num + 1;
+                g_box_txt.innerHTML = sum;
+            }
+            else {
+                g_box_txt.innerHTML = 2;
+            }
+            
+        }
+
+        function click_minus() {
+            let str = g_box_txt.innerHTML;
+            let num = Number(str);
+
+            if (num != 1) {
+                let sub = num - 1;
+                g_box_txt.innerHTML = sub;
+            }
+            else {
+                g_box_txt.innerHTML = 0;
+            }
+            
+        }
+
+        function click_gBox() {
+            click_g();
+        }
+
+        function rightTO() {
+            i++;
+            if( i == img_arr.length ) {
+                i = 0 ;
+            }
+            img_h.src= "./img/" + img_arr[i];
+        }
+
+        function change_img_h() {
+            setInterval(rightTO, 1500);
+        }
+    
+    </script>
+</body>
+</html>

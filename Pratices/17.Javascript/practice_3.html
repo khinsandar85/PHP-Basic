@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Modal Testing</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        .first_box {
+            background-color: lightblue;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+        }
+        .first {
+            text-align: center;
+            margin: auto;
+            border: 5px solid crimson;
+            border-radius: 1.5rem;
+            padding: 0.3rem;
+            animation: change_border 2s linear infinite;
+            box-shadow: 0 0 10px red, 0 0 20px orange;
+        }
+
+        @keyframes change_border {
+            0% { border: 5px solid green;}
+            50% { border: 5px solid blue;}
+            100% { border: 5px solid black;}
+        }
+        .first h1 {
+            font-weight: bold;
+            font-family: Baloo;
+            font-size: 2.7rem;
+            letter-spacing: 1px;
+        }
+        .first button {
+            padding: 0.5rem 1.5rem;
+            font-weight: bold;
+            font-size: 1.2rem;
+            border-radius: 1.5rem;
+            background-color: transparent;
+            color: black;
+            border: none;
+            font-variant: small-caps;
+            cursor: pointer;
+        }
+
+        .modal_box {
+            background-color: rgba(236, 155, 155, 0.3);
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top:0;
+            display: none;
+        }
+
+        .modal {
+            width: 500px;
+            height: 330px;
+            margin: auto;
+            background-color: #efefef;
+            border-radius: 10px;
+            text-align: center;
+            position: relative;
+        }
+
+        .modal img {
+            width: 20%;
+            margin: 20px 0px;
+        }
+
+        .row {
+            margin-bottom: 1rem;
+            display: flex;
+        }
+
+        .label_col {
+            width: 20%;
+            text-align: left;
+            padding-left: 2rem;
+            margin-top: 5px;
+        }
+
+        .input_col {
+            width: 75%;
+        }
+
+        .input_col input {
+            width: 90%;
+            height: 2rem;
+            border-radius: 5px;
+            border: 1px solid lightblue;
+        }
+
+        .modal button {
+            padding: 0.5rem 1.5rem;
+            background-color: darkred;
+            border-radius: 7px;
+            color: white;
+            border: 2px solid darkred;
+        }
+
+        #close_btn {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            font-size: 1.5rem;
+            color: darkred;
+        }
+    </style>
+</head>
+<body>
+    <div class="first_box">
+        <div class="first">
+            <!-- <h1>StudyRightNow</h1> -->
+            <button onclick="show_modal()">Login Here</button>
+        </div>
+    </div>
+    <div class="modal_box" id="modal_box">
+        <div class="modal">
+            <!-- <i class="fa fa-user-alt"></i> -->
+            <img src="./img/login.jpg" alt="">
+            <i class="fa fa-times-circle" id="close_btn" onclick="hide_modal()"></i>
+            <div class="row">
+                <div class="label_col">Email</div>
+                <div class="input_col">
+                    <input type="email" name="" id="useremail">
+                </div>
+            </div>
+            <div class="row">
+                <div class="label_col">Password</div>
+                <div class="input_col">
+                    <input type="password" name="" id="userpassword">
+                </div>
+            </div>
+            <button>Login</button>
+        </div>
+    </div>
+
+    <script>
+        function show_modal() {
+            modal_box.style.display = "flex";
+        }
+
+        function hide_modal() {
+            modal_box.style.display = "none";
+        }
+    </script>
+</body>
+</html>

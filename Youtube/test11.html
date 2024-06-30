@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecture 8 - Fixed </title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <style>
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .div1 {
+            width: 30%;
+            margin: 2rem auto;
+            border: 4px solid orange;
+            border-radius: 10px;
+            padding: 0.7rem;
+            position: relative;
+        }
+        .div1 img {
+            width: 90%;
+            margin-left: 5%;
+            margin-top: 2rem;
+        }
+        .div1 p {
+            text-align: justify;
+            line-height: 130%;
+        }
+        .div1 h1 {
+            position: absolute;
+            background-color: orangered;
+            display: inline-block;
+            color: white;
+            top: -50px;
+            padding: 0.3rem 1em;
+            border-top-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+        .social {
+            width: 2rem;
+            position: fixed;
+            top: 50%;
+            z-index: 100;
+        }
+        .social a {
+            width: 100%;
+            display: block;
+            padding: 0.3em 0.5em 0.3em 0.3em;
+            font-size: 2.5rem;
+            text-decoration: none;
+            transition: .4s;
+        }
+        
+        .social a:hover {
+            padding: 0.3em 0.5em 0.3em 0.3em;
+            font-size: 2.5rem;
+            transition: .4s;
+        }
+        #a_one {
+            background-color: lightblue;
+            color: blue;
+        }
+        #a_one i, 
+        #a_two i,
+        #a_three i,
+        #a_four i
+        {
+            display: flex;
+            height: 2.5rem;
+        }
+        #a_one i:hover::after {
+            content: 'Facebook';
+            font-size: 18px;
+            font-weight: bold;
+            background-color: lightblue;
+            padding: 21px;
+            height: 1.22rem;
+            margin-top: -10px;
+            margin-bottom: 1px;
+            color: black;
+            font-weight: bold;
+            border-top-right-radius: 1.5rem;
+            border-bottom-right-radius: 1.5rem;
+        }
+        #a_two {
+            background-color: rgb(203, 161, 166);
+            color: red;
+        }
+        
+        #a_two i:hover::after {
+            content: 'Youtube';
+            font-size: 18px;
+            font-weight: bold;
+            background-color: rgb(203, 161, 166);
+            padding: 21px;
+            height: 1.20rem;
+            margin-top: -10px;
+            margin-bottom: 1px;
+            color: black;
+            font-weight: bold;            
+            border-top-right-radius: 1.5rem;
+            border-bottom-right-radius: 1.5rem;
+        }
+        #a_three {
+            background-color: lightskyblue;
+
+        }
+        #a_three i:hover::after {
+            content: 'Instragram';
+            font-size: 18px;
+            font-weight: bold;
+            background-color: lightskyblue;
+            padding: 21px;
+            height: 1.20rem;
+            margin-top: -10px;
+            margin-bottom: 1px;
+            color: black;
+            font-weight: bold;            
+            border-top-right-radius: 1.5rem;
+            border-bottom-right-radius: 1.5rem;
+        }
+        #a_four {
+            background-color: rgb(173, 247, 213);
+            color: rgb(44, 20, 227);
+        }
+        #a_four i:hover::after {
+            content: 'Telegram';
+            font-size: 18px;
+            font-weight: bold;
+            background-color: rgb(173, 247, 213);
+            color: black;
+            font-weight: bold;
+            padding: 21px;
+            height: 1.20rem;
+            margin-top: -10px;
+            margin-bottom: 1px;            
+            border-top-right-radius: 1.5rem;
+            border-bottom-right-radius: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="social">
+        <a href="https://www.facebook.com/SRNMDY" id="a_one">
+            <i class="bi bi-facebook"></i> 
+        </a>
+        <a href="https://www.youtube.com/@myatmonayeSRN/playlists" id="a_two">
+            <i class="bi bi-youtube"></i>
+        </a>
+        <a href="https://www.instagram.com" id="a_three">
+            <i class="bi bi-instagram"></i>
+        </a>
+        <a href="https://www.telegram.com" id="a_four">
+            <i class="bi bi-telegram"></i>
+        </a>
+    </div>
+    <div class="container">
+        <div class="div1">
+            <h1>Coconut Noodles</h1>
+            <img src="./img/p_3.webp" alt="">
+            <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Explicabo unde vero cupiditate voluptatibus odio quisquam quis.
+            </p>
+            <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Provident eos enim numquam nemo commodi vel? Repellendus veritatis similique sunt, architecto nisi praesentium vero molestias. Enim error facere dolorum perferendis incidunt.
+            </p>
+        </div>    
+        <div class="div1">
+            <h1>Coconut </h1>
+            <img src="./img/p_3.webp" alt="">
+            <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Explicabo unde vero cupiditate voluptatibus odio quisquam quis.
+            </p>
+            <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Provident eos enim numquam nemo commodi vel? Repellendus veritatis similique sunt, architecto nisi praesentium vero molestias. Enim error facere dolorum perferendis incidunt.
+            </p>
+        </div>    
+        <div class="div1">
+            <h1> Noodles</h1>
+            <img src="./img/p_3.webp" alt="">
+            <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Explicabo unde vero cupiditate voluptatibus odio quisquam quis.
+            </p>
+            <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Provident eos enim numquam nemo commodi vel? Repellendus veritatis similique sunt, architecto nisi praesentium vero molestias. Enim error facere dolorum perferendis incidunt.
+            </p>
+        </div>
+        <div class="div1">
+            <h1>Coconut Noodles</h1>
+            <img src="./img/p_3.webp" alt="">
+            <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Explicabo unde vero cupiditate voluptatibus odio quisquam quis.
+            </p>
+            <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Provident eos enim numquam nemo commodi vel? Repellendus veritatis similique sunt, architecto nisi praesentium vero molestias. Enim error facere dolorum perferendis incidunt.
+            </p>
+        </div>    
+        <div class="div1">
+            <h1>Coconut </h1>
+            <img src="./img/p_3.webp" alt="">
+            <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Explicabo unde vero cupiditate voluptatibus odio quisquam quis.
+            </p>
+            <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Provident eos enim numquam nemo commodi vel? Repellendus veritatis similique sunt, architecto nisi praesentium vero molestias. Enim error facere dolorum perferendis incidunt.
+            </p>
+        </div>    
+        <div class="div1">
+            <h1> Noodles</h1>
+            <img src="./img/p_3.webp" alt="">
+            <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Explicabo unde vero cupiditate voluptatibus odio quisquam quis.
+            </p>
+            <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Provident eos enim numquam nemo commodi vel? Repellendus veritatis similique sunt, architecto nisi praesentium vero molestias. Enim error facere dolorum perferendis incidunt.
+            </p>
+        </div>
+        <div class="div1">
+            <h1>Coconut Noodles</h1>
+            <img src="./img/p_3.webp" alt="">
+            <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Explicabo unde vero cupiditate voluptatibus odio quisquam quis.
+            </p>
+            <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Provident eos enim numquam nemo commodi vel? Repellendus veritatis similique sunt, architecto nisi praesentium vero molestias. Enim error facere dolorum perferendis incidunt.
+            </p>
+        </div>    
+        <div class="div1">
+            <h1>Coconut </h1>
+            <img src="./img/p_3.webp" alt="">
+            <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Explicabo unde vero cupiditate voluptatibus odio quisquam quis.
+            </p>
+            <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Provident eos enim numquam nemo commodi vel? Repellendus veritatis similique sunt, architecto nisi praesentium vero molestias. Enim error facere dolorum perferendis incidunt.
+            </p>
+        </div>    
+        <div class="div1">
+            <h1> Noodles</h1>
+            <img src="./img/p_3.webp" alt="">
+            <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Explicabo unde vero cupiditate voluptatibus odio quisquam quis.
+            </p>
+            <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Provident eos enim numquam nemo commodi vel? Repellendus veritatis similique sunt, architecto nisi praesentium vero molestias. Enim error facere dolorum perferendis incidunt.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

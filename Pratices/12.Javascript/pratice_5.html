@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+    <style>
+        body {
+            background-color: beige;
+        }
+
+        .container {
+            border: 2px solid beige;
+            width: 600px;
+            margin: 7% auto;
+            background-color: beige;
+        }
+
+        h1 {
+            text-align: center;
+            font-variant: small-caps;
+            color: #093669;
+        }
+
+        .form {
+            width: 100%;
+            padding: 7%;
+        }
+
+        .row {
+            margin-bottom: 1rem;
+        }
+
+        .row input {
+            width: 82%;
+            border-radius: 4px;
+            padding: 1.5%;
+            border: 1px solid beige;
+        }
+
+        #btn {
+            width: 85%;
+            height: 2.5rem;
+            background-color: #093669;
+            text-align: center;
+            color: white;
+            text-transform: uppercase;
+            border: 2px solid #093669;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .result_div {
+            padding:0% 7% 3%;
+        }
+
+        .result_div div {
+            text-align: center;
+            padding: 3%;
+            margin: 0;
+            border: 2px solid;
+            box-shadow: 0 0 5px red, 0 0 10px blue;
+        }
+
+        .result_div div h3 {
+            text-align: center;
+            display: inline-block;
+            margin: 10px;
+        }
+
+        .result_div div h4 {
+            margin: 5px;
+        }
+
+        #text_result {
+            font-size: 27px;
+        }
+
+        #num_result {
+            font-size: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Calculate Your BMI</h1>
+        <div class="form" id="form">
+            <div class="row">
+                <input type="text" name="weight" id="weight" placeholder="Please enter your weight (pound)..." required>
+            </div>
+            <div class="row">
+                <input type="text" name="height" id="height" placeholder="Please enter your height (feet)..." required>
+            </div>
+            <input type="button" onclick="check();" name="btn" value="See Result" id="btn">
+        </div>
+        <div class="result_div" id="result_div">
+            <div>
+                <h3 id="text_result"></h3>
+                <h4 id="num_result"></h4>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+
+        result_div.style.display = "none";
+
+        function clear(w_kg, h_mt, bmi_result) {
+            result_div.style.display = "inline";
+            // num_result.innerHTML = ` BMI = ${bmi_result.toFixed(2)}`;
+            num_result.innerHTML = ` ${w_kg}kg x ${h_mt} ft where BMI = ${bmi_result.toFixed(2)}`;
+            weight.value = "";
+            height.value = "";
+        }
+
+        function check() {
+
+            let w = Number(weight.value);
+            let h = Number(height.value);
+
+            //1 pound --> 0.453592kg
+            //1 ft -> 0.3048 meter
+            
+            let w_kg = w * 0.453592;
+            let h_mt = h * 0.3048;
+            let bmi_result = w_kg / (h_mt * h_mt);
+
+            if ( bmi_result < 18.5 ) {
+                clear(w, h, bmi_result);
+                text_result.innerHTML = " Under weight ";
+            }
+            
+            else if ( bmi_result >= 18.5 && bmi_result < 25 ) {
+                clear(w, h, bmi_result);
+                text_result.style.color = "green";
+                text_result.innerHTML = " Normal weight ";
+            }
+
+            else if ( bmi_result >= 25 && bmi_result < 30 ) {
+                clear(w, h, bmi_result);
+                text_result.innerHTML = " Over weight ";
+                text_result.style.color = "blue";
+            }
+
+            else {
+                clear(w, h, bmi_result);
+                text_result.style.color = "red";
+                text_result.innerHTML = " Obese ";
+            }    
+        }
+
+    </script>
+</body>
+</html>

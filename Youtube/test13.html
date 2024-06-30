@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecture 9- Animation</title>
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+        }
+        .container {
+            margin: auto;
+        }
+        .circle {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            /* border: 5px solid red;
+            border-top: 5px solid white; */
+            border: 6px dotted blue;
+            border-top: 5px dotted gray;
+            transition: transform;
+            animation-duration: 1.5s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            animation-name: rotateCircle;
+        }
+        @keyframes rotateCircle {
+            from{transform: rotate(0deg);}
+            to{transform: rotate(360deg);}
+        }
+        h2 {
+            color: saddlebrown;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="circle"></div>
+        <h2>Loading...</h2>
+    </div>
+</body>
+</html>

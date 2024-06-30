@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        .container {
+            width: 350px;
+            height: 350px;
+            margin: 10% auto;
+            border: 2px solid ;
+            border-top: 10px solid black;
+            border-bottom: 10px solid black;
+            border-left: 1px solid gray;
+            border-right: 1px solid gray;
+            border-radius: 5px;
+            box-shadow: 0 0 5px gray, 0 0 10px rgb(68, 61, 61);
+        }
+
+        .container p {
+            padding: 20px;
+        }
+
+        .input_box {
+            clear: both;
+            display: flex;
+            margin-bottom: 30px;
+        }
+
+
+        .container div div input {
+            border-radius: 3px;
+            width: 120px;
+            padding: 5%;
+            margin: 0px 20px;
+            border: none;
+            border:2px solid black;
+        }
+
+        ::placeholder {
+            color: black;
+        }
+
+        .calc {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .calc input[type="submit"] {
+            background-color: orange;
+            border: 2px solid orange;
+            border-radius: 50%;
+            color: white;
+            border: none;
+            margin-left: 7%;
+            margin-bottom: 7%;
+            padding: 1%;
+            width: 42px;
+            font-weight: bold;
+            height: 42px;
+            cursor: pointer;
+            font-size: 17px;
+        }
+
+        .calc input[type="submit"]:hover {
+            color: orange;
+            border: 2px solid orange;
+            background-color: white;
+        }
+
+
+        .container .result {
+            height: 100px;
+            text-align: right;
+            margin: 30px 20px 0px 20px;
+        }
+
+        .result p {
+            padding: 0;
+            margin: 0;
+        }
+
+        .result #before_result {
+            animation: myStyle 1s linear infinite alternate;
+            font-size: 50px;
+            margin-top: 35px;
+        }
+
+        .result #small_result {
+            font-size: 18px;
+        }
+
+        .result #add_result {
+            font-size: 50px;
+            padding: 0;
+            margin: 0;
+        }
+
+        @keyframes myStyle {
+            0% { color: black;}
+            100% { color: white;}
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="result" id="result">
+            <p id="before_result"></p>
+            <p id="small_result"></p>
+            <p id="add_result"></p>
+        </div>
+        <div>
+            <div class="input_box">
+                <div>
+                    <input type="number" min="0" name="num_1" placeholder="Add number..." id="num_1">
+                </div>            
+                <div>
+                    <input type="number" min="0" name="num_2" placeholder="Add number..." id="num_2">
+                </div>
+            </div>
+            <div class="calc">
+                <input type="submit" onclick="add()" value="+">
+                <input type="submit" onclick="subtraction()" value="-">
+                <input type="submit" onclick="multiply()" value="x">
+                <input type="submit" onclick="clearInput()" value="AC">
+                <input type="submit" onclick="division()" value="/">
+                <input type="submit" onclick="modules()" value="%">
+                <input type="submit" onclick="power()" value="**">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        before_result.innerHTML = "|";
+
+        function clear() {
+            before_result.innerHTML = "";
+            before_result.innerHTML = "";
+        }
+
+        function clearInput () {
+            num_1.value = "";
+            num_2.value = "";
+            small_result.innerHTML= "";
+            add_result.innerHTML = "";
+            before_result.innerHTML = "|";
+        }
+
+        function add() {
+            if( num_1.value == "" || num_2.value == "" ) {
+                alert(" Enter number First! ");
+                clearInput();
+            } 
+            else {
+                let ans = Number(num_1.value) + Number(num_2.value);
+                clear();
+                small_result.innerHTML = `${num_1.value} + ${num_2.value}`;
+                add_result.innerHTML = ans;
+            }
+        }
+
+        function subtraction() {
+            if( num_1.value == "" || num_2.value == "" ) {
+                alert(" Enter number First! ");
+                clearInput();
+            } 
+            else {
+                let ans = Number(num_1.value) - Number(num_2.value);
+                clear();
+                small_result.innerHTML = `${num_1.value} - ${num_2.value}`;
+                add_result.innerHTML = ans;
+            }
+        }
+
+        function multiply() {
+            if( num_1.value == "" || num_2.value == "" ) {
+                alert(" Enter number First! ");
+                clearInput();
+            } 
+            else {
+                let ans = Number(num_1.value) * Number(num_2.value);
+                clear();
+                small_result.innerHTML = `${num_1.value} x ${num_2.value}`;
+                add_result.innerHTML = ans;
+            }
+        }
+
+        function division() {
+            if( num_1.value == "" || num_2.value == "" ) {
+                alert(" Enter number First! ");
+                clearInput();
+            } 
+            else {
+                let ans = Number(num_1.value) / Number(num_2.value);
+                clear();
+                small_result.innerHTML = `${num_1.value} / ${num_2.value}`;
+                add_result.innerHTML = ans.toFixed(2);
+            }
+        }
+
+        function modules() {
+            if( num_1.value == "" || num_2.value == "" ) {
+                alert(" Enter number First! ");
+                clearInput();
+            } 
+            else {
+                let ans = Number(num_1.value) % Number(num_2.value);
+                clear();
+                small_result.innerHTML = `${num_1.value} % ${num_2.value}`;
+                add_result.innerHTML = ans;
+            }
+        }
+
+        function power() {
+            if( num_1.value == "" || num_2.value == "" ) {
+                alert(" Enter number First! ");
+                clearInput();
+            } 
+            else {
+                let ans = Number(num_1.value) ** Number(num_2.value);
+                clear();
+                small_result.innerHTML = `${num_1.value} ** ${num_2.value}`;
+                add_result.innerHTML = ans;
+            }
+        }
+    </script>
+</body>
+</html>

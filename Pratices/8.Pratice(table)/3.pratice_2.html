@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <title>Practice 2</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap');
+
+        :root {
+            --text-white: #ffffff;
+            --text-secondary: #cdcaca;
+            --text-light: #796666;
+            --bg-primary: purple;
+            --bg-secondary: #9e069e;
+            --bg-light: #f18ef1;
+            --bg-body: #eaa2ea;
+            --bg-hover: #b319b3;
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Lato', sans-serif;
+        }
+
+        .container {
+            width: 100%;
+            display: flex;
+        }
+
+        .sidebar {
+            width: 20%;
+            position: fixed;
+            top: 0;
+        }
+
+        .sidebar_title {
+            background-color: var(--bg-primary);
+            height: 65px;
+            text-align: center;
+            text-transform: uppercase;
+            color: var(--text-white);
+            padding-top: 20px;
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        .sidebar div:last-child {
+            height: 95vh;
+            background-color: var(--bg-secondary);
+        }
+
+        .sidebar div ul {
+            list-style-type: none;
+        }
+
+        .sidebar div ul li {
+            padding: 10% 22%;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            opacity: .9;
+        }
+
+        .sidebar div ul li i {
+            margin-right: 10%;
+            font-size: 20px;
+        }
+
+        .sidebar div ul li:hover {
+            opacity: 1;
+            color: var(--text-white);
+            background-color: var(--bg-hover);
+        }
+
+        .main {
+            width: 80%;
+            margin-left: 20%;
+        }
+
+        .main_title {
+            width: 80%;
+            height: 65px;            
+            position: fixed;
+            background-color: var(--bg-light);
+            padding: 1% 2%;
+            box-shadow: 2px 2px 2px rgb(158, 156, 156);
+            z-index: 100;
+        }
+
+        .main_title div {
+            display: flex;
+            justify-content: space-between;
+            color: var(--text-white);
+            font-size: 27px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .main_body {
+            width: 100%;
+            background-color: var(--bg-body);
+            margin: 60px 0px 0px 0px;
+            padding: 3% 0%;
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+        }
+
+        .main_body div {
+            width: 30%;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 2px 2px 2px #8c8989;
+            background-color: var(--bg-light);
+        }
+
+        .main_body div:hover {
+            box-shadow: 2px 2px 2px var(--bg-hover);
+        }
+
+        .main_body div:first-child {
+            height: 430px;
+        }
+
+        .main_body div:nth-child(2) {
+            height: 400px;
+        }
+
+        .main_body div:nth-child(3) {
+            height: 450px;
+        }
+
+        
+        .main_body div:nth-child(4) {
+            height: 415px;
+        }
+
+        .main_body div:nth-child(5) {
+            height: 490px;
+            margin-top: -30px;
+        }
+
+        .main_body div:nth-child(6) {
+            height: 420px;
+        }
+
+        .main_body div img {
+            width: 100%;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            opacity: .8;
+        }
+
+        .main_body div img:hover {
+            opacity: 1;
+        }
+
+        .main_body div h2 {
+            padding: 3% 6%;
+            color: var(--text-white);
+        }
+
+        .main_body div p {
+            padding: 0% 6%;
+            z-index: 1000;
+            text-align: justify;
+            color: var(--text-light);
+        }
+
+        .main_body div p:hover {
+            color: #434040;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="sidebar_title">
+                <i class="bi bi-twitter"></i>
+                origami
+            </div>
+            <div>
+                <ul>
+                    <li>
+                        <i class="bi bi-person-fill"></i> team &nbsp;
+                    </li>
+                    <li>
+                        <i class="bi bi-gear-fill"></i> services
+                    </li>
+                    <li>
+                        <i class="bi bi-briefcase-fill"></i> work
+                    </li>
+                    <li>
+                        <i class="bi bi-currency-dollar"></i> pricing
+                    </li>
+                    <li>
+                        <i class="bi bi-chat-dots-fill"></i> contact
+                    </li>
+                    <li>
+                        <i class="bi bi-plus-lg"></i> features
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="main">
+            <div class="main_title">
+                <div>
+                    <div>Work</div>
+                    <div><i class="bi bi-search"></i></div>    
+                </div>    
+            </div>
+             <div class="main_body">
+                <div>
+                    <img src="./img/p3_1.jpg" alt="">
+                    <h2>Sintel Bedroom</h2>
+                    <p>
+                        Lorem ipsum dolor-sit ametster consectetur 
+                        adipisicing elitili. Sequi aliquid voluptas 
+                        quae cumque utalias! elitili Aautem ipsaearum 
+                        quae cumque utalias! elitili Aautem ipsaearum 
+                        magnam odionemo quaerat eaque!
+                    </p>
+                </div>
+                <div>
+                    <img src="./img/p3_2.webp" alt="">
+                    <h2>Sintel Bedroom</h2>
+                    <p>
+                        Lorem ipsum dolor-sit ametster consectetur 
+                        adipisicing elitili. Sequi aliquid voluptas 
+                        quae cumque utalias! Aautem ipsaearum 
+                        magnam odionemo quaerat eaque! Dignissimos 
+                        sed-ducimus delectus libero dolor?
+                    </p>
+                </div>
+                <div>
+                    <img src="./img/p3_3.jpg" alt="">
+                    <h2>Sintel Bedroom</h2>
+                    <p>
+                        Lorem ipsum dolor-sit ametster consectetur 
+                        adipisicing elitili. Sequi aliquid voluptas 
+                        quae cumque utalias! Aautem ipsaearum 
+                        magnam odionemo quaerat eaque! Dignissimos 
+                        sed-ducimus delectus libero dolor?
+                    </p>
+                </div>
+                <div>
+                    <img src="./img/p3_4.jpg" alt="">
+                    <h2>Sintel Bedroom</h2>
+                    <p>
+                        Lorem ipsum dolor-sit ametster consectetur 
+                        adipisicing elitili. Sequi aliquid voluptas 
+                        quae cumque utalias! Aautem ipsaearum 
+                        magnam odionemo quaerat eaque! Dignissimos 
+                        sed-ducimus delectus libero dolor?
+                    </p>
+                </div>
+                <div>
+                    <img src="./img/p3_5.jpg" alt="">
+                    <h2>Sintel Bedroom</h2>
+                    <p>
+                        Lorem ipsum dolor-sit ametster consectetur 
+                        adipisicing elitili. Sequi aliquid voluptas 
+                        quae cumque utalias! Sequi aliquid voluptas 
+                        quae cumque utalias! Sequi aliquid voluptas 
+                        quae cumque utalias! Aautem ipsaearum 
+                        magnam odionemo quaerat eaque! Dignissimos 
+                        sed-ducimus delectus libero dolor?
+                    </p>
+                </div>
+                <div>
+                    <img src="./img/p3_6.jpg" alt="">
+                    <h2>Sintel Bedroom</h2>
+                    <p>
+                        Lorem ipsum dolor-sit ametster consectetur 
+                        adipisicing elitili. Sequi aliquid voluptas 
+                        quae cumque utalias! Aautem ipsaearum 
+                        magnam odionemo quaerat eaque! Dignissimos 
+                        sed-ducimus delectus libero dolor?
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

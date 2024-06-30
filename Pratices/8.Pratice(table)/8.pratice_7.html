@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pratice - 7</title>
+    <style>
+         * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: rgb(237, 246, 254);
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            margin: 14% 0px;
+        }
+        th, td {
+            border: 0.02px solid rgb(223, 219, 219);
+            width: 100px;
+            padding: 3px;
+        }
+        tr td:first-of-type {
+            width: 30px;
+            text-align: center;
+            font-weight: bold;
+        }
+        tbody tr:first-child {
+            background-color: rgb(149, 247, 149);
+        }
+        tr:nth-child(odd) {
+            background-color: rgb(210, 236, 210);
+        }
+        .chart {
+            width: 20px;
+        }
+        tr td:last-of-type {
+            text-align: center;
+        }
+        span {
+            color: rgb(178, 174, 174);
+        }
+        a {
+            color: brown;
+        }
+        tr td:nth-child(2) {
+            width: 330px;
+        }
+        tr td:nth-child(3),
+        tr td:nth-child(4),
+        tr td:nth-child(5) {
+            text-align: center;
+        }
+        tr td:nth-child(3) {
+            font-weight: bold;
+        }
+        tr td:nth-child(4) {
+            color: rgb(35, 41, 201);
+            font-weight: bold;
+            padding: 10px 2px;
+        }
+        tr td:nth-child(5) {
+            color: #087a13;
+            font-weight: bold;
+            padding: 10px 2px;
+        }
+        tr:first-child td:nth-child(3),
+        tr:first-child td:nth-child(4),
+        tr:first-child td:nth-child(5) {
+            color: black;
+            font-weight: normal;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <table cellspacing="0">
+            <tbody>
+                <tr>
+                    <td>
+                        <input type="checkbox" name="" id="">
+                    </td>
+                    <td>Campaigns</td>
+                    <td>Recipients</td>
+                    <td>Opens</td>
+                    <td>Clicks</td>
+                    <td>View Report</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" name="" id="">
+                    </td>
+                    <td>
+                        <a href="#">AU uSqueez Warm</a> <br>
+                        <span>Send on 11 Jun 2009,12:00</span>
+                    </td>
+                    <td>1346</td>
+                    <td>233 <br> <span> (17.51%)</span></td>
+                    <td>58 <br> <span>(4.06%)</span></td>
+                    <td>
+                        <img src="./img/chart.webp" class="chart" alt="">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" name="" id="">
+                    </td>
+                    <td>
+                        <a href="#">WW Fathers's Day uCrown</a> <br>
+                        <span>Send on 05 Jun 2009, 17:00</span>
+                    </td>
+                    <td>3414</td>
+                    <td>605 <br> <span>(17.95%)</span> </td>
+                    <td>69 <br> <span>(2.05%)</span> </td>
+                    <td>
+                        <img src="./img/chart.webp" class="chart" alt="">
+                    </td>
+                </tr>                
+                <tr>
+                    <td>
+                        <input type="checkbox" name="" id="">
+                    </td>
+                    <td>
+                        <a href="#">UK Father's Day uPapa</a> <br>
+                        <span>Send on 05 Jun 2009, 18:00</span>
+                    </td>
+                    <td>996</td>
+                    <td>188 <br> <span>(19.01%)</span> </td>
+                    <td>21 <br> <span>(2.12%)</span> </td>
+                    <td>
+                        <img src="./img/chart.webp" class="chart" alt="">
+                    </td>
+                </tr>                
+                <tr>
+                    <td>
+                        <input type="checkbox" name="" id="">
+                    </td>
+                    <td>
+                        <a href="#">CA Fathers's Day </a> <br>
+                        <span>Send on 05 Jun 2009, 10:00</span>
+                    </td>
+                    <td>500</td>
+                    <td>205 <br> <span>(41.58%)</span> </td>
+                    <td>54 <br> <span>(10.95%)</span> </td>
+                    <td>
+                        <img src="./img/chart.webp" class="chart" alt="">
+                    </td>
+                </tr>                
+                <tr>
+                    <td>
+                        <input type="checkbox" name="" id="">
+                    </td>
+                    <td>
+                        <a href="#">UK Fathers's Day uCrown</a> <br>
+                        <span>Send on 29 May 2009, 18:00</span>
+                    </td>
+                    <td>994</td>
+                    <td>203 <br> <span>(20.53%)</span> </td>
+                    <td>25 <br> <span>(2.53%)</span> </td>
+                    <td>
+                        <img src="./img/chart.webp" class="chart" alt="">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

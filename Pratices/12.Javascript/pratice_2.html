@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date of Birth</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: rgb(212, 208, 208);
+        }
+
+        .container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .input_box {
+            padding: 3%;
+            background-color: #ffffff;
+            border-radius: 6px;
+            box-shadow: 0 0 5px rgb(19, 4, 4);
+        }
+
+        h3 {
+            font-size: 30px;
+            color: blue;
+        }
+
+        .input_box input {
+            padding: 5%;
+            margin: 8% 0%;
+            width: 390px;
+            border-radius: 5px;
+            border: 1px solid #5e605d;
+        }
+
+        input[type="submit"] {
+            width: 120px;
+            margin: 0% 38%;
+            border: none;
+            color: white;
+            background-color: blue;
+            font-weight: bold;
+            border: 2px solid blue;
+            cursor: pointer;
+        }
+        
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="input_box">
+            <h3>Enter Your Birth Date (Years)</h3>
+            <div>
+                <input type="number" name="year" id="year" required placeholder="Enter eg.(1995)">
+            </div>           
+            <div>
+                <input type="submit" onclick="calc_year()" value="Calculate">
+            </div>
+        </div>    
+    </div>
+
+    <script>   
+        
+        function calc_year() {
+            let age = 2023 - Number(year.value);
+            alert(`Your are ${age} years old.`);
+        }
+        
+    </script>
+</body>
+</html>

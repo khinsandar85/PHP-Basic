@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pratice - 6</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: rgb(237, 246, 254);
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            margin: 13% 0px;
+        }
+        caption {
+            margin-bottom: 5px;
+        }
+        table {
+            border: 2px solid blue;
+        }
+        th, td {
+            border: 2px solid blue;
+            width: 100px;
+            padding: 3px;
+        }
+        .max_width {
+            width: 269px;
+        }
+        tfoot tr td:first-of-type {
+            text-align: center;
+            font-weight: bold;
+        }
+        .top_thead th:last-child {
+            width: 203px;
+            text-align: left;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">   
+        <table>
+            <caption>Advanced HTML tag for Table using thead, tbody, and tfoot</caption>
+            <thead class="top_thead">
+                <th colspan="3">Purchase order:987654321</th>
+                <th>Tutorialbrain - 10th Oct 2020</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="2" class="max_width">
+                        <b>Vendor:</b>
+                        <br>
+                        ABC XYZ ltd. <br>
+                        DUMMY STREET <br>
+                        BUILDING 123 <br>
+                        HAZARIBAGH, JHARKHAND, 825301
+                    </td>
+                    <td colspan="2" class="max_width">
+                        <b>SHIP TO:</b>
+                        <br>
+                        MS DHONI <br>
+                        WILSON GARDEN <br>
+                        SOUTHEAST BLOCK, RANCHI - 834001
+                    </td>
+                </tr>
+            </tbody>
+            <thead>
+                <tr>                        
+                    <th>Qty.</th>
+                    <th>Item Code.</th>
+                    <th>Description</th>
+                    <th>Unit Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>100</td>
+                    <td>IABCDE</td>
+                    <td>Pencils</td>
+                    <td>20.00</td>
+                </tr>
+                <tr>
+                    <td>1000</td>
+                    <td>IN877</td>
+                    <td>Notebooks</td>
+                    <td>100.00</td>
+                </tr>
+                <tr>
+                    <td>500</td>
+                    <td>IP8675</td>
+                    <td>Pens</td>
+                    <td>70.00</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3">Subtotal</td>
+                    <td>190.00</td>
+                </tr>
+                <tr>
+                    <td colspan="2">GST</td>
+                    <td>5%</td>
+                    <td>9.50</td>
+                </tr>
+                <tr>
+                    <td colspan="3">Grand Total</td>
+                    <td>$199.50</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Searching Box</title>
+    <style>
+        .container {
+            background-color: aqua;
+            height: 2rem;
+            display: flex;
+            border: 2px solid aqua;
+            margin-bottom: 1rem;
+        }
+
+        .search_bar {
+            margin-left: auto;
+            height: 100%;
+            align-items: center;
+            display: flex;
+        }
+
+        .search_bar i, input {
+            margin-right: 0.5rem;
+            cursor: pointer;
+        }
+
+        #search_input {
+            height: 100%;
+            border: none;
+            outline: none;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        .show {
+            display: inline-block;
+        }
+
+        .form_div {
+            display: flex;
+        }
+
+        form {
+            /* background-color: whitesmoke; */
+            width: 60%;
+            margin: auto;
+            border-radius: 10px;
+            /* box-shadow: 5px 5px 5px #f0b5b5; */
+        }
+
+        form h1 {
+            text-align: center;
+            color: rgb(6, 70, 92);
+        }
+
+        .form_input {
+            background-color: lightblue;
+            height: 2rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            border: 2px solid lightblue;
+            border-radius: 15px;
+        }
+
+        .form_input i {
+            margin: 0rem 0.5rem;
+        }
+
+        .form_input input {
+            margin: 0rem 0.5rem;
+            height: 97%;
+            border: none;
+            outline: none;
+            width: 100%;
+
+        }
+        .btn_bar {
+            display: flex;
+        }
+
+        .btn_bar  button{
+            margin: auto;
+            height: 2rem;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="search_bar">
+            <i class="fa fa-search" onmouseover="hide_show();"></i>
+            <input type="text" id="search_input" class="hide">
+        </div>
+    </div>
+
+    <div class="form_div">
+        <form action="">
+            <h1>Registration Form</h1>
+            <div class="form_input name_row">
+                <i class="fa fa-user"></i>
+                <input type="text" id="username" placeholder="UserName" onfocus="shake(this)" onblur="normal(this)">
+            </div>
+            <div class="form_input email_row">
+                <i class="fa fa-envelope"></i>
+                <input type="text" id="useremail" placeholder="Email ..." onfocus="shake(this)" onblur="normal(this)">
+            </div>
+            <div class="form_input password_row">
+                <i class="fa fa-key"></i>
+                <input type="text" id="userpassword" placeholder="Password ... " onfocus="shake(this)" onblur="normal(this)">
+            </div>
+        </form>
+    </div>
+    <div class="btn_bar">
+        <button>Register Now</button>
+    </div>
+
+    <script>
+        let hide_show = () => {
+            search_input.classList.toggle("hide");
+            search_input.classList.toggle("show");
+        }
+
+        let shake = (event) => {
+            let e = event.parentNode;
+            e.style.transform = 'rotate(2deg)';
+            e.style.backgroundColor = "#facebf";
+            e.style.borderColor = '#facebf';
+        }
+
+        let normal = (event) => {
+            let e = event.parentNode;
+            e.style.transform = 'rotate(0deg)';
+            e.style.backgroundColor = "lightblue";
+            e.style.borderColor = 'lightblue';
+
+        }
+    </script>
+</body>
+</html>

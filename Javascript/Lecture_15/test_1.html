@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Element</title>
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+        }
+
+        #outer {
+            margin: auto;
+        }
+
+        #outer div {
+            margin-bottom: 15px;
+        }
+
+        label {
+            color: chocolate;
+            font-size: 1.3rem;
+        }
+
+        input {
+            height: 2rem;
+            width: 15rem;
+            border-radius: 5px;
+            border: 1px solid gainsboro;
+        }
+
+        button {
+            width: 5.5rem;
+            height: 2rem;
+            background-color: chocolate;
+            border-radius: 5px;
+            color: white;
+            font-size: 1.2 rem;
+            letter-spacing: 2px;
+        }
+
+        #btnDiv {
+            display: flex;
+            margin: auto;
+            justify-content: space-evenly;
+        }
+
+        button {
+            border: none;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        li {
+            padding: 3.5% 5%;
+            background-color: darkseagreen;
+            border-radius: 10px;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="outer">
+        <div>
+            <label for="">Menu</label>
+            <input type="text" name="" id="menuName">
+        </div>
+        <div id="btnDiv">
+            <button onclick="add_li()">Add</button>
+            <button onclick="remove_li()">Del</button>
+        </div>
+        <div>
+            <h2>Menu List</h2>
+            <ul id="ul_element">
+                <li>Sample</li>
+            </ul>
+        </div>
+    </div>
+
+    <script> 
+        function add_li() {
+            let menu = menuName.value;
+            let li = document.createElement("li");
+            li.innerHTML = menu;
+            ul_element.appendChild(li);
+        }
+
+        function remove_li() {
+            let menu = menuName.value;
+            let arr = document.getElementsByTagName("li");
+            for ( i=0; i<arr.length; i++ ) {
+                if ( arr[i].innerHTML == menu ) {
+                    ul_element.removeChild(arr[i]);
+                } 
+            }
+        }
+    </script>
+</body>
+</html>

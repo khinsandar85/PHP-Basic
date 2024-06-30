@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transition</title>
+    <style>
+        a {
+            font-size: 1.5rem;
+            text-decoration: none;
+            background-color: aquamarine;
+            margin: 3%;
+            color: red;
+            /* transition: .4s; */
+            -webkit-transition-duration: 3s, 1s, 3s;
+            transition: 3s, 1s, 3s;
+            -webkit-transition-property: background, color, padding;
+            transition-property: background, color, padding;
+            transition-timing-function: steps(5,jump-start);
+            /* transition-timing-function: linear; */
+            transition-delay: 2s;
+            -webkit-transition-timing-function: linear;
+        }
+
+        a:hover {
+            background-color: blueviolet;
+            padding: 20px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <a href="">Home</a>
+</body>
+</html>

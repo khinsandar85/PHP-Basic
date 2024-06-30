@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Shopping cart confirm</title>
+    <style>
+        .not_found {
+            text-align: center;
+            color: red;
+            background-color: antiquewhite;
+            width: 80%;
+            margin: auto;
+            padding: 3%;
+        }
+
+        .header {
+            text-align: center;
+            color: brown;
+            padding: 1rem;
+        }
+
+        table {
+            width: 80% ;
+            /* table-layout: fixed; */
+            border-spacing: 0px;
+            margin-left: 10%;
+        }
+
+        td, th {
+            text-align: center;
+            padding: 0.5rem;
+        }
+
+        tbody tr {
+            height: 80px;
+        }
+
+        th:first-of-type {
+            width: 60px;
+        }
+
+        .td_img {
+            width: 150px;
+        }
+
+        .td_title {
+            text-align: left;
+            width: 300px;
+        }
+
+        .td_price {
+            width: 150px;
+        }
+
+        .td_qty {
+            width: 40px;
+        }
+
+        .td_icon {
+            width: 50px;
+            cursor: pointer;
+        }
+
+        .td_minus {
+            text-align: right;
+        }
+
+        .td_plus {
+            text-align: left;
+        }
+
+        .td_total {
+            width: 150px;
+        }
+
+        td {
+            border-bottom: 1px solid antiquewhite;
+        }
+
+        tr:last-child {
+            background-color: antiquewhite;
+            height: 40px;
+            font-weight: bold;
+        }
+
+        thead {
+            background-color: antiquewhite;
+        }
+
+        .item_img {
+            width: 50%;
+            height: auto;
+        }
+
+        .del_btn {
+            color: red;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+        }
+
+        .continue {
+            display: none;
+            display: inline-block;
+            text-decoration: none;
+            width: 80%;
+        }
+
+        .back {
+            display: flex;
+            justify-content: end;
+            width: 80% ;
+            border-spacing: 0px;
+            margin-left: 10%;
+            margin-bottom: 10px;
+        }
+
+        .back a {
+            text-decoration: none;
+            cursor: pointer;
+            background-color: antiquewhite;
+            padding: 10px 25px;
+            border-radius: 5px;
+            border: none;
+            font-variant: small-caps;
+            font-size: 18px;
+            box-shadow: 2px 2px 2px gray;
+        }
+    </style>
+</head>
+<body onload="show_items()">
+
+    <h1 class="header" id="">Your Shopping Cart</h1>
+    
+    <div id="table_box">
+        <div class="back">
+            <a href="./test_1.html">
+                Back
+            </a>
+        </div>
+        <table>
+            <thead>
+                <th>No</th>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th></th>
+                <th>Qty</th>
+                <th></th>
+                <th>Total</th>
+                <th>Action</th>
+            </thead>
+            <tbody id="ans"></tbody>
+        </table>
+    </div>
+
+    <div id="no_cart"></div>
+    
+    <script>
+
+        let data = [
+            {
+                "id": 1,
+                "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
+                "price": 1050,
+                "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
+                "category": "men's clothing",
+                "image" : "./img/c_1.jpg",
+                "rating": { "rate": 3, "count": 120 }
+            },
+            {
+                "id": 2,
+                "title": "Mens Casual Premium Slim Fit T-Shirts ",
+                "price": 2200,
+                "description": "Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing. And Solid stitched shirts with round neck made for durability and a great fit for casual fashion wear and diehard baseball fans. The Henley style round neckline includes a three-button placket.",
+                "category": "men's clothing",
+                "image" : "./img/c_2.jpg",
+                "rating": { "rate": 4, "count": 259 }
+            },
+            {
+                "id": 3,
+                "title": "Mens Cotton Jacket",
+                "price": 5500,
+                "description": "great outerwear jackets for Spring/Autumn/Winter, suitable for many occasions, such as working, hiking, camping, mountain/rock climbing, cycling, traveling or other outdoors. Good gift choice for you or your family member. A warm hearted love to Father, husband or son in this thanksgiving or Christmas Day.",
+                "category": "men's clothing",
+                "image" : "./img/c_3.jpg",
+                "rating": { "rate": 4, "count": 500 }
+            },
+            {
+                "id": 4,
+                "title": "Mens Casual Slim Fit",
+                "price": 15000,
+                "description": "The color could be slightly different between on the screen and in practice. / Please note that body builds vary by person, therefore, detailed size information should be reviewed below on the product description.",
+                "category": "men's clothing",
+                "image" : "./img/c_4.jpg",
+                "rating": { "rate": 2, "count": 430 }
+            },
+            {
+                "id": 5,
+                "title": "John Hardy Women's Legends Naga Gold & Silver Dragon Station Chain Bracelet",
+                "price": 6950,
+                "description": "From our Legends Collection, the Naga was inspired by the mythical water dragon that protects the ocean's pearl. Wear facing inward to be bestowed with love and abundance, or outward for protection.",
+                "category": "jewelery",
+                "image" : "./img/c_9.jpg",
+                "rating": { "rate": 4, "count": 400 }
+            },
+            {
+                "id": 6,
+                "title": "Solid Gold Petite Micropave ",
+                "price": 1680,
+                "description": "Satisfaction Guaranteed. Return or exchange any order within 30 days.Designed and sold by Hafeez Center in the United States. Satisfaction Guaranteed. Return or exchange any order within 30 days.",
+                "category": "jewelery",
+                "image" : "./img/c_12.jpg",
+                "rating": { "rate": 3, "count": 70 }
+            },
+            {
+                "id": 7,
+                "title": "White Gold Plated Princess",
+                "price": 9999,
+                "description": "Classic Created Wedding Engagement Solitaire Diamond Promise Ring for Her. Gifts to spoil your love more for Engagement, Wedding, Anniversary, Valentine's Day...",
+                "category": "jewelery",
+                "image" : "./img/c_10.jpg",
+                "rating": { "rate": 3, "count": 400 }
+            },
+            {
+                "id": 8,
+                "title": "Pierced Owl Rose Gold Plated Stainless Steel Double",
+                "price": 1090,
+                "description": "Rose Gold Plated Double Flared Tunnel Plug Earrings. Made of 316L Stainless Steel",
+                "category": "jewelery",
+                "image" : "./img/c_11.jpg",
+                "rating": { "rate": 2, "count": 100 }
+            },
+            {
+                "id": 9,
+                "title": "SanDisk SSD PLUS 1TB Internal SSD - SATA III 6 Gb/s",
+                "price": 1000,
+                "description": "Easy upgrade for faster boot up, shutdown, application load and response (As compared to 5400 RPM SATA 2.5” hard drive; Based on published specifications and internal benchmarking tests using PCMark vantage scores) Boosts burst write performance, making it ideal for typical PC workloads The perfect balance of performance and reliability Read/write speeds of up to 535MB/s/450MB/s (Based on internal testing; Performance may vary depending upon drive capacity, host device, OS and application.)",
+                "category": "electronics",
+                "image" : "./img/c_19.jpg",
+                "rating": { "rate": 3, "count": 470 }
+            },
+            {
+                "id": 10,
+                "title": "Silicon Power 256GB SSD 3D NAND A55 SLC Cache Performance Boost SATA III 2.5",
+                "price": 9000,
+                "description": "3D NAND flash are applied to deliver high transfer speeds Remarkable transfer speeds that enable faster bootup and improved overall system performance. The advanced SLC Cache Technology allows performance boost and longer lifespan 7mm slim design suitable for Ultrabooks and Ultra-slim notebooks. Supports TRIM command, Garbage Collection technology, RAID, and ECC (Error Checking & Correction) to provide the optimized performance and enhanced reliability.",
+                "category": "electronics",
+                "image" : "./img/c_20.jpg",
+                "rating": { "rate": 4, "count": 319 }
+            },
+            {
+                "id": 11,
+                "title": "WD 2TB Elements Portable External Hard Drive - USB 3.0 ",
+                "price": 6400,
+                "description": "USB 3.0 and USB 2.0 Compatibility Fast data transfers Improve PC Performance High Capacity; Compatibility Formatted NTFS for Windows 10, Windows 8.1, Windows 7; Reformatting may be required for other operating systems; Compatibility may vary depending on user’s hardware configuration and operating system",
+                "category": "electronics",
+                "image": "https://fakestoreapi.com/img/61IBBVJvSDL._AC_SY879_.jpg",
+                "rating": { "rate": 3, "count": 203 }
+            },
+            {
+                "id": 12,
+                "title": "WD 4TB Gaming Drive Works with Playstation 4 Portable External Hard Drive",
+                "price": 1140,
+                "description": "Expand your PS4 gaming experience, Play anywhere Fast and easy, setup Sleek design with high capacity, 3-year manufacturer's limited warranty",
+                "category": "electronics",
+                "image": "https://fakestoreapi.com/img/61mtL65D4cL._AC_SX679_.jpg",
+                "rating": { "rate":  2, "count": 400 }
+            },
+            {
+                "id": 13,
+                "title": "Acer SB220Q bi 21.5 inches Full HD (1920 x 1080) IPS Ultra-Thin",
+                "price": 5000,
+                "description": "21. 5 inches Full HD (1920 x 1080) widescreen IPS display And Radeon free Sync technology. No compatibility for VESA Mount Refresh Rate: 75Hz - Using HDMI port Zero-frame design | ultra-thin | 4ms response time | IPS panel Aspect ratio - 16: 9. Color Supported - 16. 7 million colors. Brightness - 250 nit Tilt angle -5 degree to 15 degree. Horizontal viewing angle-178 degree. Vertical viewing angle-178 degree 75 hertz",
+                "category": "electronics",
+                "image" : "./img/c_18.jpg",
+                "rating": { "rate": 2, "count": 250 }
+            },
+            {
+                "id": 14,
+                "title": "Samsung 49-Inch CHG90 144Hz Curved Gaming Monitor (LC49HG90DMNXZA) – Super Ultrawide Screen QLED ",
+                "price": 8000,
+                "description": "49 INCH SUPER ULTRAWIDE 32:9 CURVED GAMING MONITOR with dual 27 inch screen side by side QUANTUM DOT (QLED) TECHNOLOGY, HDR support and factory calibration provides stunningly realistic and accurate color and contrast 144HZ HIGH REFRESH RATE and 1ms ultra fast response time work to eliminate motion blur, ghosting, and reduce input lag",
+                "category": "electronics",
+                "image" : "./img/c_17.jpg",
+                "rating": { "rate": 2, "count": 140 }
+            },
+            {
+                "id": 15,
+                "title": "BIYLACLESEN Women's 3-in-1 Snowboard Jacket Winter Coats",
+                "price": 5800,
+                "description": "Note:The Jackets is US standard size, Please choose size as your usual wear Material: 100% Polyester; Detachable Liner Fabric: Warm Fleece. Detachable Functional Liner: Skin Friendly, Lightweigt and Warm.Stand Collar Liner jacket, keep you warm in cold weather. Zippered Pockets: 2 Zippered Hand Pockets, 2 Zippered Pockets on Chest (enough to keep cards or keys)and 1 Hidden Pocket Inside.Zippered Hand Pockets and Hidden Pocket keep your things secure. Humanized Design: Adjustable and Detachable Hood and Adjustable cuff to prevent the wind and water,for a comfortable fit. 3 in 1 Detachable Design provide more convenience, you can separate the coat and inner as needed, or wear it together. It is suitable for different season and help you adapt to different climates",
+                "category": "women's clothing",
+                "image" : "./img/c_13.jpg",
+                "rating": { "rate": 2, "count": 235 }
+            },
+            {
+                "id": 16,
+                "title": "Lock and Love Women's Removable Hooded Faux Leather Moto Biker Jacket",
+                "price": 2900,
+                "description": "100% POLYURETHANE(shell) 100% POLYESTER(lining) 75% POLYESTER 25% COTTON (SWEATER), Faux leather material for style and comfort / 2 pockets of front, 2-For-One Hooded denim style faux leather jacket, Button detail on waist / Detail stitching at sides, HAND WASH ONLY / DO NOT BLEACH / LINE DRY / DO NOT IRON",
+                "category": "women's clothing",
+                "image" : "./img/c_16.jpg",
+                "rating": { "rate": 2, "count": 340 }
+            },
+            {
+                "id": 17,
+                "title": "Rain Jacket Women Windbreaker Striped Climbing Raincoats",
+                "price": 3900,
+                "description": "Lightweight perfet for trip or casual wear---Long sleeve with hooded, adjustable drawstring waist design. Button and zipper front closure raincoat, fully stripes Lined and The Raincoat has 2 side pockets are a good size to hold all kinds of things, it covers the hips, and the hood is generous but doesn't overdo it.Attached Cotton Lined Hood with Adjustable Drawstrings give it a real styled look.",
+                "category": "women's clothing",
+                "image" : "./img/c_5.jpg",
+                "rating": { "rate": 3, "count": 679 }
+            },
+            {
+                "id": 18,
+                "title": "MBJ Women's Solid Short Sleeve Boat Neck V ",
+                "price": 9000,
+                "description": "95% RAYON 5% SPANDEX, Made in USA or Imported, Do Not Bleach, Lightweight fabric with great stretch for comfort, Ribbed on sleeves and neckline / Double stitching on bottom hem",
+                "category": "women's clothing",
+                "image" : "./img/c_8.jpg",
+                "rating": { "rate": 4, "count": 130 }
+            },
+            {
+                "id": 19,
+                "title": "Opna Women's Short Sleeve Moisture",
+                "price": 7000,
+                "description": "100% Polyester, Machine wash, 100% cationic polyester interlock, Machine Wash & Pre Shrunk for a Great Fit, Lightweight, roomy and highly breathable with moisture wicking fabric which helps to keep moisture away, Soft Lightweight Fabric with comfortable V-neck collar and a slimmer fit, delivers a sleek, more feminine silhouette and Added Comfort",
+                "category": "women's clothing",
+                "image" : "./img/c_14.webp",
+                "rating": { "rate": 4, "count": 146 }
+            },
+            {
+                "id": 20,
+                "title": "DANVOUY Womens T Shirt Casual Cotton Short",
+                "price": 1200,
+                "description": "95%Cotton,5%Spandex, Features: Casual, Short Sleeve, Letter Print,V-Neck,Fashion Tees, The fabric is soft and has some stretch., Occasion: Casual/Office/Beach/School/Home/Street. Season: Spring,Summer,Autumn,Winter.",
+                "category": "women's clothing",
+                "image": "https://fakestoreapi.com/img/61pHAEJ4NML._AC_UX679_.jpg",
+                "rating": { "rate": 3, "count": 145 }
+            }
+        ];
+        
+        let show_items = () => {
+            let str = sessionStorage.getItem("save_items");
+            let arr = JSON.parse(str);
+            let session_length = arr.length;
+
+            if ( session_length >= 1 ) {
+                let tab = "<tr>";
+
+                    let num = 1; 
+                    let total = 0;
+                    for ( i = 0; i < arr.length; i++ ) {
+                        
+                        for ( x = 0; x < data.length; x++) {
+                            if (arr[i].id == data[x].id) {
+
+                                tab += "<td>"+ num +"</td>";
+                                num++;
+                                tab += "<td class='td_img'><img class='item_img' src='"+ data[x].image +"'></td>";
+                                tab += "<td class='td_title'>" + data[x].title + "</td>";
+                                tab += "<td class='td_price'>" + "$ " +data[x].price+ "</td>";
+                                tab += "<td class='td_icon td_minus' onclick='minus_click("+data[x].id+")'><i class='fa fa-minus-square'></i></td>";
+                                tab += "<td class='td_qty' id='td_qty"+data[x].id+"'>" + arr[i].qty +"</td>";
+                                tab += "<td class='td_icon td_plus' onclick='plus_click("+data[x].id+")'><i class='fa fa-plus-square'></i></td>";
+                                tab += "<td class='td_total' id='td_total"+data[x].id+"'>" + data[x].price * arr[i].qty + "</td>";
+                                tab += "<td class='td_del'><button onclick='del_item("+data[x].id+")' class='del_btn'><i class='fa fa-trash-alt'></i></button></td>";
+                                tab += "</tr>";
+                                total += (+data[x].price * arr[i].qty);
+                            }
+                        }
+                        
+                    }
+
+                    tab += "<tr>";
+                    tab += "<td colspan='7'>Balance</td>";
+                    tab += "<td class='balance' id='balance'>"+ total +"</td>";
+                    tab += "<td><a href='continue.html' class='continue'><i class='fa fa-sign-out'></i></td>";
+                    tab += "</tr>";
+
+                ans.innerHTML = tab;
+            }
+
+            else if ( session_length == 0) {
+                table_box.style.display = "none";
+                no_cart.innerHTML = `<h1 class="not_found">The result not found!</h1>`;
+            }
+
+            else {
+                table_box.style.display = "none";
+                no_cart.innerHTML = `<h1 class="not_found">The result not found!</h1>`;
+            }
+        }
+
+        let minus_click = (event) => {
+            let price = 0;
+
+            for(i=0; i<data.length; i++) {
+                if( data[i].id == event) {
+                    price = data[i].price;
+                }
+            }
+            
+            let id = "td_qty"+""+event;
+            let minus_num= document.getElementById(id);
+            let num = minus_num.innerHTML;
+
+            if( num == 1 ) {
+                alert(" Item count is 1. Your want to decrease --> Click Delete Button! ");
+            }
+            else {
+                num--;
+                minus_num.innerHTML = num;
+                
+                //price * number_count
+                let total_id = "td_total"+""+event;
+                let total_num = document.getElementById(total_id);
+                let total_value = total_num.innerHTML;
+                let divided = price * num;
+                total_num.innerHTML = divided;
+
+                //total balance
+                let old_balance = +balance.innerHTML;
+                let new_balance = old_balance - price;
+                balance.innerHTML = new_balance;
+
+                //session storage change
+                let str = sessionStorage.getItem("save_items");
+                let arr = JSON.parse(str);
+                let new_arr = [];
+
+                for( j=0; j<arr.length; j++ ) {
+                
+                    if ( arr[j].id == event ) {
+                        new_arr.push({ ...arr[j] , qty : num });
+                    }
+                    else {
+                        new_arr.push({ ...arr[j] , qty : arr[j].qty });
+                    }
+
+                }
+                let new_str = JSON.stringify(new_arr);
+                sessionStorage.setItem("save_items", new_str);
+
+            }
+        }
+
+        let plus_click = (event) => {
+            let price = 0;
+            console.log(event);
+            for(i=0; i<data.length; i++) {
+                if( data[i].id == event) {
+                    price = data[i].price;
+                }
+            }
+          
+            //num_count
+            let qty_id = "td_qty"+""+event;
+            let qty_num = document.getElementById(qty_id);
+            let num = qty_num.innerHTML;
+            num++;
+            qty_num.innerHTML = num;
+
+            //price * number_count
+            let total_id = "td_total"+""+event;
+            let total_num = document.getElementById(total_id);
+            let total_value = total_num.innerHTML;
+            let multiply = price * num;
+            total_num.innerHTML = multiply;
+
+            // total balance
+            let old_balance = +balance.innerHTML;
+            let new_balance = old_balance + price;
+            balance.innerHTML = new_balance;
+
+            //session storage change
+            let str = sessionStorage.getItem("save_items");
+            let arr = JSON.parse(str);
+            let new_arr = [];
+
+            for( j=0; j<arr.length; j++ ) {
+            
+                if ( arr[j].id == event ) {
+                    // let new_qty = arr[j].qty + 1;
+                    new_arr.push({ ...arr[j] , qty : num });
+                }
+                else {
+                    new_arr.push({ ...arr[j] , qty : arr[j].qty });
+                }
+
+            }
+            let new_str = JSON.stringify(new_arr);
+            sessionStorage.setItem("save_items", new_str);
+
+        }
+    
+        let del_item = (event) => {
+            
+            let str = sessionStorage.getItem("save_items");
+            let arr = JSON.parse(str);
+            let new_arr = [];
+
+            for (i=0; i<arr.length; i++ ) {
+
+                if (arr[i].id != event) {
+                    new_arr.push(arr[i]);
+                }
+            }
+
+            new_str = JSON.stringify(new_arr);
+            sessionStorage.setItem("save_items", new_str);
+            ans.innerHTML = "";
+            show_items();
+        }
+
+    </script>
+</body>
+</html>

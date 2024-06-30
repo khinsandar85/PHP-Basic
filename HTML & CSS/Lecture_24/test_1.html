@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexible Box Model</title>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .item {
+            width: 250px;
+            height: 250px;
+        }
+        .first {
+            background-color: blue;
+            /* width: 20%; */
+        }
+
+        .second {
+            /* flex: 2; */
+            /* width: 30%; */
+            background-color: red;
+            order: -1;
+        }
+
+        .third {
+            /* width: 50%; */
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item first">ABC</div>
+        <div class="item second">ABC</div>
+        <div class="item third">ABC</div>
+    </div>
+</body>
+</html>

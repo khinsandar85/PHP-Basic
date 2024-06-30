@@ -1,0 +1,13 @@
+h1 {
+    color: green;
+}
+
+h3 {
+    text-decoration: underline overline;
+    font-variant: small-caps;
+}
+
+p {
+    text-align: justify;
+    line-height: 150%;
+}

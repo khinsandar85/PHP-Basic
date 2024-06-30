@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 500px;
+            height: 500px;
+            background-color: aliceblue;
+            display: flex;
+            position: relative;
+        }
+        .circle {
+            width: 10px;
+            height: 10px;
+            background-color: transparent;
+            border-radius: 50%;
+            animation: rotate 10s alternate infinite;
+            transition-property: transform;
+            border-top: 30px solid red;
+            border-bottom: 30px solid green;
+            border-left: 30px solid blue;
+            border-right: 30px solid yellow;
+            box-shadow: 3px 3px 3px gray;
+            animation: rotate 3s ease-in 2s infinite ;
+            position: absolute;
+            transition: .4s;
+            top: 0;
+            left: 0;
+        }  
+        
+        @keyframes rotate {
+            0% {
+                top: 0;
+                left: 0%;
+                transform: rotate(90deg);
+            }
+            10% {
+                top: 85%;
+                left: 0%;            
+                transform: rotate(180deg);
+            }
+            20% {
+                top: 45%;
+                left: 20%;            
+                transform: rotate(270deg);
+            }
+            30% {
+                top: 85%;
+                left: 30%;            
+                transform: rotate(360deg);
+            }
+            40% {
+                top:55%;
+                left:40%;
+                transform: rotate(450deg);
+            }
+            50% {
+                top: 85%;
+                left: 50%;            
+                transform: rotate(540deg);
+            }
+            60% {
+                top:60%;
+                left:60%;
+                transform: rotate(630deg);
+            }
+            70% {
+                top: 85%;
+                left: 70%;
+                transform: rotate(720deg);
+            }
+            80% {
+                top: 88%;
+                left: 80%;            
+                transform: rotateX(30deg);
+            }
+            90% {
+                top: 89%;
+                left: 90%;            
+                transform: rotateX(60deg);
+            }
+            100% {
+                top: 90%;
+                left: 100%;            
+                transform: rotateX(90deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="circle"></div>
+    </div>
+</body>
+</html>

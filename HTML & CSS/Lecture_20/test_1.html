@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Color</title>
+    <style>
+        body {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+        }
+        h1 {
+            margin: auto;
+            padding: 1rem;
+            position: relative;
+        }
+        h1:after{
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: linear-gradient(to right, red, blue);
+            margin-bottom: -5px;
+            z-index: -1;
+        }
+        #s {
+            color: deeppink;
+        }
+        #r {
+            color: green;
+        }
+        #n {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        <label id="s"> S</label>tudy
+        <label id="r"> R</label>ight
+        <label id="n"> N</label>ow
+    </h1>
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice 2 - Exam Result</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container {
+            width: 99vw;
+            height: 100vh;
+            background-color: #d6b7f4;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .input_box {
+            width: 35vw;
+            padding: 5%;
+        }
+
+        .input_box div {
+            width: 400px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .input_box div input[type="number"] {
+            width: 250px;
+            height: 35px;
+            margin: 3%;
+            padding: 0px 5px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        input[type="button"] {
+            width: 100px;
+            background-color: #420381;
+            padding: 3%;
+            border: none;
+            color: white;
+            margin-left: 40%;
+            margin-top: 8%;
+            border-radius: 5px;
+            text-transform: uppercase;
+            font-weight: bold;
+            border: 2px solid #420381;
+            box-shadow: 0 0 5px rebeccapurple, 0 0 10px rgb(40, 4, 77);
+        }
+
+        input[type="button"]:hover {
+            color: #420381;
+            background-color: white;
+        }
+
+        p {
+            display: inline;
+            font-size: 22px;
+            font-weight: bold;
+            text-transform: capitalize;
+            color: rgb(43, 3, 84);
+        }
+
+        .result_box {
+            width: 60vw;
+            height: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .result_box p {
+            padding: 10%;
+            border-radius: 30px;
+            color: white;
+            text-transform: uppercase;
+            font-size: 30px;
+        }
+
+        h1 {
+            margin-left: 27%;
+            margin-bottom: 20%;
+            font-variant: small-caps;
+            color: rgb(78, 8, 243);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="input_box">
+            <div>
+                <h1>~ Exam Result ~</h1>
+            </div>
+            <div>
+                <p>Myanmar : </p>
+                <input type="number" min="0" max="100" required onfocus="clear_result()" id="myanmar" placeholder="Myanmar mark">
+            </div>
+            <div>
+                <p>English :</p>
+                <input type="number" min="0" max="100" required onfocus="clear_result()" id="english" placeholder="English mark">
+            </div>
+            <div>
+                <p>Math :</p>
+                <input type="number" min="0" max="100" required onfocus="clear_result()" id="math" placeholder="Math mark">
+            </div>
+            <div>
+                <input type="button" onclick="calc_mark()" value="Submit">
+            </div>
+        </div>
+        <div class="result_box">
+            <p id="result_text"></p>
+        </div>
+    </div>
+
+    <script>
+
+        let clear_result = () => {
+            result_text.innerHTML = "";
+            result_text.style.color = "transparent";
+            result_text.style.backgroundColor = "transparent";
+            result_text.style.border = "15px solid transparent";
+        }
+
+        let calc_mark = () => {
+            let my = myanmar.value;
+            let eng = english.value;
+            let m = math.value;
+
+            if (0 <= my <=100 && 0 <= eng <=100 && 0 <= m <=100 ) {
+
+                if ( my == "" || eng == "" || m == "" ) {
+                    result_text.innerHTML = "No Found";
+                    result_text.style.backgroundColor = "gray";
+                    result_text.style.color = "white";
+                    result_text.style.border = "15px solid white";
+                }
+
+                else if ( my < 40 || eng < 40 || m < 40 ) {
+                    console.log("fail");
+                    result_text.innerHTML = "fail";
+                    result_text.style.color = "white";
+                    result_text.style.backgroundColor = "red";
+                    result_text.style.border = "15px solid white";
+                }
+
+                else if ( my >= 80 || eng >= 80 || m >= 80 ) {
+                    console.log("degree");
+                    result_text.innerHTML = "degree";
+                    result_text.style.backgroundColor = "yellow";
+                    result_text.style.color = "black";
+                    result_text.style.border = "15px solid white";
+                }
+
+                else {
+                    console.log("pass");
+                    result_text.innerHTML = "pass";
+                    result_text.style.color = "white";
+                    result_text.style.backgroundColor = "green";
+                    result_text.style.border = "15px solid white";
+                }
+            }
+        }
+
+    </script>
+</body>
+</html>

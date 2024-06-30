@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trillium Media Design</title>
+    <style>
+        body {
+            background: linear-gradient(#f3ccf9,#ba60ca);
+        }
+        @font-face {
+            font-family: 'bodyFont';
+            src: url('./font/Miguity.otf');
+        }
+        .titleBox  {
+            background: #851a98;
+            display: flex;
+            margin: 0px 0px 20px 0px;
+            font-family: 'bodyFont';
+        }
+        .titleBox img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 15px 0px 0px 10px;
+        }
+        .titleBox .title p {
+            color: white;
+            font-size: 49px;
+            font-weight: bold;
+            margin-left: 20px;
+            text-shadow: 4px 4px 5px gray;
+        }
+        .nav {
+            width: 400px;
+            margin: -10px 0px 10px 0px;
+            font-family: 'infoText';
+        }
+        .nav a {
+            border:2px solid #851a98;
+            border-radius: 8px;
+            text-decoration: none;
+            text-transform: capitalize;
+            color: #ffffff;
+            width: 14%;
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #851a98;
+            font-weight: bold;
+        }
+        .nav a:hover {
+            font-weight: bold;
+            border:2px solid #851a98;
+            border-radius: 8px;
+            background-color: #ffffff;
+            color: #851a98;
+        }
+        .subTitleBox {
+            background-color: #851a98;
+            font-family: 'bodyFont';
+        }
+        .subTitleBox ul {
+            list-style-type: none;
+            background-size: 30px;
+            margin-left: -40px;
+            display: inline-block;
+        }
+        .subTitleBox ul li::before {
+            content: '';
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-image: url('./img/p1_sm.png');
+            background-size: 100%;
+        }
+        .subTitleBox span {
+            font-size: 35px;
+            color: white;
+            text-shadow: 4px 4px 5px gray;
+        }
+        .divider {
+            margin: 17px;
+        }
+        @font-face {
+            font-family: 'infoText';
+            src: url('./font/TitilliumWeb-Regular.ttf');
+        }
+        .footer {
+            position: relative;
+            font-family: 'infoText';
+        }
+        .footer a {
+            color: #000000;
+            margin-right: 10px;
+        }
+        .footer a:hover {
+            color:blue;
+        }
+        .footer img {
+            position: absolute;
+            right: 50px;
+            bottom: -10px;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+        }
+        .info {
+            font-family: 'infoText';
+        }
+    </style>
+</head>
+<body>
+    <div class="titleBox">
+        <div class="imgBox">
+            <img src="./img/p1_1.png"  alt="">
+        </div>
+        <div class="title">
+            <p>Trillium Media Design</p>
+        </div>
+    </div>
+    <div class="nav">
+        <a href="#home">home</a>
+        <a href="#services">services</a>
+        <a href="#contact">contact</a>
+    </div> 
+    <div class="subTitleBox">
+        <ul>
+            <li></li>
+        </ul>
+        <span>New Media and Web Design</span>
+    </div>
+    <div class="info">
+        <p>
+            Trillium Media Design  will being your company's Web presence to the next
+            level. 
+        </p>
+        <p>
+            We offer a comprehensive range of services.
+        </p>
+        <ul>
+            <li>Web Site Design</li>
+            <li>Interactive Animation</li>
+            <li>E-Commerce Solutions</li>
+            <li>Usability Studies</li>
+            <li>Search Engine Optimazation</li>
+        </ul>
+    </div>
+    <div class="divider"></div>
+    <div class="subTitleBox">
+        <ul>
+            <li></li>
+        </ul>
+        <span>Meeting Your Business Needs</span>
+    </div>
+    <div class="footer">
+        <p>
+            Our expert designers are creative and eager to work with you.
+        </p>
+        <div>
+            <a href="#home" title="Home">Home</a>
+            <a href="#service" title="Services">Services</a>
+            <a href="#contact" title="Contact">Contact</a>
+        </div>
+        <p>Copyright &copy; 2007 Your Name Here</p>
+        <img src="./img/p1_1.png" alt="">
+    </div>
+    <div class="divider"></div>
+</body>
+</html>

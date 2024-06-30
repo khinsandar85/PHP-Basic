@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lecture 12 - Increase Percent</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 100%;
+            min-height: 100vh;
+            background-color: purple;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        svg {
+            width: 50%;
+            height: 50%;
+            position: absolute;
+            top: 25%;
+            left: 25%;
+        }
+
+        .text {
+            position: absolute;
+            z-index: 100;
+        }
+
+        .text h1 {
+            display: inline-block;
+            font-size: 3.5rem;
+        }
+        .text span {
+            font-size: 1.5rem;
+        }
+
+        #inner {
+            animation: changeColor 2s linear infinite;
+        }
+        
+        @keyframes changeColor {
+            0% {
+                stroke: rgb(156, 241, 241);
+                fill: white;
+            }
+            50% {
+                stroke: rgb(157, 203, 203);
+                fill: lightpink;
+            }
+            100% {
+                stroke: rgb(197, 207, 207);
+                fill: lightblue;
+            }
+        }
+    </style>
+</head>
+<body onload="setInterval(chg, 200)">
+    <div class="container">
+        <svg>
+            <circle cx="50%" cy="50%" r="100" stroke="black" fill="white" stroke-width="8px" ></circle>
+            <circle id="inner" cx="50%" cy="50%" r="92" stroke="aqua" fill="white" stroke-width="8px" ></circle>
+        </svg>
+        <div class="text">
+            <h1 id="percent">1</h1><span>%</span>
+        </div>
+    </div>
+    <script>
+        let chg = () => {
+            let p = parseInt(percent.innerHTML);
+            p++;
+            percent.innerHTML = p;
+        }
+    </script>
+</body>
+</html>

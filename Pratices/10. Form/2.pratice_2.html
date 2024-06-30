@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice 2</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            background-image: url('./img/form_1.webp');
+            background-size: 100% 100%;
+            width: 100vw;
+            height: 100vh;   
+            opacity: .8; 
+        }
+
+        .form_div {     
+            margin: 1% auto;
+            text-align: center;
+            width: 460px;
+            border-radius: 5px;
+            background-color: rgba(169, 166, 164, 0.509);
+        }
+        
+        .container div:first-child p {
+            padding-top: 2%;
+            color: white;
+            text-align: center;
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 25px;
+        }
+
+        .container div:last-child p {
+            font-size: 15px;
+            color: white;
+            text-align: center;
+        }
+
+        .form {
+            width: 80%;
+            margin-left: 10%;
+            padding: 2% 0%;
+        }
+
+        .form div {
+            margin: 4.7% 0%;
+        }
+
+        .form div div {
+            margin: 0px;
+        }
+
+        .form div input {
+            width: 100%;
+            padding: 3%;
+            border: none;
+            border-left: 6px solid blue;
+            border-radius: 3px;
+            transition: .4s;
+            background-color: #ecf6f9;
+        }
+
+        .form div input::placeholder {
+            color: black;
+            font-weight: bold;
+        }
+
+        .form div input:focus-visible,
+        .form div select:focus-visible {
+            border: none;
+            outline: none;
+        }
+
+        .form div:nth-child(8),
+        .form div:nth-child(9) {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .form div:nth-child(8) input, 
+        .form div:nth-child(9) input, 
+        .form div:nth-child(8) select {
+            width: 173px;
+            padding: 3%;
+            border-left: 6px solid blue;
+            border-radius: 3px;
+            background-color: #ecf6f9;
+            color: black;
+            font-weight: bold;
+            padding: 5%;
+            transition: .4s;
+        }
+
+        .form div input:hover,
+        .form div:nth-child(8) input:hover, 
+        .form div:nth-child(9) input:hover, 
+        .form div:nth-child(8) select:hover {
+            border-left: 15px solid #000000;
+            cursor: pointer;
+        } 
+
+
+        .form div:last-child input[type="submit"] {            
+            border: none;
+            border-left: 6px solid transparent;
+            background-color: blue;
+            color: white;
+            font-weight: bold;
+            font-style: italic;
+            font-size: 15px;
+            transition: .4s;
+        }
+
+        .form div:last-child input[type="submit"]:hover {
+            background-color: white;
+            color: blue;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div>
+            <p>course registration form</p>
+        </div>
+        <div class="form_div">
+            <div class="form">
+                <form action="">
+                    <div>
+                        <input type="text" name="title" required placeholder="Title">
+                    </div>
+                    <div>
+                        <input type="text" name="full name" required placeholder="Full Name">
+                    </div>
+                    <div>
+                        <input type="text" name="postion" required placeholder="Position">
+                    </div>
+                    <div>
+                        <input type="text" name="company" required placeholder="Company">
+                    </div>
+                    <div>
+                        <input type="email" name="email" required placeholder="Email">
+                    </div>
+                    <div>
+                        <input type="text" name="address" required placeholder="Street Address">
+                    </div>
+                    <div>
+                        <input type="text" name="address_2" required placeholder="Street Address Unit2">
+                    </div>
+                    <div>
+                        <div>
+                            <select name="country" id="">
+                                <option value="">Choose your country</option>
+                                <option value="mdy">Mandalay</option>
+                                <option value="yg">Yangon</option>
+                                <option value="npt">NayPyiTaw</option>
+                            </select>
+                        </div>          
+                        <div>
+                            <input type="text" name="city" required placeholder="City">
+                        </div>              
+                    </div>
+                    <div>
+                        <div>
+                            <input type="text" name="region" required placeholder="Region">
+                        </div>
+                        <div>
+                            <input type="number" name="zip_code" required placeholder="Zip.postal code">
+                        </div>
+                    </div>
+                    <div>
+                        <input type="number" name="phone" required placeholder="Phone Number">
+                    </div>
+                    <div>
+                        <input type="submit" value="Submit">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div>
+            <p>
+                &copy; 2018 Course Registration Form | All Rights Reserve | Design by W3Layouts
+            </p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1 {
+            text-align: center;
+            font-variant: small-caps;
+            color: #093669;
+        }
+
+        form {
+            width: 50%;
+            margin-left: 25%;
+        }
+
+        .row {
+            margin-bottom: 1rem;
+            display: flex;
+        }
+
+        .col1 {
+            width: 35%;
+            color: #093669;
+            font-size: 1.25rem;
+        }
+
+        .col2 {
+            width: 75%;
+            height: 2rem;
+        }
+
+        #btn {
+            width: 20%;
+            height: 2.5rem;
+            margin-left: 40%;
+            background-color: #093669;
+            color: white;
+            text-transform: uppercase;
+            border: 2px solid #093669;
+            border-radius: 10px;
+        }
+
+        #result {
+            text-align: center;
+            font-size: 1.5rem;
+            margin: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <h1>Fill Your Marks:</h1>
+    <form action="" >
+        <div class="row">
+            <label for="" class="col1">Myanmar</label>
+            <input type="number" min="0" max="100" name="myanmar" id="mmMark" class="col2" required>
+        </div>
+        <div class="row">
+            <label for="" class="col1">English</label>
+            <input type="number" min="0" max="100" name="english" id="egMark" class="col2" required>
+        </div>
+        <div class="row">
+            <label for="" class="col1">Math</label>
+            <input type="number" min="0" max="100" name="math" id="mathMark" class="col2" required>
+        </div>
+        <input type="submit" onclick="check(); return false;" name="btn" value="Pass/Fail" id="btn">
+    </form>
+    <div id="result" class="result">
+        
+    </div>
+
+    <script>
+        function allClear() {
+            mmMark.value = "";
+            egMark.value = "";
+            mathMark.value = "";
+        }
+
+        function check() {
+            result.innerHTML ="";
+
+            let mm = parseInt(mmMark.value);
+            let en = parseInt(egMark.value);
+            let ma = parseInt(mathMark.value);
+
+            if( mm >= 40 && en >= 40 && ma >= 40 ) {
+                result.innerHTML = " You pass the exam! ";
+                result.style.color ="green";
+            }
+            else {
+                result.innerHTML = " You fail the exam! ";
+                result.style.color ="red";
+            }
+            allClear();
+        }
+    </script>
+</body>
+</html>

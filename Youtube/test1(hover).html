@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main_nav {
+            display: flex;
+            background-color: black;
+            /* justify-content: space-around; */
+        }
+        .main_nav a {
+            text-decoration: none;
+            background-color: blueviolet;
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
+            text-align: center;
+            color: white;
+            width: 15%;
+            margin: 0.5rem auto;
+        }
+        div {
+            margin: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            background-color: blanchedalmond;
+            color: blueviolet;
+            font-weight: bold;
+            position: relative;
+            z-index: 1;
+        }
+        button:after {
+            content: '';
+            background-color: aqua;
+            transform: scale(0);
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            transform-origin: center;
+            transition: .4s;
+            z-index: -1;
+        }
+        button:hover::after {
+            transform: scale(1);
+        }
+        ul li {
+            list-style-type: none;
+            display: inline-block;
+            margin: 20px;
+            padding: 10px 20px;
+            position: relative;
+            cursor: pointer;
+        }
+        ul li::before {
+            content: '';
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background-color: red;
+            position: absolute;
+            top: 0;
+            left: 50%;
+        }
+        ul li::after {
+            content:'';
+            position: absolute;
+            border-bottom: 2px solid red;
+            transform: scale(0);
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            transition: .4s;
+            transform-origin: bottom;
+        }
+        ul li:hover::after {
+            transform: scale(1);
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>Homes</li>
+        <li>Course</li>
+        <li>Books</li>
+        <li>About Us</li>
+        <li>Reviews</li>
+    </ul>
+    <nav class="main_nav">
+        <a href="#">Home</a>
+        <a href="#">Course</a>
+        <a href="#">Books</a>
+        <a href="#">About Us</a>
+        <a href="#">Review</a>
+    </nav>
+    <div>
+        <button>Click me</button>
+    </div>
+</body>
+</html>

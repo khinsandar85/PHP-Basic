@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice 1 - Form</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: rgb(237, 246, 254);
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            margin: 8% 0px;
+        }
+
+        .form_bg {
+            background: linear-gradient( #ed76ed, #92f898);
+            width: 440px;
+        }
+
+        .form_div {
+            margin: 12%;
+            border-radius: 7px;
+            background-color: #0d1998;
+            box-shadow: 3px 3px 3px #01020a;
+        }
+      
+        .form_title {
+            color: #ffffff;
+            font-weight: bold;
+            font-size: 20px;
+            padding: 5%;
+            text-align: center;
+            text-transform: capitalize;
+            background-color: #0a1481;
+            border-top-left-radius: 7px;
+            border-top-right-radius: 7px;
+        }
+
+        form div {
+            margin: 5% 10%;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 97%;
+            padding: 2%;
+            border: none;
+            border-radius: 4px;
+        }
+
+        
+        input[type="text"]:focus-visible,
+        input[type="email"]:focus-visible,
+        input[type="password"]:focus-visible {
+            border: none;
+            outline: none;
+        }
+
+
+        input::placeholder {
+            color: rgb(177, 167, 167);
+        }
+
+        input[type="checkbox"] {
+            margin-right: 3%;
+            border: none;
+        }
+
+        form div:nth-child(6) {
+            display: flex;
+            color: #ffffff;
+            font-size: 9px;
+            margin: 0% 10% 0% 10%;
+        }
+
+        form div:nth-child(5) {
+            display: flex;
+            color: #ffffff;
+            font-size: 9px;
+            margin: 9% 10% 3% 10%;
+        }
+
+        form div:last-child {
+            text-align: right;
+            margin-top: 6%;
+            padding-bottom: 7%;
+        }
+
+        form div:last-child input {
+            border: none;
+            border-radius: 10px;
+            padding: 3% 5%;
+            color: #ffffff;
+            box-shadow: 2px 2px 5px gray;
+            background: linear-gradient( #2d39c0, #17218d);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form_bg">
+            <div class="form_div">
+                <div class="form_title">
+                    <p>registration form</p>
+                </div>
+                <form action="">
+                    <div>
+                        <input type="text" name="first_name" placeholder="First name" required>
+                    </div>
+                    <div>
+                        <input type="text" name="last_name" placeholder="Second name" required>
+                    </div>
+                    <div>
+                        <input type="email" name="email" placeholder="Email" required>
+                    </div>
+                    <div>
+                        <input type="password" name="password" placeholder="Password" required>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="check_1" class="check_box" id=""> 
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ferendis reiciendis aliquam, eaque praesentium quidem eveniet quis temporibus quae, optio minusuga.
+                        </p>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="check_1" class="check_box" id=""> 
+                        <p>
+                            Consectetur adipisicing reiciendis aliquam, eaque praesentium quidem eveniet quis temporibus quae, optio minus Fuga Maiores perferendis reiciendis.
+                        </p>
+                    </div>
+                    <div>
+                        <input type="submit" value="Register">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

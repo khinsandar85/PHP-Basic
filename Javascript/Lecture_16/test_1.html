@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Filtering</title>
+    <style>
+        h1 {
+            text-align: center;
+        }
+
+        #search {
+            width: 80%;
+            margin-left: 10%;
+            text-align: right;
+        }
+
+        #search i {
+            background-color: crimson;
+            padding: 0.7rem;
+            color: white;
+        }
+
+        #search input {
+            height: 2.3rem;
+            width: 13rem;
+            border: 1px solid rgb(222, 185, 185);
+        }
+
+        .outer {
+            display: flex;
+        }
+
+        #foodContainer {
+            display: flex;
+            margin: auto;
+            flex-wrap: wrap;
+            width: 80%;
+        }
+
+        .foodDiv {
+            width: 20%;
+            margin: 2%;
+            text-align: center;
+            background-color: #e3e0da;
+            padding: 8px 5px;
+            box-sizing: 8px 8px 8px wheat;
+            border-radius: 10px;
+        }
+
+        .foodDiv img {
+            width: 90%;
+            height: auto;
+            border-radius: 50%;
+            /* margin-left: 5%; */
+        }
+
+        .foodDiv h2 {
+            text-transform: lowercase;
+            color: rgb(3, 67, 70);
+        }
+
+    </style>
+</head>
+<body onload="show()">
+    <h1>Available Myanmar Traditional Foods</h1>
+    <div id="search">
+        <i class="fa fa-search"></i>
+        <input type="text" name="" onkeyup="filterFood(this)" id="">
+    </div>
+    <div class="outer">
+        <div id="foodContainer"></div>
+    </div>
+    <script> 
+        let arr = [
+            {"img" : "p_2.jpg", "name" : "food name 1" , "price" : "1000"},
+            {"img" : "p_2.jpg", "name" : "food name 2" , "price" : "2000"},
+            {"img" : "p_2.jpg", "name" : "food name 3" , "price" : "3000"},
+            {"img" : "p_2.jpg", "name" : "food name 4" , "price" : "4000"},
+            {"img" : "p_2.jpg", "name" : "food name 5" , "price" : "5000"},
+            {"img" : "p_2.jpg", "name" : "food name 6" , "price" : "6000"},
+            {"img" : "p_2.jpg", "name" : "food name 7" , "price" : "7000"},
+            {"img" : "p_2.jpg", "name" : "food name 8" , "price" : "8000"},
+        ];
+
+        let foods = arr;
+
+        let show = () => {
+            for(i = 0; i<foods.length; i++) {
+                let d = document.createElement("div");
+                d.classList.add("foodDiv");
+                let image = document.createElement("img");
+                image.src = "./img/"+foods[i].img;
+                
+                let h2 = document.createElement("h2");
+                h2.innerHTML = foods[i].name;
+
+                let p = document.createElement("p");
+                p.innerHTML = foods[i].price;
+
+
+                d.appendChild(image);
+                d.appendChild(h2);
+                d.appendChild(p);
+
+                foodContainer.appendChild(d);
+            }
+        }
+
+        let filterFood = (e) => {
+            let txt = e.value;
+            foods = arr.filter((item,index, array) => {
+                if (item.name.includes(txt) || item.price.includes(txt)) 
+                    return true;
+            })
+
+            foodContainer.innerHTML = "";
+
+            show();
+        }
+    </script>
+</body>
+</html>

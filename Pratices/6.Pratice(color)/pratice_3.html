@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee Shop</title>
+    <style>
+        body {
+            background-color: #fff9ed;
+        }
+        .titleBox {
+            background-image: url('./img/p3_4.jpg');
+            background-size: 100% 100%;
+            background-size: cover;
+            background-repeat: no-repeat;
+            width: 100%;
+        }
+        @font-face {
+            font-family: 'titleFont';
+            src: url('./font/Bien\ dans\ mon\ Slip.ttf');
+        }
+        .titleBox p {
+            font-size: 30px;
+            padding: 50px 69px;
+            margin: 0px;
+            background: linear-gradient(90deg, #eda511, transparent);
+            color: rgb(139, 9, 9);
+            text-shadow: 3px 3px 3px white;
+            width: 1000px;
+            font-family: 'titleFont';
+        }
+        .nav {
+            padding: 10px;
+            background-color: #ffffff;
+            border: 1px solid #ffffff;
+        }
+        .nav a {
+            margin:0% 10% 0% 10%;
+            color: brown;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            text-shadow: 2px 2px 2px hsl(0, 66%, 79%);
+        }   
+        @font-face {
+            font-family: 'infoFont';
+            src: url('./font/TitilliumWeb-Light.ttf');
+        }
+        .info {
+            font-family: 'infoFont';
+            background-image: url('./img/p3_5.webp');
+            background-size: 100% 100%;
+            height: 590px;
+            position: relative;
+        }
+        .info .textBox {
+            position: absolute;
+            margin: 10% 7% ;
+            color: #fcfaf8;
+            text-shadow: 5px 5px 2px #000;
+        }
+        .info .textBox p:first-child {
+            font-size: 25px;
+            font-weight: bold;
+            margin: 0px;
+            color: white;
+            text-shadow: 5px 5px 2px #000;
+        }
+        .info .textBox p:nth-child(3) {
+            font-size: 20px;
+            margin: 0px;
+        }
+        .footer {
+            background-color: white;
+            text-align: center;
+            padding: 10px;
+        }
+        .footer p {
+            margin: 0px;
+            color: brown;
+            font-style: italic;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="titleBox">
+        <p>KayakDoorCountry.net</p>
+    </div>
+    <div class="nav">
+        <a href="#home">Home</a>
+        <a href="#tours">Tours</a>
+        <a href="#reservations">Reservations</a>
+        <a href="#contact">Contact</a>
+    </div>
+    <div class="info">
+        <div class="textBox">
+            <p>Your next adventure is only a paddle away .....</p>
+            <p>Take a guided kayak tour while you explore the shortline of social door country.</p>
+            <br>
+            <p>Featured tours this week:</p>
+            <ul>
+                <li>Cana Island</li>
+                <li>Mink River</li>
+                <li>Europe Lake</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <p>Copyright &copy; coffee.com</p>
+    </div>
+</body>
+</html>

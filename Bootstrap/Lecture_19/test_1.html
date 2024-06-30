@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.2.1/chart.min.js" integrity="sha512-v3ygConQmvH0QehvQa6gSvTE2VdBZ6wkLOlmK7Mcy2mZ0ZF9saNbbk19QeaoTHdWIEiTlWmrwAL4hS8ElnGFbA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <div class="container-fluid bg-dark p-0">
+        <div class="row g-0">
+            <div class="col-2 bg-white p-3">
+                <h4 class="py-2 text-primary fw-bold text-lg-start text-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-fill-gear " viewBox="0 0 16 16">
+                        <path d="M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm-9 8c0 1 1 1 1 1h5.256A4.493 4.493 0 0 1 8 12.5a4.49 4.49 0 0 1 1.544-3.393C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4Zm9.886-3.54c.18-.613 1.048-.613 1.229 0l.043.148a.64.64 0 0 0 .921.382l.136-.074c.561-.306 1.175.308.87.869l-.075.136a.64.64 0 0 0 .382.92l.149.045c.612.18.612 1.048 0 1.229l-.15.043a.64.64 0 0 0-.38.921l.074.136c.305.561-.309 1.175-.87.87l-.136-.075a.64.64 0 0 0-.92.382l-.045.149c-.18.612-1.048.612-1.229 0l-.043-.15a.64.64 0 0 0-.921-.38l-.136.074c-.561.305-1.175-.309-.87-.87l.075-.136a.64.64 0 0 0-.382-.92l-.148-.045c-.613-.18-.613-1.048 0-1.229l.148-.043a.64.64 0 0 0 .382-.921l-.074-.136c-.306-.561.308-1.175.869-.87l.136.075a.64.64 0 0 0 .92-.382l.045-.148ZM14 12.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0Z"/>
+                    </svg>
+                    <span class="text-uppcase d-lg-inline d-none">Admin</span>
+                </h4>
+
+                <ul class="list-group mb-3 rounded-0">
+                    <li class="list-group-item active" aria-current="true">Basic Work</li>
+                    <li class="list-group-item">
+                        <i class="bi bi-grid-fill"></i>
+                        <span class="d-lg-inline d-none">Items</span>
+                    </li>
+                    <li class="list-group-item">
+                        <i class="bi bi-person-badge "></i>
+                        <span class="d-lg-inline d-none">Staff</span>
+                    </li>
+                    <li class="list-group-item">
+                        <i class="bi bi-bricks "></i>
+                        <span class="d-lg-inline d-none">Sale</span>
+                    </li>
+                </ul>
+
+                <ul class="list-group mb-3 rounded-0 text-lg-start text-center">
+                    <li class="list-group-item active" aria-current="true">
+                        <i class="bi bi-bar-chart-fill "></i>
+                        <span class="d-lg-inline d-none">Report</span>
+
+                    </li>
+                    <li class="list-group-item">
+                        <i class="bi bi-bar-chart-fill "></i>
+                        <span class="d-lg-inline d-none">Staff Report</span>
+                    </li>
+                    <li class="list-group-item">Item Report</li>
+                    <li class="list-group-item">Sale Report</li>
+                    <li class="list-group-item">And a fifth one</li>
+                </ul>
+            </div>
+            <div class="col-10">
+                <nav class=" container-fluid navbar navbar-expand-lg bg-light d-flex justify-content-end">
+                    <ul class="navbar-nav mb-2 mb-lg-0">
+                        <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="text-primary">John Doe</span>
+                            <i class="bi bi-gear-fill text-primary"></i>
+                          </a>
+                          <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item" href="#">
+                                    <i class="bi bi-gear text-primary"></i>
+                                    <span class="text-primary">Setting</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#">
+                                    <i class="bi bi-arrow-right-circle-fill text-primary"></i>
+                                    <span class="text-primary">Logout</span>
+                                </a>
+                            </li>
+                          </ul>
+                        </li>
+                    </ul>
+                </nav>
+
+                <div>                    
+                    <h3 class="text-white">
+                        <i class="bi bi-receipt"></i>
+                        Statistics
+                    </h3>
+                    <div class="row px-2">
+                        <div class="col-lg-3 col-md-6 col-12 text-center fw-bold">
+                            <div class="card my-2 bg-danger text-white">
+                                <div class="card-header">
+                                    <h4 class="card-title">
+                                        No. of Staff
+                                    </h4>
+                                </div>
+                                <h5 class="card-footer">500</h5>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-12 text-center fw-bold">
+                            <div class="card my-2 bg-success text-white">
+                                <div class="card-header">
+                                    <h4 class="card-title">
+                                        No. of Staff
+                                    </h4>
+                                </div>
+                                <h5 class="card-footer">500</h5>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-12 text-center fw-bold">
+                            <div class="card my-2 bg-primary text-white">
+                                <div class="card-header">
+                                    <h4 class="card-title">
+                                        No. of Staff
+                                    </h4>
+                                </div>
+                                <h5 class="card-footer">500</h5>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-12 text-center fw-bold">
+                            <div class="card my-2 bg-warning text-white">
+                                <div class="card-header">
+                                    <h4 class="card-title">
+                                        No. of Staff
+                                    </h4>
+                                </div>
+                                <h5 class="card-footer">500</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-white p-3">
+                        <i class="bi bi-gear"></i>
+                        Chart of Data
+                    </h3>
+                    <div class="row">
+                        <div class="col-lg-6 col-12 p-3 ">
+                            <div class="box line_chart bg-white">
+                                <h2 class="fw-bold text-primary text-center p-3">Manage Sale Report</h2>
+                                <canvas id="line_chart_img"></canvas>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-12 p-3 ">
+                            <div class="box bar_chart bg-white">
+                                <h2 class="fw-bold text-primary text-center p-3">Manage Staff Report</h2>
+                                <canvas id="bar_chart_img"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-3 bg-white mx-1">
+                    <h4 class="text-primary fw-bold">Supplier Information</h4>
+                    <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Address</th>
+                            <th scope="col">Phone</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                                <td>Mark</td>
+                                <td>Mark</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                                <td>Mark</td>
+                                <td>Mark</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                                <td>Mark</td>
+                                <td>Mark</td>
+                            </tr>
+                        </tbody>
+                      </table>
+                </div>
+            </div>
+        </div>
+        <footer class="text-center text-white py-3">
+            <p>
+                &copy; by  ABC Company
+            </p>
+            <p>All right reserved</p>
+        </footer>
+    </div>
+
+    <script>
+        
+        const line_chart_ctx = document.getElementById('line_chart_img');
+        new Chart(line_chart_ctx, {
+            type: 'line',
+            data: {
+                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                datasets: [{      
+                        label: '# of Votes',
+                        data: [12, 10, 3, 5, 2, 7],
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(153, 102, 255, 0.2)',
+                            'rgba(255, 159, 64, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 1
+                    }
+                ]
+            },
+            options: {
+                plugins: {
+                    filler: {
+                        propagate: true
+                    }
+                }
+            }
+        });
+
+        
+        const bar_chart_ctx = document.getElementById('bar_chart_img');
+        new Chart(bar_chart_ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [12, 19, 3, 5, 2, 3],
+                    backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(153, 102, 255, 0.2)',
+                            'rgba(255, 159, 64, 0.2)'
+                        ],
+                    borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+    </script>
+        
+        
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+   
+</body>
+</html>

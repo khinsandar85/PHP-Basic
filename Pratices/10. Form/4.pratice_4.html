@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice 4</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: #99a4a7;
+        }
+
+        .container {
+            margin: 7% auto;
+            width: 500px;
+        }
+        
+        .form_div {
+            background-color: white;
+            border-radius: 7px;
+            border-left: .5px solid rgb(243, 242, 242);
+            box-shadow: 2px 2px 2px rgb(168, 167, 167);
+        }
+
+        label {
+            color: rgb(146, 144, 144);
+        }
+
+        input::placeholder {
+            color: rgb(95, 94, 94);
+            font-size: 15px;
+        }
+
+        .title {
+            background-color: #1212fbdc;
+            text-align: center;
+            padding: 30px;
+            border-top-left-radius: 7px;
+            border-top-right-radius: 7px;
+            color: white;
+        }
+
+        .form_div form {
+            padding: 5% 5% 3% 5%;
+        }
+
+        .form_div form div {
+            margin: 3% 0%;
+        }
+
+        .form_div form div:first-child,
+        .form_div form div:nth-child(2),
+        .form_div form div:nth-child(4) {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .form_div form div:first-child div,
+        .form_div form div:nth-child(2) div,
+        .form_div form div:nth-child(4) div {
+            display: block;
+            width: 215px;
+        }
+
+        .form_div form div:first-child div input {
+            width: 100%;
+        }
+
+        form input {
+            padding: 3% 0%;
+            background-color: transparent;
+            border: none;
+            border-bottom: 2px solid #b0afaf;
+        }
+
+        form input:focus-visible {
+            border: none;
+            outline: none;
+            border-bottom: 2px solid #b0afaf;
+        }
+
+        form input[type="email"], 
+        form input[type="password"], 
+        form input[type="number"] {
+            width: 100%;
+        }
+
+        label {
+
+        }
+
+        form input[type="submit"],
+        form input[type="button"] {
+            border: none;
+            width: 100%;
+            text-transform: uppercase;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: .4s;
+            font-weight: bold;
+        }
+
+        form input[type="submit"] {
+            background-color: rgb(192, 188, 188);
+            color: gray;
+            opacity: .8;
+        }
+
+        form input[type="submit"]:hover {
+            opacity: 1;
+        }
+
+        form input[type="button"] {
+            background-color: #1212fbdc;
+            color: white;
+        } 
+
+        form input[type="button"]:hover {
+            background-color: #05059edc;
+        }
+
+        .female_radio {
+            margin-top: 10px;
+            margin-left: 57px;
+        }
+
+        form div:nth-child(2) div:first-child label {
+            color: rgb(79, 78, 78);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form_div">
+            <div class="title">
+                <h3>Material design sign up form</h3>
+            </div>
+            <form action="">
+                <div>
+                    <div>
+                        <label for="first_name">First name</label> <br>
+                        <input type="text" name="first_name" placeholder="Your First Name">
+                    </div>
+                    <div>
+                        <label for="last_name">Last name</label> <br>
+                        <input type="text" name="last_name" placeholder="Your Last Name">
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <label for="gender">Gender:</label> 
+                        <input type="radio" name="gender"> Male <br>
+                        <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+                        <input type="radio" name="gender" class="female_radio"> Female
+                    </div>
+                    <div>
+                        <label for="age">Age</label> <br>
+                        <input type="number" name="age" placeholder="20">
+                    </div>
+                </div>
+                <div>
+                    <label for="email">Email</label>  <br>
+                    <input type="email" name="email" placeholder="someone@example.com">
+                </div>
+                <div>
+                    <div>
+                        <label for="password">New Password</label> <br>
+                        <input type="password" name="password" placeholder="******">
+                    </div>
+                    <div>
+                        <label for="confirm_password">Confirm Password</label> <br>
+                        <input type="password" name="confirm_password" placeholder="******">
+                    </div>
+                </div>
+                <div>
+                    <input type="submit" value="submit">
+                </div>
+                <div>
+                    <input type="button" value="code pen login form">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

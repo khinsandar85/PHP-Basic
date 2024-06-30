@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Searching Box</title>
+    <style>
+        .container {
+            background-color: aqua;
+            height: 2rem;
+            display: flex;
+            border: 2px solid aqua;
+            margin-bottom: 1rem;
+        }
+
+        .search_bar {
+            margin-left: auto;
+            height: 100%;
+            align-items: center;
+            display: flex;
+        }
+
+        .search_bar i, input {
+            margin-right: 0.5rem;
+            cursor: pointer;
+        }
+
+        #search_input {
+            height: 100%;
+            border: none;
+            outline: none;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        .show {
+            display: inline-block;
+        }
+
+        /* .form_div {
+            display: flex;
+        } */
+
+        form {
+            /* background-color: whitesmoke; */
+            width: 40%;
+            margin: auto;
+            border-radius: 10px;
+            /* box-shadow: 5px 5px 5px #f0b5b5; */
+        }
+
+        form h1 {
+            text-align: center;
+            color: rgb(6, 70, 92);
+        }
+
+        .form_input {
+            background-color: lightblue;
+            height: 2rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            border: 2px solid lightblue;
+            border-radius: 15px;
+        }
+
+        .form_input i {
+            margin: 0rem 0.5rem;
+        }
+
+        .form_input input {
+            margin: 0rem 0.5rem;
+            height: 97%;
+            border: none;
+            outline: none;
+            width: 100%;
+
+        }
+        .btn_bar {
+            display: flex;
+        }
+
+        #register_btn{
+            margin: auto;
+            height: 2rem;
+            border: none;
+            background-color: lightblue;
+            border-radius: 5px;
+            font-weight: bold;
+            padding: 10px;
+        }
+
+        .err {
+            color: red;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="search_bar">
+            <i class="fa fa-search" onmouseover="hide_show();"></i>
+            <input type="text" id="search_input" class="hide">
+        </div>
+    </div>
+
+    <form action="./test_1.html" method="post" id="form">
+        <div class="form_div">
+            <h1>Registration Form</h1>
+            <div class="form_input name_row">
+                <i class="fa fa-user"></i>
+                <input type="text" id="user_name" placeholder="UserName" onchange="check_name(this)" onfocus="shake(this)" onblur="normal(this)">
+            </div>
+            <p class="err_name err"></p>
+            <div class="form_input email_row">
+                <i class="fa fa-envelope"></i>
+                <input type="text" id="user_email" placeholder="Email ..." onfocus="shake(this)" onblur="normal(this)">
+            </div>
+            <p class="err_email err"></p>
+            <div class="form_input password_row">
+                <i class="fa fa-key"></i>
+                <input type="text" id="user_password" placeholder="Password ... " onfocus="shake(this)" onblur="normal(this)">
+            </div>
+            <p class="err_password err"></p>
+        </div>
+        <div class="btn_bar">
+            <input type="submit" value="Register Now" id="register_btn">
+        </div>
+    </form>
+
+    <script>
+
+        let check_name = (event) => {
+            let name = event.value;
+            let pattern = /^[A-Z]{1}[a-z]*( [A-Z]{1}[a-z]+)*$/;
+            let name_err = document.querySelector('.err_name');
+
+            if( pattern.test(name) ) {
+                name_err.innerHTML = "";
+                return true;
+            }
+            else {
+                name_err.innerHTML = " Wrong Name Format! (eg. Aye Aye )";
+                return false;
+            }
+        }
+
+        let check_email = () => {
+            let email = user_email.value;
+            let pattern = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+[gmail.com]{1}/;
+            let err_email = document.querySelector(".err_email");
+
+            if( pattern.test(email)) {
+                err_email.innerHTML = "";
+                return true;
+            }
+            else {
+                err_email.innerHTML = "Wrong Format! (eg. at least 8 characters that contains at least one letter, and add special character.)"
+                return false;
+            }
+        }
+
+        let check_password = () => {
+            let pass = user_password.value;
+            let pattern = /((?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@%*!])).{8,}/;
+            let err_password = document.querySelector(".err_password");
+
+            if( pattern.test(pass)) {
+                err_password.innerHTML = "";
+                return true;
+            }
+            else {
+                err_password.innerHTML = "Wrong Format! (eg. at least 8 characters that contains at least one letter, and add special character.)"
+                return false;
+            }
+        }
+
+        let hide_show = () => {
+            search_input.classList.toggle("hide");
+            search_input.classList.toggle("show");
+        }
+
+        let shake = (event) => {
+            let e = event.parentNode;
+            e.style.transform = 'rotate(2deg)';
+            e.style.backgroundColor = "#facebf";
+            e.style.borderColor = '#facebf';
+        }
+
+        let normal = (event) => {
+            let e = event.parentNode;
+            e.style.transform = 'rotate(0deg)';
+            e.style.backgroundColor = "lightblue";
+            e.style.borderColor = 'lightblue';
+        }
+
+        let checking_form = () => {
+            return check_name() && check_email() && check_password();
+        }
+
+        user_email.addEventListener("change",check_email);
+        user_password.addEventListener("change",check_password);
+        form.addEventListener("submit", checking_form);
+    </script>
+</body>
+</html>

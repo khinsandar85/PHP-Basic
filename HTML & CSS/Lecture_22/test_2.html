@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transform 2</title>
+    <style>
+        .outer {
+            display: flex;
+        }
+
+        .inner {
+            width: 200px;
+            height: 200px;
+        }
+
+        .div1 {
+            background-color: blue;
+        }
+
+        .div2 {
+            background-color: lawngreen;
+            transition-property: transform, width, height;
+            transition-duration: 2s;
+        }
+
+        .div2:hover {
+            transform: rotate(45deg);
+            /* width: 300px;
+            height: 300px; */
+        }
+
+        .div3 {
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="inner div1"></div>
+        <div class="inner div2"></div>
+        <div class="inner div3"></div>
+
+    </div>
+</body>
+</html>

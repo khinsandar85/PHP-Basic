@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+        body {
+            background-color: whitesmoke;
+        }
+
+        .header_container {
+            display: flex;
+        }
+
+        h1 {
+            text-align: center;
+            padding :1rem 0rem;
+            margin: 1.5rem auto;
+            font-size: 4rem;
+            border-top: 0.5rem solid black;
+            border-bottom: 0.5rem solid black;
+            display: inline-block;
+            background: linear-gradient(135deg, blue, orange, green);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent ;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .food {
+            width: 15%;
+            margin: auto;
+            background-color: white;
+            text-align: center;
+            padding: 1rem 0.7rem;
+            border-radius: 10px;
+        }
+
+        .food:hover {
+            background-color: antiquewhite;
+        }
+
+        .food img {
+            width: 80%;
+            height: auto;
+            margin-left: 5%;
+            border-radius: 40%;
+            border-radius: 10px;
+        }
+
+        .food img:hover {
+            transform: scale(1.5);
+        }
+
+        .food p {
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .food button {
+            width: 60%;
+            padding: 0.5rem 0rem;
+            background: linear-gradient(135deg, green, yellow);
+            border-radius: 10px;
+            animation-name: chgColor;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes chgColor {
+            from {
+                background: linear-gradient(135deg, green, yellow);
+
+            }
+            to {
+                background: linear-gradient(135deg, yellow, green);
+
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="header_container">
+        <h1>Myanmar Traditional Foods</h1>
+    </div>
+    <div class="container">
+        <div class="food">
+            <img src="./img/f_1.jpg" alt="">
+            <p>food1</p>
+            <p>Price : 1500</p>
+            <button>Add to Cart</button>
+        </div>
+        <div class="food">
+            <img src="./img/f_1.jpg" alt="">
+            <p>food1</p>
+            <p>Price : 1500</p>
+            <button>Add to Cart</button>
+        </div>
+        <div class="food">
+            <img src="./img/f_1.jpg" alt="">
+            <p>food1</p>
+            <p>Price : 1500</p>
+            <button>Add to Cart</button>
+        </div>
+        <div class="food">
+            <img src="./img/f_1.jpg" alt="">
+            <p>food1</p>
+            <p>Price : 1500</p>
+            <button>Add to Cart</button>
+        </div>
+        <div class="food">
+            <img src="./img/f_1.jpg" alt="">
+            <p>food1</p>
+            <p>Price : 1500</p>
+            <button>Add to Cart</button>
+        </div>
+        <div class="food">
+            <img src="./img/f_1.jpg" alt="">
+            <p>food1</p>
+            <p>Price : 1500</p>
+            <button>Add to Cart</button>
+        </div>
+        <div class="food">
+            <img src="./img/f_1.jpg" alt="">
+            <p>food1</p>
+            <p>Price : 1500</p>
+            <button>Add to Cart</button>
+        </div>
+    </div>
+</body>
+</html>

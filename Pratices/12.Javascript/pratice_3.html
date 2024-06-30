@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circle Radius</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+        }
+
+        .input_box {
+            padding: 17% 3%;
+            background-color: #f9f8dc;
+        }
+          
+        #area_result  {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        h3 {
+            font-size: 25px;
+            color: #874606;
+        }
+
+        #area_result h3:last-child {
+            color: rgb(3, 3, 78);
+        }
+
+        .input_box input {
+            padding: 5%;
+            margin: 8% 0% 2% 0%;
+            width: 420px;
+            border-radius: 5px;
+            background-color: #e4d7d7;
+            border: 1px solid #874606;
+        }
+
+        ::placeholder {
+            color: #874606;
+        }
+
+        input[type="submit"] {
+            border: none;
+            color: white;
+            background-color: #874606;
+            font-weight: bold;
+            border: 2px solid #874606;
+            cursor: pointer;
+        }
+
+        #show_img {
+            width: 1000px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+      
+        .link {
+            margin: 51% 0%;
+        }
+
+        .link a {
+            text-decoration: none;
+            color: #874606;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="input_box">
+            <div id="area_result">
+                <h3>Calculate Area ... </h3>
+                <h3 id="area"></h3>
+            </div>
+            <div>
+                <input type="number" name="radius" id="radius" required placeholder="Please enter radius first...">
+            </div>           
+            <div>
+                <input type="submit" onclick="calc_area()" value="View">
+            </div>
+            <div class="link">
+                <a href="https://www.calculatorsoup.com/calculators/geometry-plane/circle.php">
+                    @ check
+                </a>
+            </div>
+        </div>   
+        <div id="show_img">
+            <img src="./img/form_3.jpg" id="img_div" alt="">
+        </div> 
+    </div>
+
+    <script>
+        
+        function calc_area() {
+
+            if( !Number(radius.value) ) {
+                alert("Please enter radius first! ");
+            }
+            else {
+                let pi = 3.1415926535898;
+                let r = Number(radius.value);
+                let d = r + r;
+                let a = pi * ( r * r );
+                console.log(r);
+
+                area.innerHTML = a.toFixed(2) + " Areas";
+                document.getElementById("img_div").style.width = `${d}px`;
+                document.getElementById("img_div").style.height = `${d}px`;
+                document.getElementById("img_div").style.borderRadius = "50%";
+            }
+        }
+        
+    </script>
+</body>
+</html>

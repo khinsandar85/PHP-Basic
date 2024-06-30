@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Border Image</title>
+    <style>
+        body {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+        }
+        div{
+            /* border: 5px solid transparent; */
+            border-bottom: 5px solid transparent;
+            margin: auto;
+            content: "";
+            width: 500px;
+            height: 300px;
+            /* border-image: url('./img/shape.png') 33% repeat; */
+            border-image-source: url('./img/shape.png');
+            border-image-slice: 33%; /*300 */
+            border-image-repeat: round;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

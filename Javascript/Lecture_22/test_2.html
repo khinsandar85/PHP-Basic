@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let admin = {
+        //     name : "U Mg Mg",
+        //     password : "123456",
+        // };
+
+        // let json_string = JSON.stringify(admin);
+
+        // document.write(json_string+ "<br>"+ "<br>");
+
+        // let string = JSON.parse(json_string);
+
+        // document.write(string.name +" : " + string["password"] );
+
+
+
+
+
+
+
+        //parse Problem
+        let c = { location: "Hotel Mandalay", hTime : "February 5, 2022 1:30:00"};
+
+        let str = JSON.stringify(c);
+
+        // let o = JSON.parse(str);
+        let o = JSON.parse(str, function(key, value) {
+            if(key == "hTime") {
+                return new Date(value);
+            }
+            return value;
+        });
+
+        document.write(o.location);
+        document.write(o.hTime.getDate());
+    </script>
+</body>
+</html>

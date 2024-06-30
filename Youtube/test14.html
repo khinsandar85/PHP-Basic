@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecture 9- Animation practice</title>
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+        }
+        .container {
+            margin: auto 50%;
+            display: flex;
+        }
+        .circle1 {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: red;
+            margin-top: 25px;
+            margin-right: 8px;
+            transition: .4s;
+            animation-duration: 1.5s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            animation-name: circel_1;
+        }
+        @keyframes circel_1 {
+            0% {margin-top: 25px;}
+            25% {margin-top: 0px;}
+            50% {margin-top: -25px;}
+            75% {margin-top: 0px;}
+            100% {margin-top: 25px;}
+        }
+        .circle2 {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: blue;
+            margin-top: 25px;
+            margin-right: 8px;
+            transition: .4s;
+            animation-duration: 1.5s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            animation-name: circel_2;
+            animation-delay: .1s;
+        }
+        @keyframes circel_2 {
+            0% {margin-top: 25px;}
+            25% {margin-top: 0px;}
+            50% {margin-top: -25px;}
+            75% {margin-top: 0px;}
+            100% {margin-top: 25px;}
+        }
+        .circle3 {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: yellow;
+            margin-top: 25px;
+            margin-right: 8px;
+            transition: .4s;
+            animation-duration: 1.5s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            animation-name: circel_3;
+            animation-delay: .12s;
+        }
+        @keyframes circel_3 {
+            0% {margin-top: 25px;}
+            25% {margin-top: 0px;}
+            50% {margin-top: -25px;}
+            75% {margin-top: 0px;}
+            100% {margin-top: 25px;}
+        }
+        .circle4 {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: orange;
+            margin-top: 25px;
+            margin-right: 8px;
+            transition: .4s;
+            animation-duration: 1.5s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            animation-name: circel_4;
+            animation-delay: .17s;
+        }
+        @keyframes circel_4 {
+            0% {margin-top: 25px;}
+            25% {margin-top: 0px;}
+            50% {margin-top: -25px;}
+            75% {margin-top: 0px;}
+            100% {margin-top: 25px;}
+        }
+        
+        .circle5 {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: yellow;
+            margin-top: 25px;
+            transition: .4s;
+            animation-duration: 1.5s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            animation-name: circel_5;
+            animation-delay: .25s;
+        }
+        @keyframes circel_5 {
+            0% {margin-top: 25px;}
+            25% {margin-top: 0px;}
+            50% {margin-top: -25px;}
+            75% {margin-top: 0px;}
+            100% {margin-top: 25px;}
+        }
+        h2 {
+            margin-top: 50px;
+            margin-left: -100px;
+            color: saddlebrown;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="circle1"></div>
+        <div class="circle2"></div>
+        <div class="circle3"></div>
+        <div class="circle4"></div>
+        <div class="circle5"></div>
+        <h2>Loading...</h2>
+    </div>
+</body>
+</html>

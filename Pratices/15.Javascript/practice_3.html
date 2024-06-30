@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Book Review</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: whitesmoke;
+        }
+
+        .nav_box {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            background-color: #b7530b;
+            padding: 20px 10%;
+            height: 70px;
+            z-index: 100;
+            position: fixed;
+            color: white;
+        }
+
+        .nav_box p {
+            font-size: 28px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .nav {
+            width: 60%;
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        .nav a {
+            text-decoration: none;
+            text-transform: capitalize;
+            margin-top: -2px;
+            color: white;
+            font-weight: bold;
+            padding: 5px 20px 10px 20px;
+            border-bottom: 1px solid;
+            transition: .4s;
+        }
+
+        .nav a:hover {
+            background-color: white;
+            border-radius: 5px;
+            color: #b7530b;
+        }
+
+        #active_link {
+            text-decoration: none;
+            border-radius: 5px;
+            border: 1px solid;
+            box-shadow: 0 0 5px ;
+        }
+
+        #search {
+            margin-left: 10%;
+            text-align: right;
+            display: flex;
+        }
+
+        #search i {
+            background-color: white;
+            padding: 0.5rem;
+            height: 2.3rem;
+            color: black;
+        }
+
+        #search input {
+            height: 2.3rem;
+            width: 13rem;
+            border: none;
+        }
+
+        #search input:active,
+        #search input:focus-visible {
+            border: none;
+            outline: none;
+        }
+
+        .outer {
+            display: flex;
+            position: relative;
+        }
+
+        .container {
+            margin: auto;
+            display: flex;
+            margin-top: 9%;
+            width: 80%;
+        }
+
+        .review_box {
+            width: 70%;
+            margin: auto;
+            background-color: white;
+            border-radius: 15px;
+            padding: 1%;
+            cursor: pointer;
+            transition: .4s;
+        }
+
+        .review_box:hover {
+            box-shadow: 1px 1px 3px gray;
+        }
+
+        .book_img_box {
+            display: flex;
+            width: 100%;
+            justify-content: space-evenly;
+        }
+
+        .book_img_box img {
+            width: 250px;
+            height: 320px;
+            display: flex;
+            margin: 2% 5% 2% 2%;
+            border: 2px solid #ede3e3;
+            transition: .4s;
+        }
+
+
+        .book_img_box div {
+            padding: 3% 3% 3% 0%;
+        }
+
+        .book_img_box div p:first-child {
+            font-weight: bold;
+            font-size: 28px;
+            color: brown;
+            margin-bottom: 20px;
+            text-transform: capitalize;
+        }
+
+        .book_img_box div p:nth-child(2) {
+            line-height: 150%;
+            text-align: justify;
+            margin-bottom: 15px;
+        }
+
+        .book_img_box div p:last-child {
+            color: red;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .book_img_box div .star_box {
+            margin: 7% 0% 1% 0%;
+        }
+        
+
+        .review_text {
+            padding: 3%;
+            display: flex;
+        }
+
+        .review_text .user_img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 2px solid blue;
+            padding: 0.7%;
+            background-color: white;
+            margin: 1% 5% 1% 1%;
+            transition: .4s;
+        }
+
+        .review_text .user_img:hover {
+            border: 3px solid black;
+        }
+
+        .review_box_data p:first-child {
+            color: #813906;
+            font-size: 18px;
+            font-weight: bold;
+            margin: 25px 0px 5px 0px;
+        }
+
+        .review_box_data p:nth-child(2) {
+            margin-bottom: 10px;
+        }
+
+        .moveBtn{
+            position: absolute;
+            border-radius: 50%;
+            border: none;
+            width: 40px;
+            background-color: white;
+            box-shadow: 0px 0px 5px chocolate;
+            color: chocolate;
+            font-weight: bold;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .left_btn {
+            top: 55%;
+            left: 15%;
+            padding: 1% 1% 1% .7%;
+        }
+
+        .right_btn {
+            top: 55%;
+            right: 15%;
+            padding: 1% .7% 1% 1%;
+        }
+
+        .moveBtn:active {
+            background-color: chocolate;
+            color: white;
+        }
+
+        /* .moveRight {
+            animation-name: click_right;
+            animation-duration: 3s;
+            animation-iteration-count: 1;}
+
+        @keyframes click_right {
+            0% {
+                margin-right: 80px;
+            }
+            50% {
+                margin-right: 175px;
+            }
+            100% {
+                margin-right: auto;
+            }
+        }
+
+        .moveLeft {
+            animation-name: click_left;
+            animation-duration: 3s;
+            animation-iteration-count: 1;}
+
+        @keyframes click_left {
+            0% {
+                margin-left: 80px;
+            }
+            50% {
+                margin-left: 175px;
+            }
+            100% {
+                margin-left: auto;
+            }
+        } */
+
+    </style>
+</head>
+<body onload="change_img()">
+    <div class="nav_box">
+        <div>
+            <p>Book </p>
+        </div>
+        <div class="nav">
+            <a href="practice_2.html">shop</a>
+            <a href="practice_4.html">store</a>
+            <a href="practice_3.html" id="active_link">review</a>
+        </div>
+        <div id="search">
+            <i class="fa fa-search"></i>
+            <input type="text" name="" placeholder="Search here ..." onkeyup="filterFood(this)" id="">
+        </div>
+    </div>
+
+    <div class="outer">
+        <div class="container" id="container">
+            <div class="review_box">
+                <div class="book_img_box">
+                    <img src="./img/b_11.jpg" alt="">
+                    <div>
+                        <p>Simplity</p>
+                        <p>Lorem ipsum dolor sitamet consectetur adipisicing elit. 
+                            Consectetur suscipit eveniet nemoesse assumenda repellendus 
+                            delectus enim doloremque, incidunt doloribus etvitae quisquam  
+                            Consectetur suscipit eveniet nemoesse assumenda repellendus 
+                            delectus enim doloremque, incidunt doloribus etvitae quisquam  
+                            magnam harum tenetur, illo-facilis remamet.</p>
+                        <div id="star_box" class="star_box">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                        <p>Price - $35.55</p>
+                    </div>
+                </div>
+                <div class="review_label">
+                    <div class="review_text">
+                        <img src="./img/user_1.jpg" class="user_img" alt="">
+                        <div class="review_box_data">
+                            <p>James Breve</p>
+                            <p>It is a good story. I want to advice to choose this!</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <button class="right_btn moveBtn" onclick="right_to()">
+                <i class="fa fa-angle-right"></i>
+            </button>
+            <button class="left_btn moveBtn" onclick="left_to()">
+                <i class="fa fa-angle-left"></i>
+            </button>
+        </div>
+    </div>
+    
+    <script>
+
+        let arr = [
+            {
+                "img" : "b_11.jpg", 
+                "name" : "Simplicity " , 
+                "price" : "73.89",
+                "data" : "Lorem ipsum dolor sitamet consectetur adipisicing elit. Consectetur suscipit eveniet nemoesse assumenda repellendus delectus enim doloremque, incidunt doloribus etvitae quisquam Consectetur suscipit eveniet nemoesse assumenda repellendus delectus enim doloremque, incidunt doloribus etvitae quisquam magnam harum tenetur, illo-facilis remamet.",
+                "rating" : "3",
+                "user_name" : "James Breve",
+                "user_img" : "user_1.jpg", 
+                "comment" : "It is a good story. I want to advice to choose this!",
+            },
+            {
+                "img" : "bb_2.jpg", 
+                "name" : "think outside box" , 
+                "price" : "55.99",
+                "data" : "Lorem ipsum dolor sitamet consectetur adipisicing elit. Consectetur suscipit eveniet nemoesse assumenda repellendus delectus enim doloremque, incidunt doloribus etvitae quisquam Consectetur suscipit eveniet nemoesse assumenda repellendus delectus enim doloremque, incidunt doloribus etvitae quisquam magnam harum tenetur, illo-facilis remamet.",
+                "rating" : "4",
+                "user_name" : "Lily Someol Erwy",
+                "user_img" : "user_2.jpg", 
+                "comment" : "It is a good book. Try This!",
+            },
+            {
+                "img" : "b_33.jpg", 
+                "name" : "power of pivoting" , 
+                "price" : "432.4",
+                "data" : "Lorem ipsum dolor sitamet consectetur adipisicing elit. Consectetur suscipit eveniet nemoesse assumenda repellendus delectus enim doloremque, incidunt doloribus etvitae quisquam Consectetur suscipit eveniet nemoesse assumenda repellendus delectus enim doloremque, incidunt doloribus etvitae quisquam magnam harum tenetur, illo-facilis remamet.",
+                "rating" : "3",
+                "user_name" : "Olice Mowfjie",
+                "user_img" : "user_3.jpg", 
+                "comment" : "Great.",
+            },
+            {
+                "img" : "b_44.png", 
+                "name" : "author name " , 
+                "price" : "59.l3",
+                "data" : "Lorem ipsum dolor sitamet consectetur adipisicing elit. Consectetur suscipit eveniet nemoesse assumenda repellendus delectus enim doloremque, incidunt doloribus etvitae quisquam Consectetur suscipit eveniet nemoesse assumenda repellendus delectus enim doloremque, incidunt doloribus etvitae quisquam magnam harum tenetur, illo-facilis remamet.",
+                "rating" : "5",
+                "user_name" : "Meria Dava",
+                "user_img" : "user_4.jpg", 
+                "comment" : "Wonderful! That is the best!",
+            },
+            {
+                "img" : "b_5.jpg", 
+                "name" : "killing hemingway" , 
+                "price" : "22.44",
+                "data" : "Lorem ipsum dolor sitamet consectetur adipisicing elit. Consectetur suscipit eveniet nemoesse assumenda repellendus delectus enim doloremque, incidunt doloribus etvitae quisquam Consectetur suscipit eveniet nemoesse assumenda repellendus delectus enim doloremque, incidunt doloribus etvitae quisquam magnam harum tenetur, illo-facilis remamet.",
+                "rating" : "5",
+                "user_name" : "Doloer Ipsum",
+                "user_img" : "user_5.jpg", 
+                "comment" : "Try to read & that give specialize knowledge. ",
+            },
+            {
+                "img" : "b_6.jpg", 
+                "name" : "head line" , 
+                "price" : "55.40",
+                "data" : "Lorem ipsum dolor sitamet consectetur adipisicing elit. Consectetur suscipit eveniet nemoesse assumenda repellendus delectus enim doloremque, incidunt doloribus etvitae quisquam Consectetur suscipit eveniet nemoesse assumenda repellendus delectus enim doloremque, incidunt doloribus etvitae quisquam magnam harum tenetur, illo-facilis remamet.",
+                "rating" : "4",
+                "user_name" : "Ricielion Joe",
+                "user_img" : "user_6.jpg", 
+                "comment" : "Excellent!",
+            },
+            {
+                "img" : "b_7.jpg", 
+                "name" : "Nalterland Topic" , 
+                "price" : "75.63",
+                "data" : "Lorem ipsum dolor sitamet consectetur adipisicing elit. Consectetur suscipit eveniet nemoesse assumenda repellendus delectus enim doloremque, incidunt doloribus etvitae quisquam Consectetur suscipit eveniet nemoesse assumenda repellendus delectus enim doloremque, incidunt doloribus etvitae quisquam magnam harum tenetur, illo-facilis remamet.",
+                "rating" : "4",
+                "user_name" : "Alice Midra",
+                "user_img" : "user_7.jpg", 
+                "comment" : "Best practice book for beginner. You should try this.",
+            },
+            {
+                "img" : "b_8.jpg", 
+                "name" : "The Reflected Mono" , 
+                "price" : "28.94",
+                "data" : "Lorem ipsum dolor sitamet consectetur adipisicing elit. Consectetur suscipit eveniet nemoesse assumenda repellendus delectus enim doloremque, incidunt doloribus etvitae quisquam Consectetur suscipit eveniet nemoesse assumenda repellendus delectus enim doloremque, incidunt doloribus etvitae quisquam magnam harum tenetur, illo-facilis remamet.",
+                "rating" : "3",
+                "user_name" : "Zieol Ovein",
+                "user_img" : "user_8.jpg", 
+                "comment" : "Almost all good.",
+            },
+            {
+                "img" : "b_9.jpg", 
+                "name" : "abandoned clunker" , 
+                "price" : "57.29",
+                "data" : "Lorem ipsum dolor sitamet consectetur adipisicing elit. Consectetur suscipit eveniet nemoesse assumenda repellendus delectus enim doloremque, incidunt doloribus etvitae quisquam Consectetur suscipit eveniet nemoesse assumenda repellendus delectus enim doloremque, incidunt doloribus etvitae quisquam magnam harum tenetur, illo-facilis remamet.",
+                "rating" : "5",
+                "user_name" : "Smile VIsoe",
+                "user_img" : "user_9.jpg", 
+                "comment" : "Great! Specialize for practice people.",
+            },
+        ];
+
+        let foods = arr;
+        let icon = `<i class="fa fa-star"></i>`;
+        
+        
+
+        function img_div(i) {
+            let story = icon;
+            let a = foods[i]["rating"] - 2;
+            
+            for (j=0; j<=a; j++) {
+                story += icon;
+            }
+            return `
+                <div class="review_box" id="review_box">
+                    <div class="book_img_box">
+                        <img src="./img/${foods[i]["img"]}" alt="">
+                        <div>
+                            <p>${foods[i]["name"]}</p>
+                            <p>${foods[i]["data"]}</p>
+                            <div class="star_box">
+                    `
+                    +
+                    story
+                    +
+                    `
+                            </div>
+                            <p>Price - $ ${foods[i]["price"]} </p>
+                        </div>
+                    </div>
+                    <div class="review_label">
+                        <div class="review_text">
+                            <img src="./img/${foods[i]["user_img"]}" class="user_img" alt="">
+                            <div class="review_box_data">
+                                <p>${foods[i]["user_name"]}</p>
+                                <p>${foods[i]["comment"]}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        let i = 0;
+
+        function left_to() {
+            i--;
+
+            if( i == -1 ) {
+                i = arr.length-1 ;
+            }
+            
+            let frame = img_div(i);
+            container.innerHTML = frame;
+
+            // review_box.classList.add("moveLeft");
+            
+        }
+
+        function right_to() {
+            i++;
+
+            if( i == arr.length ) {
+                i = 0 ;
+            }
+
+            let frame = img_div(i);
+            container.innerHTML = frame;
+
+            // review_box.classList.add("moveRight");
+
+        }
+
+        function auto_right() {
+            i++;
+
+            if( i == arr.length ) {
+                i = 0 ;
+            }
+
+            let frame = img_div(i);
+            container.innerHTML = frame;
+
+        }
+
+        function change_img() {
+            setInterval(right_to, 3000);
+        }
+
+        // let filterFood = (e) => {
+        //     let txt = e.value;
+        //     foods = arr.filter((item,index, array) => {
+        //         if (item.name.includes(txt) || 
+        //             item.rating.includes(txt) ||
+        //             item.user_name.includes(txt) 
+        //             ) 
+        //             return true;
+        //     })
+
+        //     foodContainer.innerHTML = "";
+
+        // }
+    
+    </script>
+</body>
+</html>

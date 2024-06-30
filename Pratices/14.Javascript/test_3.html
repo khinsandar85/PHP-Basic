@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+        }
+
+        div {
+            margin: auto;
+        }
+
+        img {
+            width: 300px;
+            height: 200px;
+            border: 5px solid brown;
+            cursor: pointer;
+        }
+
+        h2 {
+            text-align: center;
+            color: brown;
+            background-color: pink;
+            padding: 10px 0px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <img src="./img/form_3.jpg" id="show_img" onclick="click_box(this)" alt="">
+        <h2 id="p_name" onclick="click_txt(this)"></h2>
+    </div>
+
+    <script> 
+        p_name.innerHTML = "Picture One";
+
+        let image_fun = (data, count) => {
+            p_name.innerHTML = `Picture ${count}`;
+            let image = document.getElementById("show_img");
+            image.src = `./img/${data}`;
+        }
+
+        let click_txt = (ig) => {
+            if ( ig.innerHTML == "Picture One") {
+                image_fun("form_5.jpg", "Two");
+            }
+            else if ( ig.innerHTML == "Picture Two") {
+                image_fun("form_6.jpg", "Three");
+            }
+            else if ( ig.innerHTML == "Picture Three") {
+                image_fun("form_1.webp", "Four");
+            }
+            else if ( ig.innerHTML == "Picture Four") {
+                image_fun("form_2.webp", "Five");
+            }
+            else if ( ig.innerHTML == "Picture Five") {
+                image_fun("form_7.jpg", "Six");
+            }
+            else if ( ig.innerHTML == "Picture Six") {
+                image_fun("form_8.jpg", "Seven");
+            }
+            else if ( ig.innerHTML == "Picture Seven") {
+                image_fun("form_9.jfif", "Eight");
+            }
+            else if ( ig.innerHTML == "Picture Eight") {
+                image_fun("form_10.webp", "Nine");
+            }
+            else {
+                image_fun("form_11.jpg", "Ten");
+            }
+        }
+
+        let image_click = (data, count) => {
+            p_name.innerHTML = `Picture ${count}`;
+            let image = document.getElementById("show_img");
+            image.src = `./img/${data}`;
+        }
+
+        let click_box = (i) => {
+            let old = i.src;
+
+            if ( old.includes("form_3.jpg")) {
+                image_fun("form_5.jpg", "Two");
+            }
+            else if ( old.includes("form_5.jpg")) {
+                image_fun("form_6.jpg", "Three");
+            }
+            else if ( old.includes("form_6.jpg")) {
+                image_fun("form_1.webp", "Four");
+            }
+            else if ( old.includes("form_1.webp")) {
+                image_fun("form_7.jpg", "Five");
+            }
+            else if ( old.includes("form_7.jpg")) {
+                image_fun("form_8.jpg", "Six");
+            }
+            else if ( old.includes("form_8.jpg")) {
+                image_fun("form_9.jfif", "Seven");
+            }
+            else if ( old.includes("form_9.jfif")) {
+                image_fun("form_10.webp", "Eight");
+            }
+            else if ( old.includes("form_10.webp")) {
+                image_fun("form_11.jpg", "Nine");
+            }
+            else if ( old.includes("form_11.jpg")) {
+                image_fun("form_1.webp", "Ten");
+            }
+            else {
+                image_fun("form_1.webp", "Eleven");
+            }
+
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <title>Array 5</title>
+    <style>
+        .outer {
+            width: 98vw;
+            height: 350px;
+            display: flex;
+            align-items: center;
+            margin-top: 12%;
+        }
+
+        .inner {
+            height: 500px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .inner i {
+            background-color: brown;
+            padding: 3%;
+            border-radius: 50%;
+            box-shadow: 0 0 5px red, 0 0 10px rgb(8, 8, 158);
+            font-size: 2rem;
+            color: white;
+
+        }
+
+        .left {
+            width: 20%;
+            justify-content: right;
+        }
+
+        .left i {
+            margin-right: -20px;
+            z-index: 100;
+        }
+
+        .center {
+            width: 60%;
+        }
+
+        .right {
+            width: 20%;
+        }
+
+        .right i {
+            margin-left: -20px;
+            z-index: 100;
+        }
+
+        #myImg {
+            border-radius: 30px;
+            border:  4px solid black;
+            box-shadow: 0 0 14px gray;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+    </style>
+    
+</head>
+<body onload="change_img()">
+    <h1>Bagan Gallery</h1>
+    <div class="outer">
+        <div class="inner left" onclick="leftTO()">
+            <i class="fa fa-angles-left"></i>
+        </div>
+        <img class="inner center" id="myImg" src="./img/balloon_1.jpg" alt="">
+        <div class="inner right" onclick="rightTO()">
+            <i class="fa fa-angles-right"></i>
+        </div>
+    </div>
+
+    <script>
+        let arr = ["balloon_1.jpg", "balloon_2.jpg", "balloon_3.jpg", "e_bike_1.jpg"];
+        let i = 0;
+
+        function leftTO() {
+            i--;
+            if( i == -1 ) {
+                i = arr.length-1 ;
+            }
+            myImg.src= "./img/" +arr[i];
+        }
+
+        function rightTO() {
+            i++;
+            if( i == arr.length ) {
+                i = 0 ;
+            }
+            myImg.src= "./img/" +arr[i];
+        }
+
+        function change_img() {
+            setInterval(rightTO, 1500);
+            // for ( i = 1; i <=10; i++ ) {
+            //     setTimeout(rightTO, i*2000);
+            // }
+        }
+    </script>
+</body>
+</html>

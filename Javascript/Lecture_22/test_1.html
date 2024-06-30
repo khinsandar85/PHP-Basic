@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let user_1 = {name: "mg mg", age : 23};
+        // let user_2 = {name: "su su", age : 32};
+
+        // function sayHi() {
+        //     document.write("hi from" + this.name);
+        // }
+
+        // user_1.hi = sayHi;
+        // user_2.hi = sayHi;
+
+        // user_1.hi();
+        // user_2.hi();
+
+
+        function User(n,a) {
+            this.name = n;
+            this.age = a;
+            this.hello = function () {
+                document.write("Hello! I am "+ this.name + ". I am " + this.age +" years old.");
+            }
+        }
+
+        let u1 = new User("Mg Mg", 22);
+        let u2 = new User("Ag Ag", 32);
+
+        ul.hello();
+        u2.hello();
+
+        //15:19
+    </script>
+</body>
+</html>

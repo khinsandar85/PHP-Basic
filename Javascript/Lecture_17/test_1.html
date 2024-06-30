@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Income Expense</title>
+    <style>
+        body {
+            background-color: rgb(83, 83, 83);
+        }
+
+        .container {
+            width: 90%;
+            margin-left: 5%;
+            background-color: white;
+        }
+
+        .container h1 {
+            padding: 1rem;
+        }
+
+        .outer {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .left {
+            width: 400px;
+        }
+
+        .inputForm {
+            background-color: whitesmoke;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            box-shadow: 7px 7px 7px rgb(235, 145, 129);
+        }
+
+        .income_input {
+            color: violet;
+        }
+
+        .expense_input {
+            color: teal;
+        }
+
+        .row {
+            display: flex;
+        }
+
+        .row label {
+            width: 30%;
+        }
+
+        .row input {
+            height: 1.5rem;
+            width: 65%;
+            border: 1px solid rgb(185, 182, 182);
+            border-radius: 5px;
+            margin: 10px 0px;
+        }
+
+        .btn_div {
+            display: flex;
+        }
+        
+        button {
+            margin: auto;
+            height: 2rem;
+            width: 8rem;
+            border-radius: 8px;
+            color: white;
+            font-size: 1rem;
+            border: none;
+        }
+
+        #btn_income {
+            background-color: violet;
+        }
+
+        #btn_expense {
+            background-color: teal;
+        }
+
+        .right {
+            width: 800px;
+            margin-left: 2rem ;
+        }
+
+        .totalDiv {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            background-color: whitesmoke;
+            padding: 1rem 0.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 7px 7px 7px rgb(235, 145, 129);
+        }
+
+        .total {
+            flex-grow: 1;
+        }
+
+        .total_header {
+            /* font-size: 2rem; */
+            color: darkblue;
+        }
+
+        .all {
+            margin-bottom: 2rem;
+        }
+
+        .all .row div {
+            flex-grow: 1;
+            width: 100%;
+        }
+
+        .all button {
+            width: 2rem;
+            background-color: crimson;
+        }
+
+        .all_income h2 {
+            color: teal;
+            font-variant: small-caps;
+        }
+
+        .header {
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        .data {
+            font-size: 1.2rem;
+        }
+
+        .all_income h2 {
+            color: crimson;
+            font-variant: small-caps;
+        }
+
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <h1>Income & Expense Project</h1>
+        <div class="outer">
+            <div class="left">
+                <div class="income_input inputForm">
+                    <h2>Insert Income</h2>
+                    <div class="row">
+                        <label for="">Name</label>
+                        <input type="text" name="" id="income_name">
+                    </div>
+                    <div class="row">
+                        <label for="">Amount</label>
+                        <input type="number" name="" id="income_amount" >
+                    </div>
+                    <div class="row">
+                        <label for="">Date</label>
+                        <input type="text" name="" id="" placeholder="Date" onfocus="(this.type='date')">
+                    </div>
+                    <div class="btn_div">
+                        <button id="btn_income">Insert Income</button>
+                    </div>
+                </div>
+                <div class="expense_input inputForm">
+                    <h2>Insert Expense</h2>
+                    <div class="row">
+                        <label for="">Name</label>
+                        <input type="text" name="" id="income_name">
+                    </div>
+                    <div class="row">
+                        <label for="">Amount</label>
+                        <input type="number" name="" id="income_amount">
+                    </div>
+                    <div class="row">
+                        <label for="">Date</label>
+                        <input type="date" name="" id="">
+                    </div>
+                    <div class="btn_div">
+                        <button id="btn_expense">Insert Expense</button>
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                <div class="totalDiv">
+                    <div class="row total_header">
+                        <div class="total"><i class="fa fa-minus-square"></i></div>
+                        <div class="total"><i class="fa fa-plus-square"></i></div>
+                        <div class="total">Balance <i class="fa fa-dollor-sign"></i></div>
+                    </div>
+                    <div class="row header">
+                        <div class="total" id="income_total">0</div>
+                        <div class="total" id="expense_total">0</div>
+                        <div class="total" id="balance">0 </div>
+                    </div>
+                </div>
+                <div class="all_income all">
+                    <h2>All Income</h2>
+                    <div class="row header">
+                        <div>Income Name</div>
+                        <div>Date</div>
+                        <div>Amount</div>
+                        <div>Manage</div>
+                    </div>
+                    <div class="row">
+                        <div>Salary</div>
+                        <div>2022-7-6</div>
+                        <div>100,000</div>
+                        <div>
+                            <button>
+                                <i class="fa fa-edit"></i>
+                            </button>
+                            <button>
+                                <i class="fa fa-trash-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="all_expense all">
+                    <h2>All Expense</h2>
+                    <div class="row header">
+                        <div>Income Name</div>
+                        <div>Date</div>
+                        <div>Amount</div>
+                        <div>Manage</div>
+                    </div>
+                    <div class="row">
+                        <div>Salary</div>
+                        <div>2022-7-6</div>
+                        <div>100,000</div>
+                        <div>
+                            <button>
+                                <i class="fa fa-edit"></i>
+                            </button>
+                            <button>
+                                <i class="fa fa-trash-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <i class="fa fa-minus-square"></i>
+                <i class="fa fa-edit"></i>
+                <i class="fa fa-trash-alt"></i>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

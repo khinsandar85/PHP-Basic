@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <title>Collection Website</title>
+    <style>
+        body {
+            background-color: white;
+        }
+
+        .header {
+            font-variant: small-caps;
+        }
+
+        .sidebar li span {
+            text-transform: capitalize;
+        }
+
+        .li_active {
+            cursor: pointer;
+            border-left: 15px solid blue;
+            border-right: 15px solid transparent;
+            border-top: 0px;
+            transition: .4s;
+            background-color: rgb(215, 229, 232) !important;
+            color: blue;            
+        }
+
+        .li_active::after {
+            content: "";
+            border-top: 24px solid transparent;
+            border-bottom: 24px solid transparent;
+            border-right: 24px solid #ffffff;
+            margin-top: -37px;
+            right: 0;
+            display: flex;
+            position: absolute;
+        }
+
+        .sidebar li,
+        .footer_sidebar li {
+            cursor: pointer;
+            padding: 10px 12px;
+            transition: .4s;
+        }
+
+        .sidebar li:hover,
+        .footer_sidebar li:hover {
+            color: white;
+            border-left: 15px solid black;
+            border-right: 15px solid black;
+            background-color: #0d6efd !important;
+        }
+
+        .space {
+            height: 235px;
+        }
+
+        .scroll_div {
+            margin-left: 16.8%;
+            width: 1210px;
+        }
+
+        .scroll_div div {
+            /* height: 700px; */
+        }
+
+        .hide {
+            display: none;
+        }
+
+        .show {
+            display: inline-block;
+        }
+
+        .card_box {
+            margin: 12% 3% 1% 3%;
+        }
+
+        .card {
+            height: 490px;
+            transition: .4s;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: scale(1.015);
+            box-shadow: 0 0 2px gray, 0 0 5px rgb(204, 204, 217);
+        }
+
+        .card img {
+            height: 245px;
+        }
+
+        .form_div {
+            margin: 10% 3% 3% 3%;
+        }
+
+    </style>
+</head>
+<body onload="fill_card_onload()">
+    <div class="container-fluid w-100">
+        <div class="row">
+            <div class="col-2 p-0 bg-light position-fixed shadow rounded">
+                <div class="header py-1 px-2 bg-light">
+                    <div class="bg-white rounded-3 shadow py-3 px-2">
+                        <i class="fa fa-cloud fs-3 text-primary"></i>  
+                        <span class="text-center fw-bold fs-2">Collection</span>              
+                    </div>    
+                </div>
+                <div class="sidebar">
+                    <ul class="list-unstyled">  
+                        <li class="my-2"></li>                      
+                        <li class="my-2 li_active" onclick="click_item('books', this)">
+                            <div class="row">
+                                <div class="col-3 text-end">
+                                    <i class="fa fa-book fs-4 text-primary"></i>
+                                </div>
+                                <div class="col-9 text-start">
+                                    <span class="fw-bold fs-6">Books Collections</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="my-2" onclick="click_item('clothes', this)">
+                            <div class="row">
+                                <div class="col-3 text-end">
+                                    <i class="fa fa-user fs-5 text-primary"></i>
+                                </div>
+                                <div class="col-9 text-start">
+                                    <span class="fw-bold fs-6">Latest Clothes</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="my-2" onclick="click_item('child', this)">
+                            <div class="row">
+                                <div class="col-3 text-end">
+                                    <i class="fa fa-child-dress fs-4 text-primary"></i>
+                                </div>
+                                <div class="col-9 text-start">
+                                    <span class="fw-bold fs-6">For Child</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="my-2" onclick="click_item('accessory', this)">
+                            <div class="row">
+                                <div class="col-3 text-end">
+                                    <i class="fa fa-wand-magic-sparkles fs-4 text-primary"></i>
+                                </div>
+                                <div class="col-9 text-start">
+                                    <span class="fw-bold fs-6">Accessory</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="my-2" onclick="click_item('electronics', this)">
+                            <div class="row">
+                                <div class="col-3 text-end">
+                                    <i class="fa fa-guitar fs-4 text-primary"></i>
+                                </div>
+                                <div class="col-9 text-start">
+                                    <span class="fw-bold fs-6">Electronic Devices</span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="space"></div>
+                <div class="footer_sidebar">
+                    <ul class="list-unstyled">
+                        <li class="my-2">
+                            <div class="row">
+                                <div class="col-3 text-end">
+                                    <i class="fa fa-gear fs-4 text-primary"></i>
+                                </div>
+                                <div class="col-9 text-start">
+                                    <a href="#setting" class="text-decoration-none text-black">
+                                        <span class="fw-bold fs-6">Device Setting</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="my-2">
+                            <div class="row">
+                                <div class="col-3 text-end">
+                                    <i class="fa fa-lock fs-4 text-primary"></i>
+                                </div>
+                                <div class="col-9 text-start">
+                                    <a href="#logout" class="text-decoration-none text-black">
+                                        <span class="fw-bold fs-6">Sign Out</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-10 p-0 scroll_div">
+                <div class="bg-light position-fixed" style="width: 1250px; z-index: 100">
+                    <nav class="navbar p-3 m-0 rounded shadow">
+                            <a class="navbar-brand"></a>
+                            <div class="d-flex" role="search">
+                                <div class="dropdown py-1">
+                                    <button class="btn btn-outline-white bg-white shadow py-2 text-primary fw-bold dropdown-toggle"  style="margin-right: 50px" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                      Our Details
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                      <li><a class="dropdown-item text-primary fw-bold" href="#">Contact Us</a></li>
+                                      <li><a class="dropdown-item text-primary fw-bold" href="./practice_5.html">More About</a></li>
+                                      <li><hr class="dropdown-divider"></li>
+                                      <li><a class="dropdown-item fw-bold text-success" href="#" data-bs-toggle="modal" data-bs-target="#join_member_modal">Join As Member</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                    </nav>
+                </div>
+                <div class="show card_box books" id="books">
+                    <div class="row g-5" id="book_li_items"></div>
+                </div>
+                <div class="hide card_box clothes" id="clothes">
+                    <div class="row g-5" id="clothes_li_items"></div>
+                </div>
+                <div class="hide card_box child" id="child">
+                    <div class="row g-5" id="child_li_items"></div>
+                </div>
+                <div class="hide card_box accessory" id="accessory">
+                    <div class="row g-5" id="accessory_li_items"></div>
+                </div>
+                <div class="hide card_box electronics" id="electronics">
+                    <div class="row g-5" id="electronics_li_items"></div>
+                </div>
+                <div class="hide setting" id="setting">
+                    div 6
+                </div>
+                <div class="hide logout" id="logout">
+                    div 7
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="join_member_modal" tabindex="-1" aria-labelledby="join_member_label" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content p-2">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-3 fw-bold text-info" id="join_member_label">Join As Member!</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="./practice_6.html" class="row g-3 needs-validation" novalidate>
+                        <div class="col-md-12">
+                            <label for="user_name" class="form-label text-info fw-bold">User Name</label>
+                            <input type="text" class="form-control border-black-50" required id="user_name">
+                            <div class="valid-feedback">
+                                Grate.
+                            </div>
+                            <div class="invalid-feedback">
+                                Pleas enter correct user name!
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <label for="email" class="form-label text-info fw-bold">Email</label>
+                            <input type="email" class="form-control border-black-50" required id="email">
+                            <div class="valid-feedback">
+                                Email address is successfully.
+                            </div>
+                            <div class="invalid-feedback">
+                                Try your email address!
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="password" class="form-label text-info fw-bold">Password</label>
+                            <input type="password" class="form-control border-black-50" required id="password">
+                            <div class="invalid-feedback">
+                                Please check your password.
+                            </div>
+                            <div class="valid-feedback">
+                                Password is strong.
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="confirm_password" class="form-label text-info fw-bold">Confirm Password</label>
+                            <input type="password" class="form-control border-black-50" required id="confirm_password">
+                            <div class="invalid-feedback">
+                                Please check your confirm password.
+                            </div>
+                            <div class="valid-feedback">
+                                
+                            </div>
+                          </div>
+                        <div class="col-12">
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="gridCheck">
+                            <label class="form-check-label text-secondary fw-bold" for="gridCheck">
+                                Agree to terms and conditions
+                            </label>
+                          </div>
+                        </div>
+                        <div class="col-12">
+                          <button type="submit" onclick="member_form_click();" class="btn btn-info text-black-50 w-100 py-2 fw-bold">Sent Member Request</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        
+        let input_name = user_name.value;
+        let input_email = email.value;
+        let input_password = password.value;
+        let input_confirm_password = confirm_password.value;
+        
+        if ( input_name != "" || input_email != "" || input_password != "" || input_confirm_password != "") {
+            let feedback = document.querySelectorAll(".invalid-feedback");
+            feedback.innerHTML = "";
+        }
+
+        const forms = document.querySelectorAll('.needs-validation')
+
+        // Loop over them and prevent submission
+        Array.from(forms).forEach(form => {
+        form.addEventListener('submit', event => {
+            if (!form.checkValidity()) {
+                event.preventDefault()
+                event.stopPropagation()
+            }
+
+            form.classList.add('was-validated')
+        }, false)
+        })
+
+        let member_form_click = () => {
+            let input_name = user_name.value;
+            let input_email = email.value;
+            let input_password = password.value;
+            let input_confirm_password = confirm_password.value;
+
+            let arr = ["user_name", "email", "password", "confirm_password"];
+
+        }
+
+        let arr = ["books", "clothes", "child", "accessory", "electronics", "setting", "logout"];
+
+        let books_data = [
+            {
+                "id" : 1,
+                "title" : "Simplicity",
+                "img" : "./img/b_11.jpg",
+                "price" : "$5,900", 
+                "old_price" : "",
+            },
+            {
+                "id" : 2,
+                "title" : "Power of Pivoting",
+                "img" : "./img/b_33.jpg",
+                "price" : "$3,500", 
+                "old_price" : "$5,800",
+            },
+            {
+                "id" : 3,
+                "title" : "You Are Here",
+                "img" : "./img/b_44.png",
+                "price" : "$4,000", 
+                "old_price" : "",
+            },
+            {
+                "id" : 4,
+                "title" : "Get Rich Saving The Planet",
+                "img" : "./img/bb_2.jpg",
+                "price" : "$5,900", 
+                "old_price" : "$9,000",
+            },
+            {
+                "id" : 5,
+                "title" : "Travelers Guide",
+                "img" : "./img/b_6.jpg",
+                "price" : "$80,000", 
+                "old_price" : "",
+            },
+        ];
+
+        let clothes_data = [
+            {
+                "id" : 1,
+                "img": "./img/c_1.jpg",
+                "title" : "Popular Set",
+                "price" : "$5,900",
+                "old_price" : "",
+            },
+            {
+                "id" : 2,
+                "img": "./img/c_2.jpg",
+                "title" : "Smart Shirt",
+                "price" : "$3,500",
+                "old_price" : "$5,800",
+            },
+            {
+                "id" : 3,
+                "img": "./img/c_3.jpg",
+                "title" : "Jacket",
+                "price" : "$40,000",
+                "old_price" : "",
+            },
+            {
+                "id" : 4,
+                "img": "./img/c_4.jpg",
+                "title" : "Green Top Wears",
+                "price" : "$9,900",
+                "old_price" : "$5,900",
+            },
+            {
+                "id" : 5,
+                "img": "./img/c_16.jpg",
+                "title" : "Women Top Wear",
+                "price" : " $80,000",
+                "old_price" : "",
+            }
+        ];
+        
+        let child_data = [
+            {
+                "id" : 1,
+                "img": "./img/c_13.jpg",
+                "title" : "Green Skirt To",
+                "price" : "$5,900",
+                "old_price" : "",
+            },
+            {
+                "id" : 2,
+                "img": "./img/c_14.webp",
+                "title" : "Blue Skirt To",
+                "price" : "$3,500",
+                "old_price" : "$5,800",
+            },
+            {
+                "id" : 3,
+                "img": "./img/c_5.jpg",
+                "title" : "Red Skirt To",
+                "price" : "$40,000",
+                "old_price" : "",
+            },
+            {
+                "id" : 4,
+                "img": "./img/c_8.jpg",
+                "title" : "Bloud Top Wears",
+                "price" : "$9,900",
+                "old_price" : "$9,900",
+            }
+        ];
+        
+        let accessory_data = [
+            {
+                "id" : 1,
+                "img": "./img/c_10.jpg",
+                "title" : "Couple Rings",
+                "price" : "$5,900",
+                "old_price" : "",
+            },
+            {
+                "id" : 2,
+                "img": "./img/c_11.jpg",
+                "title" : "Popular Ring",
+                "price" : "$3,500",
+                "old_price" : "$5,800",
+            },
+            {
+                "id" : 3,
+                "img": "./img/c_12.jpg",
+                "title" : "Cute Accessory",
+                "price" : "$40,000",
+                "old_price" : "",
+            },
+            {
+                "id" : 4,
+                "img": "./img/c_9.jpg",
+                "title" : "Diamond Ring",
+                "price" : "$9,900",
+                "old_price" : "$9,900",
+            }
+        ];
+        
+        let electronic_data = [
+            {
+                "id" : 1,
+                "img": "./img/c_17.jpg",
+                "title" : "Jacket",
+                "price" : "$5,900",
+                "old_price" : "",
+            },
+            {
+                "id" : 2,
+                "img": "./img/c_18.jpg",
+                "title" : "Green Top Wears",
+                "price" : "$3,500",
+                "old_price" : "$5,800",
+            },
+            {
+                "id" : 3,
+                "img": "./img/c_19.jpg",
+                "title" : "Popular Set",
+                "price" : "$40,000",
+                "old_price" : "",
+            },
+            {
+                "id" : 4,
+                "img": "./img/c_20.jpg",
+                "title" : "Smart Shirt",
+                "price" : "$9,900",
+                "old_price" : "$9,900",
+            }
+        ];
+        
+        let fill_card_onload = () => {
+
+            looping_card_data(books_data, book_li_items, "w-50");
+
+            looping_card_data(clothes_data, clothes_li_items, "w-75");
+
+            looping_card_data(child_data, child_li_items, "w-75");
+
+            looping_card_data(accessory_data, accessory_li_items, "w-75");
+
+            looping_card_data(electronic_data, electronics_li_items, "w-75");
+            
+        }
+
+        let looping_card_data = (data, div, width) => {
+            div.innerHTML = "";
+
+            for( let x=0; x<data.length; x++) {
+                items = `
+                    <div class="col-4">
+                        <div class="card">
+                            <div class="text-center">
+                                <img src="${data[x].img}" class="card-img-top pt-3 ${width}" alt="...">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title pb-3 text-info fw-bold fs-4">${data[x].title}</h5>
+                                <p class="card-text " style="text-align: justify; ">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <p class="text-danger fw-bold">
+                                    <span class="text-decoration-line-through text-secondary">${data[x].old_price}</span> ${data[x].price}
+                                </p>
+                                <div class="text-end">
+                                    <button href="#" class="btn btn-primary fw-bold" onclick="click_like(this)">
+                                        <i class="fa fa-heart me-2"></i>Like&nbsp;
+                                    </button>
+                                    <button href="#" class="btn btn-info text-white fw-bold" onclick="click_add(this)">
+                                        <i class="fa fa-shopping-cart me-2"></i>Add&nbsp;
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                div.innerHTML += items;
+            }
+        }
+
+        let show_hide = (event) => {
+
+            for (i=0; i<arr.length; i++ ) {
+                
+                if( arr[i] == event) {
+                    
+                    let id = document.getElementById(event);
+                    id.classList.remove("hide");
+                    id.classList.add("show","card_box");
+                    fill_card_onload();
+                }
+                else
+                {
+
+                    let id = document.getElementById(arr[i]);
+                    id.classList.remove("show", "card_box");
+                    id.classList.add("hide");
+                        
+                }
+
+            }
+
+        }
+
+        let remove_active = () => {
+            let current_active = document.getElementsByClassName("li_active");
+            
+            for (let i = 0; i < current_active.length; i++) {
+                current_active[i].classList.remove('li_active');
+            }
+        }
+
+        let click_item = (event, li_tag) => {
+            window.scrollTo(0,0);
+            // join_member.innerHTML = "";
+
+            let li_class = li_tag.getAttribute("class");
+
+            remove_active();
+
+            if ( !li_class.includes("li_active") ) {
+                li_tag.classList.add("li_active");
+            }
+ 
+            switch(event) {
+                case "books" : show_hide(event); break;
+                case "clothes" : show_hide(event); break;
+                case "child" : show_hide(event); break;
+                case "accessory" : show_hide(event); break;
+                case "electronics" : show_hide(event); break;
+                default : show_hide("books"); break;
+            }
+        }
+
+        let click_like = (event) => {
+            let current = `<i class="fa fa-heart me-2"></i>Like&nbsp;`;
+            let check = `<i class="far fa-thumbs-up fs-4 me-2"></i>Liked`;
+
+            if ( event.innerHTML == current) {
+                event.innerHTML = check;
+            }
+            else {
+                event.innerHTML = current;
+            }
+        }
+
+        let click_add = (event) => {
+            let current = `<i class="fa fa-shopping-cart me-2"></i>Add&nbsp;`;
+            let check = `<i class="fa fa-check fs-5 me-2"></i>Added`;
+
+            if ( event.innerHTML == current) {
+                event.innerHTML = check;
+            }
+            else {
+                event.innerHTML = current;
+            }
+        }
+        
+        // let join_member_form = () => {
+        //     let current_card = document.getElementsByClassName("card_box");
+
+        //     for (let i = 0; i < current_card.length; i++) {
+        //         current_card[i].classList.remove('card_box');
+                
+        //     }
+
+        //     for (i=0; i<arr.length; i++ ) {
+        //         let empty = document.getElementById(arr[i]);
+        //         empty.innerHTML = "";
+        //     }
+
+        //     let div = `
+        //         <div class="row">
+        //             <div class="col-4 offset-4">
+        //                 <div class="col text-center mb-5 py-3 px-2 bg-light rounded shadow fs-3 fw-bold">
+        //                     Join As Member!
+        //                 </div>
+        //             </div>
+        //         </div>
+        //         <div class="row">
+        //             <div class="col-6 offset-3 bg-light p-4 rounded shadow">
+        //                 <form class="row g-3">
+        //                     <div class="col-md-12">
+        //                         <label for="user_name" class="form-label text-primary fw-bold">User Name</label>
+        //                         <input type="text" class="form-control border-black-50" id="user_name">
+        //                     </div>
+        //                     <div class="col-md-12">
+        //                       <label for="email" class="form-label text-primary fw-bold">Email</label>
+        //                       <input type="email" class="form-control border-black-50" id="email">
+        //                     </div>
+        //                     <div class="col-md-6">
+        //                       <label for="password" class="form-label text-primary fw-bold">Password</label>
+        //                       <input type="password" class="form-control border-black-50" id="password">
+        //                     </div>
+        //                     <div class="col-md-6">
+        //                         <label for="confirm_password" class="form-label text-primary fw-bold">Password</label>
+        //                         <input type="password" class="form-control border-black-50" id="confirm_password">
+        //                       </div>
+        //                     <div class="col-12">
+        //                       <div class="form-check">
+        //                         <input class="form-check-input" type="checkbox" id="gridCheck">
+        //                         <label class="form-check-label text-primary fw-bold fs-6" for="gridCheck">
+        //                             Remember Password
+        //                         </label>
+        //                       </div>
+        //                     </div>
+        //                     <div class="col-12">
+        //                       <button type="submit" class="btn btn-primary w-100 py-2 fw-bold">Request Sent</button>
+        //                     </div>
+        //                   </form>
+        //             </div>
+        //         </div> 
+        //     `;
+
+        //     join_member.innerHTML = div;
+            
+        // }
+       
+
+    </script>
+</body>
+</html>

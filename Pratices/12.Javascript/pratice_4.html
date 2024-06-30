@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rectangle Radius</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 100vw;
+            height: 95vh;
+            /* display: flex; */
+        }
+
+        .input_box {
+            padding: 2.5%;
+            background-color: #99e3f0;
+            display: flex;
+            justify-content: space-between;
+        }
+
+
+        h3 {
+            font-size: 27px;
+            color: #084854;
+            margin-bottom: 20px;
+        }
+
+        .label_box {
+            height: 22px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #022f37;
+            margin-left: 1%;
+        }
+
+        .label_box label:last-child {
+            margin-left: 34%;
+        }
+
+        #show_result {
+            font-size: 35px;
+            font-weight: bold;
+            color: #084854;
+            padding: 2%;
+        }
+
+        .input_text input {
+            padding: 2.4%;
+            width: 220px;
+            border-radius: 5px;
+            background-color: #e4d7d7;
+            border: 1px solid #04798e;
+        }
+
+        ::placeholder {
+            color: #000000;
+        }
+
+
+        input[type="submit"] {
+            border: none;
+            width: 100px;
+            height: 44px;
+            color: #ffffff;
+            background-color: #084854;
+            font-weight: bold;
+            font-size: 18px;
+            padding: 0;
+            cursor: pointer;
+        }
+
+
+        #show_img {
+            background-color: #99e3f0;
+            width: 100%;
+            height: 560px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #img_div {
+            background-color: white;
+        }
+        
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="input_box">
+            <div class="input_text">
+                <h3>Rectangle Area ... </h3>
+                <div class="label_box">
+                    <label for="">Width</label>
+                    <label for="">Height</label>
+                </div>
+                <div>
+                    <input type="number" name="width" id="width" required placeholder="Rectangle width...">
+                    <input type="number" name="height" id="height" required placeholder="Rectangle height...">
+                    <input type="submit" onclick="calc_area()" value="View">
+                </div>
+            </div>
+            <div id="show_result">
+                <p id="area"></p>
+            </div>
+        </div>   
+        <div id="show_img">
+            <div id="img_div"> </div>
+        </div> 
+    </div>
+
+    <script>       
+        
+        function calc_area() {
+
+            if( !Number(width.value) && !Number(height.value) ) {
+                alert("Please enter radius first! ");
+            }
+            else {
+                let w = Number(width.value);
+                let h = Number(height.value);
+                let a = w * h;
+                console.log(a);
+
+                area.innerHTML = a.toFixed(2) + " Areas";
+                document.getElementById("img_div").style.width = `${w}px`;
+                document.getElementById("img_div").style.height = `${h}px`;
+            }
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Way to Center</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            /* width: 100vw;
+            height: 100vh; */
+            width: 400px;
+            height: 400px;
+
+            /* display: flex;    
+            align-items: center;
+            justify-content: center; */
+
+            /* display: grid;
+            place-items: center; */
+
+            display: table-cell;
+            text-align: center;
+            vertical-align: middle;
+
+
+            /* display: grid;    
+            align-items: center;
+            justify-content: center; */            
+
+
+            background-color: aquamarine;
+        }
+        .inner {
+            display: inline-block;
+
+            width: 80px;
+            height: 80px;
+            background-color: rgb(249, 170, 249);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="inner">
+
+        </div>
+    </div>
+</body>
+</html>

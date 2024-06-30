@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice 3 - Exam Grading</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container {
+            width: 99vw;
+            height: 100vh;
+            background-color: #08010f;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .input_box {
+            width: 35vw;
+            padding: 5%;
+        }
+
+        .input_box div {
+            width: 400px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .input_box div input[type="number"] {
+            width: 250px;
+            height: 35px;
+            margin: 3%;
+            padding: 0px 5px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        input[type="button"] {
+            width: 100px;
+            background-color: #edda05;
+            padding: 3%;
+            border: none;
+            color: black;
+            margin-left: 40%;
+            margin-top: 8%;
+            border-radius: 5px;
+            text-transform: uppercase;
+            font-weight: bold;
+            border: 2px solid #edda05;
+            box-shadow: 0 0 5px #edda05, 0 0 10px #edda05;
+        }
+
+        input[type="button"]:hover {
+            color: #edda05;
+            background-color: white;
+        }
+
+        p {
+            display: inline;
+            font-size: 22px;
+            font-weight: bold;
+            text-transform: capitalize;
+            color: #edda05;
+        }
+
+        .result_box {
+            width: 60vw;
+            height: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .result_box p {
+            padding: 10%;
+            border-radius: 30px;
+            color: white;
+            text-transform: uppercase;
+            font-size: 25rem;
+        }
+
+        h1 {
+            margin-left: 27%;
+            margin-bottom: 20%;
+            font-variant: small-caps;
+            color: #edda05;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="input_box">
+            <div>
+                <h1>~ Exam Grading ~</h1>
+            </div>
+            <div>
+                <p>Myanmar : </p>
+                <input type="number" min="0" max="100" onfocus="clear_result()" required id="myanmar" placeholder="Myanmar mark">
+            </div>
+            <div>
+                <p>English :</p>
+                <input type="number" min="0" max="100" onfocus="clear_result()" required id="english" placeholder="English mark">
+            </div>
+            <div>
+                <p>Math :</p>
+                <input type="number" min="0" max="100" onfocus="clear_result()" required id="math" placeholder="Math mark">
+            </div>
+            <div>
+                <input type="button" onclick="calc_mark()" value="Submit">
+            </div>
+        </div>
+        <div class="result_box">
+            <p id="result_text"></p>
+        </div>
+    </div>
+
+    <script>
+
+        let clear_result = () => {
+            result_text.innerHTML = "";
+        }
+
+        let result_design = (color) => {
+            result_text.style.textShadow = `0px 0px 10px ${color}, 0px 0px 20px ${color}, 0px 0px 35px white`;
+        }
+
+        let calc_mark = () => {
+            let my = Number(myanmar.value);
+            let eng = Number(english.value);
+            let m = Number(math.value);
+
+            let total = (my + eng + m);
+            let avg = total / 3;
+
+            console.log(total, avg);
+
+            if ( avg >=90 && avg <=100) {
+                result_text.innerHTML = "A";
+                result_design("green");
+            }
+            else if ( avg >= 80 && avg <=89) {
+                result_text.innerHTML = "B";
+                result_design("blue");
+            }
+            else if ( avg >= 70 && avg <=79) {
+                result_text.innerHTML = "C";
+                result_design("yellow");
+            }
+            else if ( avg >= 60 && avg <=69) {
+                result_text.innerHTML = "D";
+                result_design("purple");
+            }
+            else if ( avg >= 50 && avg <=59) {
+                result_text.innerHTML = "E";
+                result_design("orange");
+            }
+            else {
+                result_text.innerHTML = "F";
+                result_design("red");
+            }            
+
+        }
+
+    </script>
+</body>
+</html>

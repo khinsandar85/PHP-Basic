@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <title>Lecture 13 - Login form</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 100%;
+            min-height: 100vh;
+            background-image: url('./img/coffee_1.jpg');
+            background-size: 100% ;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .myform {
+            position: absolute;
+            background-color: brown;
+            width: 30%;
+            padding: 1rem;
+            border-radius: 10px;
+            box-shadow: 5px 5px 5px rgba(255, 255, 255, 0.5);
+            color: white;
+            font-size: 1.1rem;
+        }
+        .row {
+            margin-bottom: 1.5rem;
+        }
+
+        .label {
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        .input {
+            width: 95%;
+            border: none;
+            outline: none;
+            background-color: transparent;
+            border-bottom: 1px solid wheat;
+            padding: 0.5rem ;
+            color: white;
+        }
+
+        .btnrow {
+            margin: 1rem 0rem;
+            text-align: center;
+        }
+
+        .btn {
+            padding: 0.5rem 1rem;
+            font-weight: bold;
+            font-size: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .top {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 20%;
+            left: 0;
+            top: -12%;
+        }
+        i {
+            font-size: 3rem;
+            color: brown;
+            position: absolute;
+        }
+        .cover {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .left {
+            position:absolute;
+            top: 0;
+            left: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to right bottom, wheat, black);
+            animation: moveLeft 2s linear 2s;
+            box-shadow: 4px 0 4px brown;
+        }
+
+        @keyframes moveLeft {
+            from { left: 0;}
+            to { left: -50%;}
+        }
+
+        .right {
+            position:absolute;
+            top: 0;
+            left: 50%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to left bottom, wheat, black);
+            animation: moveRight 2s linear 2s;
+            box-shadow: -4px 0 4px brown;
+        }
+        
+        @keyframes moveRight {
+            from { left: 50%;}
+            to { left: 100%;}
+        }
+        .logo {
+            position: absolute;
+            width: 80px;
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: brown;
+            height: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+        }
+
+        .logo i {
+            color: white;
+        }
+
+        .hide {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="myform">
+            <div class="top">
+                <svg>
+                    <circle cx="50%" cy="50%" r="50" stroke="brown" stroke-width="3" fill="white"></circle>
+                </svg>
+                <i class="bi bi-cup-hot-fill"></i>
+            </div>
+            <form action="">
+                <div class="row">
+                    <label for="" class="label">Email</label>
+                    <input type="email" name="userEmail" placeholder="xyz@gmail.com" class="input" id="">
+                </div>
+                
+                <div class="row">
+                    <label for="" class="label">Password</label>
+                    <input type="password" name="userPassword" placeholder="******" class="input" id="">
+                </div>
+
+                <div class="btnrow">
+                    <input type="submit" value="Login" class="btn">
+                    <input type="reset" value="Clear" class="btn">
+                </div>
+            </form>
+        </div>
+        <div class="coverDiv" id="coverDiv">
+            <div class="left" id="left"></div>
+            <div class="right" id="right"></div>
+            <!-- <img src="./img/coffee_1.jpg" class="logo" id="logo" alt=""> -->
+            <div class="logo" id="logo">
+                <i class="bi bi-cup-hot-fill"></i>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let hideLogo = () => {
+            logo.classList.add("hide");
+            setTimeout(hideCover, 2000)
+        }
+
+        let hideCover = () => {
+            coverDiv.classList.add("hide");
+            left.classList.add("hide");
+            right.classList.add("hide");
+        }
+
+        setTimeout(hideLogo, 2000);
+    </script>
+</body>
+</html>

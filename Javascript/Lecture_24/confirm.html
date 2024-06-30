@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+    <style>
+        .not_found {
+            text-align: center;
+            color: red;
+        }
+
+        .header {
+            text-align: center;
+            color: brown;
+            padding: 1rem;
+        }
+
+        table {
+            width: 100% ;
+            table-layout: fixed;
+        }
+
+        td, th {
+            text-align: center;
+            border: 2px solid black;
+            padding: 0.5rem;
+        }
+
+        .item_img {
+            width: 50%;
+            height: auto;
+        }
+
+        .del_btn {
+            color: red;
+            background-color: transparent;
+            border: none;
+        }
+
+        .continue {
+            display: none;
+            background-color: cadetblue;
+            display: inline-block;
+            text-decoration: none;
+            width: 80%;
+            padding: 10px 0px;
+            color: white;
+        }
+    </style>
+</head>
+<body onload="show_items()">
+    <h1 class="header">Check Your Cart</h1>
+    <div id="ans"></div>
+    <script>
+        let show_items = () => {
+            if (sessionStorage.getItem("save_items") != null ) {
+                let str =sessionStorage.getItem("save_items");
+                let arr = JSON.parse(str);
+
+                let tab = "<table>";
+                    tab += "<tr>";
+
+                        tab += "<th>No</th>";
+                        tab += "<th>Image</th>";
+                        tab += "<th>Name</th>";
+                        tab += "<th>Price</th>";
+                        tab += "<th>Qty</th>";
+                        tab += "<th>Total</th>";
+                        tab += "<th></th>"
+
+                    tab += "</tr>";
+
+                    let num = 1; 
+                    let total = 0;
+                    for ( i = 0; i<arr.length; i++ ) {
+                        tab += "<tr>";
+                        tab += "<td>"+ num +"</td>";
+                        num++;
+                        tab += "<td><img class='item_img' src='"+ arr[i].item_image +"'></td>";
+                        tab += "<td>" + arr[i].item_name+ "</td>";
+                        tab += "<td>" + arr[i].item_price+ "</td>";
+                        tab += "<td><input type='number' name='' id='' min='1' value='1' onchange='change_item_count(this)'></td>";
+                        tab += "<td>" + arr[i].item_price+ "</td>";
+                        tab += "<td><button onclick='del_item(this)' class='del_btn'><i class='fa fa-trash-alt'></i></button></td>";
+                        tab += "</tr>";
+                        total += +arr[i].item_price;
+                    }
+
+                    tab += "<tr>";
+                    tab += "<td colspan='5'>Balance</td>";
+                    tab += "<td class='balance'>"+ total +"</td>";
+                    tab += "<td><a href='continue.html' class='continue'>Continue</td>";
+                    tab += "</tr>";
+
+                tab += "<table>";
+                ans.innerHTML = tab;
+            }
+
+            else {
+                ans.innerHTML = `<h1 class="not_found">No Items in your cart!</h1>`;
+            }
+        }
+
+        let change_item_count = (event) => {
+            let qty = parseInt(event.value);
+            let tr = event.parentNode.parentNode;
+            let current = tr.children;
+
+            let old_balance = parseInt(current[5].innerHTML);
+
+            let price = parseInt(current[3].innerHTML);
+            let total = price * qty;
+            current[5].innerHTML = total;
+
+            let bal = parseInt(balance.innerHTML);
+            bal -= old_balance;
+            bal += total;
+            balance.innerHTML = bal;
+
+        }
+    
+        let del_item = (event) => {
+            let btn = event.parentNode.parentNode;
+            let name = btn.children[2].innerHTML;
+            
+            let str = sessionStorage.getItem("save_items");
+            let arr = JSON.parse(str);
+            let arr2 = new Array();
+            let j = 0;
+
+            for (i=0; i<arr.length; i++ ) {
+                if(arr[i].item_name != name) {
+                    arr2[j++] = arr[i];
+                }
+            }
+
+            str = JSON.stringify(arr2);
+            sessionStorage.setItem("save_items", str);
+            ans.innerHTML = "";
+            show_items();
+        }
+    </script>
+</body>
+</html>

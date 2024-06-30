@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice 1 - Leap Year</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #fadfdf;
+        }
+
+        .container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .input_box {
+            padding: 3%;
+            background-color: chocolate;
+            border-radius: 6px;
+            box-shadow: 0 0 5px rgb(19, 4, 4);
+        }
+
+        h3 {
+            font-size: 30px;
+            color: #fafaf9;
+        }
+
+        .input_box input {
+            padding: 5%;
+            margin: 8% 0%;
+            width: 390px;
+            border-radius: 5px;
+            border: 1px solid chocolate;
+        }
+
+        input[type="submit"] {
+            width: 120px;
+            margin: 0% 34%;
+            border: none;
+            color: chocolate;
+            background-color: #fafaf9;
+            font-weight: bold;
+            border: 2px solid #fafaf9;
+            cursor: pointer;
+        }
+        
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="input_box">
+            <h3>Check Leap Year</h3>
+            <div>
+                <input type="number" name="year" id="year" min="1000" required placeholder="Enter eg.(1995)">
+            </div>           
+            <div>
+                <input type="submit" onclick="calc_year()" value="Calculate">
+            </div>
+        </div>    
+    </div>
+
+    <script>   
+        
+        function calc_year() {
+            let y = Number(year.value);
+
+            if ( (y%4 == 0 &&  y%100 != 0) || (y%400 == 0) ) {
+                alert('This year is Leap year');
+            }
+            else {
+                alert("This year is not leap year!");
+            }
+        }
+        
+    </script>
+</body>
+</html>

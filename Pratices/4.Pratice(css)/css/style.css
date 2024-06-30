@@ -1,0 +1,90 @@
+h1 {
+    text-align: center;
+    font-variant: small-caps;
+}
+
+.link_tag {
+    text-align: center;
+}
+.link_tag a{
+    text-decoration: none;
+    text-shadow: 1px 1px 1px gray;
+    color: blue;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.info p {
+    text-align: justify;
+    text-indent: 30px;
+    line-height: 25px;
+}
+
+.info ol li {
+    color : green;
+    line-height: 25px;
+    font-weight: bold;
+}
+
+.info ol li > ul li {
+    color: red;
+}
+
+.info ul li a {
+    text-decoration: none;
+}
+
+.info ul li a small {
+    color: blue;
+    font-style: italic;
+    text-decoration: underline;
+}
+
+.infoImg {
+    width: 100%;
+}
+
+.info h2 a{
+    text-decoration: none;
+    text-transform: uppercase;
+    color: blue;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.info ul li div {
+    line-height: 20px;
+    font-style: italic;
+    word-spacing: 7px;
+    margin-bottom: 12px;
+}
+
+.info ul li .imgBox {
+    text-align: center;
+}
+
+.info ul li .imgBox img {
+    width: 400px;
+    text-align: center;
+}
+
+.copyDiv {
+    text-align: center;
+}
+
+.copyDiv p {
+    color: brown;
+    font-weight: bold;
+}
+
+.copyDiv div span{
+    color: green;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.copyDiv div a {
+    text-decoration: none;
+    font-style: italic;
+    color: black;
+}

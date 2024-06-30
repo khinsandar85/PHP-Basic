@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <title>Practice 9 - Calender</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: none;
+        }
+
+        .whole_box {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .input_box {
+            margin: 10% 0%;
+            width: 500px;
+        }
+
+        .title {
+            color: white;
+            margin: 0;
+            margin-bottom: 40px;
+            font-size: 45px;
+            font-variant: small-caps;
+            text-align: center;
+            text-shadow: 0 0 10px red, 0 0 20px green, 0 0 30px blue, 0 0 40px black;
+        }
+
+        .title i {
+            color: #0078d4;
+            text-shadow: 0 0 5px transparent;
+            font-size: 40px;
+        }
+
+        .input_box select, input {
+            width: 100%;
+            padding: 3.5% 2%;
+            margin: 3% 0%;
+            border: 1px solid black;
+            border-radius: 5px;
+        }
+
+        .input_box input {
+            width: 100%;
+        }
+
+        ::placeholder {
+            color: black;
+        }
+
+        .input_box option {
+            background-color: #8ec8f4bf;
+        }
+
+        .result_btn {
+            width: 100%;
+            padding: 3.5%;
+            margin-top: 10%;
+            border: none;
+            border-radius: 5px;
+            background-color: #9e9d9d;
+            color: white;
+            transition: .4s;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .result_btn:hover {
+            background-color: #0078d4;
+            color: white;
+        }
+
+        .calc_box {
+            transition: .4s;
+            margin: 2% 0%;
+        }
+
+        .calc_box #show_time {
+            font-size: 60px;
+            margin: 0;
+        }
+
+        #show_day {
+            color: #0078d4;
+            margin-bottom: 15px;
+        }
+
+        #show_day:hover {
+            text-decoration: underline;
+        }
+
+        .table_div {
+            margin: 5% 0%;
+        }
+
+        table {
+            width: 400px;
+            background-color: #efefef;
+        }
+
+        thead th {
+            font-weight: normal;
+            padding: 3%;
+        }
+
+        tbody td {
+            padding: 3%;
+            width: 20px;
+            text-align: center;
+            border: 2px solid transparent;
+            cursor: pointer;
+        }
+
+        tbody td:hover {
+            border: 2px solid #0078d4;
+        }
+
+        .table_footer div:first-child {
+            display: flex;
+            justify-content: space-between;
+            font-size: 18px;
+            padding: 0% 4%;
+            margin-bottom: 6%;
+            margin-top: 10%;
+        }
+
+        .table_footer div:first-child i {
+            font-weight: normal;
+            font-size: 15px;
+            transition: .4s;
+            padding: 4px;
+            border: 1px solid transparent;
+            opacity: .8;
+            border-radius: 50%;
+        }
+
+        .table_footer div:first-child i:hover {
+            border: 1px solid gray;
+            opacity: 1;
+        }
+
+        .table_footer div:last-child {
+            display: flex;
+            padding: 0% 4%;
+        }
+
+        .table_footer div:last-child div {
+            display: block;
+        }
+
+        .table_footer div:last-child p {
+            margin: 0;
+            margin-right: 20px;
+        }
+
+        .table_footer div:last-child p i {
+            font-size: 30px;
+            margin-top: 5px;
+            cursor: pointer;
+            transition: .4s;
+        }
+
+        .table_footer div:last-child p i:hover {
+            color: #0078d4;
+        }
+
+
+        .table_footer div:last-child div {
+            width: 270px;
+        }
+
+        .table_footer div:last-child div button {
+            width: 90%;
+            margin: 8% 0%;
+            padding: 3%;
+            color: white;
+            background-color: #0078d4;
+            border: none;
+            opacity: .8;
+            cursor: pointer;
+            transition: .4s;
+        }
+
+        .table_footer div:last-child div button:hover {
+            opacity: 1;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">   
+        <div class="whole_box">
+            <div class="input_box">
+                <p class="title">
+                    <i class="fa fa-calendar-check"></i>
+                    The Calender
+                </p>
+                <div>
+                    <select name="" id="select_day" onfocus="clear_result()" onclick="selected_date(this)">
+                        <option value="-">Select Day</option>
+                        <option value="0">Sunday</option>
+                        <option value="1">Monday</option>
+                        <option value="2">Tuesday</option>
+                        <option value="3">Wednesday</option>
+                        <option value="4">Thursday</option>
+                        <option value="5">Friday</option>
+                        <option value="6">Saturday</option>
+                    </select>
+                </div>
+                <div>
+                    <select name="" id="select_day" onfocus="clear_result()" onclick="selected_month(this)">
+                        <option value="-">Select Month</option>
+                        <option value="January">January</option>
+                        <option value="February">February</option>
+                        <option value="March">March</option>
+                        <option value="April">April</option>
+                        <option value="May">May</option>
+                        <option value="June">June</option>
+                        <option value="July">July</option>
+                        <option value="August">August</option>
+                        <option value="September">September</option>
+                        <option value="October">October</option>
+                        <option value="November">November</option>
+                        <option value="December">December</option>
+                    </select>
+                </div>
+                <div>
+                    <input type="number" onfocus="clear_result()" name="year" id="year" min="1000" placeholder="Please enter year ..." required>
+                </div>
+                <div>
+                    <button class="result_btn" onclick="show_calendar()">See Result</button>
+                </div>
+            </div>
+            <div class="calc_box" id="calc_box">
+                <div>
+                    <div>
+                        <p id="show_time"></p>
+                    </div>
+                </div>
+                <div class="table_div">
+                    <table>
+                        <p id="show_day">
+                            <span id="show_d"></span>
+                            <span id="show_m"></span>
+                            <span id="show_y"></span>
+                        </p>
+                        <thead>
+                            <tr>
+                                <th>Su</th>
+                                <th>Mo</th>
+                                <th>Tu</th>
+                                <th>We</th>
+                                <th>Th</th>
+                                <th>Fr</th>
+                                <th>Sa</th>
+                            </tr>
+                        </thead>
+                        <tbody  id="show_result"></tbody>
+                    </table>
+                </div>
+                <div class="table_footer">
+                    <div>
+                        <p>Today</p>
+                        <p><i class="fa fa-plus"></i></p>
+                    </div>
+                    <div>
+                        <p><i class="fa fa-calendar-days"></i></p>
+                        <div>
+                            <p>Set up your calender to see where you need to be</p>
+                            <button>Get started</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+       
+        calc_box.style.display = "none";
+
+        let set_date = 7;
+        let set_month= "";
+        let input_y = "";
+
+        var today = new Date();
+        var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        show_time.innerHTML = time;
+
+        function clear_result() {
+            calc_box.style.display = "none";
+        }
+
+        function selected_date(e) {
+            set_date = e.value;
+        }
+
+        function selected_month(e) {
+            set_month = e.value;
+        }
+
+        function show_calendar() {
+
+            if ( set_date == 7 || set_month == " " || input_y == " ") {
+                alert("Please select date and month & Fill year!");
+            } 
+            
+            else {
+
+                calc_box.style.display = "inline";
+
+                let str = "";
+                let count = 0 + set_date;
+                let set_month_count = 31;
+                let front = set_date;  //front empty
+                let back  = 4 - set_date; // back empty
+                let input_y = year.value;
+
+                
+                show_d.innerHTML = "02";
+                show_m.innerHTML = set_month;
+                show_y.innerHTML = input_y;
+
+                if( set_month == "April" || set_month == "June" || set_month == "November" || set_month == "September") {
+                    let back  = 5 - set_date; // back empty for 31 days of month
+                    set_month_count = 30;
+                }
+
+                if ( set_month == "February") {
+                    let back  = 7 - set_date; // back empty for 28 days of month
+                    set_month_count = 28;
+                }
+
+                str += "<tr>";
+
+                    for ( x=1; x<=front; x++ ) {
+                        str += "<td>"+" "+"</td>";
+                    }
+
+                    for ( y=1; y<= set_month_count; y++ ) {
+                        count++;
+
+                        str += "<td>"+y+"</td>";
+
+                        if( count == 7 ) {
+                            str += "</tr>";
+                            str += "<tr>";
+                            count = 0;
+                        }
+
+                    }
+
+                    for ( z=1; z<= back; z++ ) {
+                        str += "<td>"+" "+"</td>";
+                    }
+                    
+
+                str += "</tr>";
+                show_result.innerHTML = str;
+            }
+        }
+
+    </script>
+</body>
+</html>

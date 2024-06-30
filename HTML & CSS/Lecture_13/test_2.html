@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table -Thead, Tbody, Tfooter</title>
+    <style>
+        table {
+            width: 50%;
+            border: 1px solid black;
+        }
+        caption {
+            font-size: 1.5rem;
+            padding: 10px;
+            font-weight: bold;
+        }
+        /* thead, tfoot {
+            background: #c5858d;
+        }
+
+        tbody {
+            background: #f3cbd8;
+
+        } */
+
+        /* .bgD {
+            background: #c5858d;
+        }
+        .bgL {
+            background: #f3cbd8;
+        } */
+
+        td:nth-child(odd) {
+            background: #c5858d;
+        }
+
+        td:nth-child(even) {
+            background: #f3cbd8;
+        }
+
+        td, th {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <table cellspacing="0">
+        <!-- <colgroup>
+            <col class="bgD">
+            <col class="bgL" span="2">
+            <col class="bgD">
+        </colgroup> -->
+        <caption>Table Testing</caption>
+        <thead>
+            <tr>
+                <th>ABC</th>
+                <th>DEF</th>
+                <th>GHI</th>
+                <th>JKL</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+                <td>8</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>7</td>
+                <td>10</td>
+                <td>13</td>
+                <td>16</td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+</html>

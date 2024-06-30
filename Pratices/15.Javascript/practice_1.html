@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Adding Listing</title>
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+        }
+
+        #outer {
+            margin: auto;
+            padding: 5% 3%;
+        }
+
+        h2 {
+            font-size: 30px;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .input_div {
+            margin-bottom: 20%;
+        }
+
+        label {
+            color: chocolate;
+            font-size: 1.3rem;
+            margin-right: 15px;
+        }
+
+        input {
+            height: 2rem;
+            width: 15rem;
+            border-radius: 5px;
+            border: 1px solid gainsboro;
+        }
+
+        button {
+            width: 5.5rem;
+            height: 2.3rem;
+            background-color: chocolate;
+            border-radius: 5px;
+            color: white;
+            font-size: 1.2 rem;
+            letter-spacing: 2px;
+            cursor: pointer;
+        }
+
+        #btnDiv {
+            display: flex;
+            margin: auto;
+            justify-content: space-evenly;
+        }
+
+        button {
+            border: none;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        li {
+            padding: .5% 5% .5% 5%;
+            background-color: #f5f3f2;
+            border-radius: 10px;
+            margin-bottom: 5px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .list_icon_box {
+            margin-top: 8px;
+        }
+
+        .list_icon{
+            text-align: right;
+            width: 40px;
+            background-color: transparent;
+            cursor: pointer;
+            transition: .4s;
+        }
+
+        .list_icon i {
+            margin-right: 3px;
+        }
+
+        .list_icon_edit {
+            color: blue;
+            border: 2px solid;
+        }
+
+        .list_icon_del {
+            color: red;
+            border: 2px solid;
+        }
+
+        .list_icon_edit:hover {
+            background-color: blue;
+            border: 2px solid blue;
+            color: white;
+        }
+
+        .list_icon_del:hover {
+            background-color: red;
+            border: 2px solid red;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="outer">
+        <h2>The Color Menu Items</h2>
+        <div class="input_div">
+            <label for="">Menu</label> 
+            <!-- <p id="count"></p> -->
+            <input type="text" id="input_field" placeholder="Enter new menu" required>
+            <button type="button" id="add_btn" onclick="add_list()"> Add</button>
+            <button type="button" id="update_btn" onclick="update_list()"> Update</button>
+        </div>
+        <ul id="menu_list">
+            <li> 
+                <p>Yellow</p>
+                <div class="list_icon_box">
+                    <button id='delete' class="list_icon list_icon_edit" onclick='remove_list()'>
+                        <i class="fa fa-edit"></i>
+                    </button>
+                    <button id="delete" class="list_icon list_icon_del">
+                        <i class="fa fa-trash-alt"></i>
+                    </button>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        let str = "";
+        add_btn.style.display = "inline";
+        update_btn.style.display = "none";
+
+        function add_list() {
+            var input = input_field.value;
+            if (input == "") {
+                window.alert("Please enter new menu!");
+            } else {
+                menu_list.innerHTML +=
+                    `
+                        <li>
+                            <p>${input}</p>
+                            <div class="list_icon_box">
+                                <button id='delete' class="list_icon list_icon_edit" onclick='edit_list()'>
+                                    <i class="fa fa-edit"></i>
+                                </button>
+                                <button id="delete" class="list_icon list_icon_del" onclick='remove_list()'>
+                                    <i class="fa fa-trash-alt"></i>
+                                </button>
+                            </div>
+                        </li>
+                    `;
+                    
+                // count_list_items();
+                input_field.value = "";    
+            }
+        }
+
+        function remove_list() {
+            event.currentTarget.parentElement.parentElement.remove();
+            // count_list_items();
+        }
+
+        function edit_list() {
+            let parent = event.currentTarget.parentElement.parentElement;
+            let count = parent.firstElementChild.innerHTML;
+            input_field.value = count;
+            str = count;
+            add_btn.style.display = "none";
+            update_btn.style.display = "inline";
+        }
+
+        function update_list() {
+            let input = input_field.value;
+            let arr = document.getElementsByTagName("li");
+            let count = document.querySelectorAll("li > p");
+
+            for ( i=0; i<arr.length; i++ ) {
+                if ( count[i].innerHTML == str ) {
+                    count[i].innerHTML = input;
+                } 
+            }
+
+            input_field.value = "";
+            add_btn.style.display = "inline";
+            update_btn.style.display = "none";    
+        }
+
+        // function count_list_items() {
+        //     var count = document.querySelectorAll("#menu_list > li").length;
+        //     document.getElementById("count").innerHTML = count + ' item(s)';
+        // }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Even / Odd</title>
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+        }
+
+        .outer {
+            margin: auto;
+        }
+
+        .inner {
+            margin-bottom: 1rem;
+        }
+
+        label {
+            font-size: 1.5rem;
+            padding: 1rem;
+            font-weight: bold;
+            color: #067074;
+        }
+
+        input {
+            width: 15rem;
+            height: 2rem;
+        }
+
+        .btn {
+            margin: 2% 35%;
+            width: 8rem;
+            height: 2rem;
+            border: none;
+            border-radius: 5px;
+            background-color: #067074;
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: wheat;
+        }
+
+        #ans {
+            text-align: center;
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: brown;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="inner">
+            <label for="">Number</label> 
+            <input type="number" name="inputNumber" id="inputNumber">
+        </div>
+        <div class="inner">
+            <button class="btn" onclick="check()">Even/Odd</button>
+        </div>
+        <p id="ans"></p>
+    </div>
+
+    <script>
+        function check() {
+            let num = parseInt(inputNumber.value);
+
+            // if( num%2 == 0 ) {
+            //     ans.innerHTML = num + " is even.";
+            // }
+            // else {
+            //     ans.innerHTML = num + " is odd.";
+            // }
+
+            ans.innerHTML = num + (num%2 == 0 ? " is even." : " is odd.");
+        }
+    </script>
+</body>
+</html>

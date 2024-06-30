@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice 6</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f87272;
+        }
+
+        .container {
+            margin: 7% auto;
+            width: 900px;
+            height: 520px;
+            background-image: url('./img/form_5.jpg');
+            background-size: 100%;
+            position: relative;
+            border-radius: 10px;
+            box-shadow: 0px 0px 5px red, 0 0 10px green, 0 0 15px orange;
+            transition: .4s;
+        }
+
+        .container:hover {
+            box-shadow: 0px 0px 5px gray, 0 0 10px brown, 0 0 15px black;
+        }
+        
+        .form {
+            position: absolute;
+            left: 40%;
+            background-color: #f2e4e4;
+            width: 60%;
+            height: 520px;
+            padding: 7%;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }   
+
+        .form div:first-child {
+            font-size: 29px;
+            text-transform: uppercase;
+            font-weight: bold;
+            color: #c30003;
+        }
+
+        form div select,
+        form div input {
+            width: 100%;
+            padding: 3%;
+            margin: 4% 0%;
+            border: 0px;
+            border-bottom: 2px solid #c30003;
+            background-color: transparent;
+        }
+
+        form input:focus-visible {
+            border: none;
+            outline: none;
+            border-bottom: 2px solid #c30003;
+        }
+        ::placeholder {
+            color: #4d4848;
+        }
+
+        input[type="date"] {
+            color: transparent;
+            cursor: pointer;
+
+        }
+
+        input[type="date"]::placeholder {
+            display: hidden;
+            color: transparent;
+
+        }
+
+        input[type="date"]:focus {
+            display: hidden;
+            color: transparent;
+        }
+
+        input[type="date"]::before {
+            content: 'Birth Date';
+            color: #3c3434;
+        }
+
+        .two_div {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .two_div div {
+            width: 200px;
+        }
+
+        .two_div div select,
+        .two_div div input {
+            width: 100%;
+            margin: 0px !important;
+            padding: 6%;
+        }
+
+        .two_div div select {
+            padding: 6.5%;
+        }
+
+        input[type="number"] {
+            width: 48%;
+        }
+
+        input[type="button"] {
+            width: 110px;
+            border: none;
+            border-radius: 5px;
+            background-color: #c30003;
+            color: #f2e4e4;
+            border:2px solid #c30003;
+            transition: .4s;
+        }
+
+        input[type="button"]:hover {
+            color: #c30003;
+            background-color: #f2e4e4;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form">
+            <div>
+                <p>registration info</p>
+            </div>
+            <form action="">
+                <div>
+                    <input type="text" name="name" placeholder="Name">
+                </div>
+                <div class="two_div">
+                    <div>
+                        <input type="date" name="birthday" value="Birthday">
+                    </div>
+                    <div>
+                        <select name="gender">
+                            <option value="">Gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <select name="class">
+                        <option value="">Class</option>
+                        <option value="myanmar">Myanmar</option>
+                        <option value="english">English</option>
+                        <option value="japan">Japan</option>
+                    </select>                
+                </div>
+                <div>
+                    <div>
+                        <input type="number" name="code" placeholder="Registration Code">
+                    </div>
+                    <div>
+                        <input type="hidden" name="hide">
+                    </div>
+                </div>
+                <div>
+                    <input type="button" value="Search">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

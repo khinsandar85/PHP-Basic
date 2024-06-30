@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Test</title>
+    <style>
+        .myDiv {
+            width: 70%;
+            margin-left: 15%;
+            height: 300px;
+        }
+
+        .btnDiv {
+            display: flex;
+        }
+
+        button {
+            margin: auto;
+            padding: 5px 15px;
+            font-weight: bold;
+            background-color: #045656;
+            color: white;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="myDiv" id="myDiv"></div>
+    <div class="btnDiv">
+        <button onclick="chgBG()">Change BgColor</button>
+    </div>
+
+    <script>
+        let colors = ["red", "green", "blue", "orange"];
+        let i = 0;
+
+        function chgBG() {
+            myDiv.style.backgroundColor = colors[i++];
+            if(i== colors.length) {
+                i =0;
+            }
+        }
+    </script>
+</body>
+</html>

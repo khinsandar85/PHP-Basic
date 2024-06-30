@@ -1,0 +1,79 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+@font-face {
+    font-family: 'titleFont';
+    src: url('../font/MASLITE.otf');
+}
+.header {
+    font-family: 'titleFont';
+    text-align: center;
+    text-decoration: underline;
+    text-decoration-style: double;
+    text-underline-offset: 0.8rem;
+    padding: 20px;
+}
+.container {
+    /* background-color: beige; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.food {
+    width: 28%;
+    height: 300px;
+    margin: 20px 0px;
+    position: relative;
+    border-top-left-radius: 15%;
+    border-bottom-right-radius: 15%;
+}
+
+.item1 {
+    background-image: url('../img/p_1.jpg');
+    background-size: 100% 100%;
+}
+
+.item2 {
+    background-image: url('../img/p_2.jpg');
+    background-size: 100% 100%;
+}
+
+.item3 {
+    background-image: url('../img/p_3.webp');
+    background-size: 100% 100%;
+}
+
+.text {
+    text-align: center;
+    color: yellow;
+    background-color: black;
+    width: 100%;
+    position: absolute;
+    top: 30%;
+
+}
+.hoverDiv h1 {
+    width: 100%;
+    display: none;
+}
+
+.hoverDiv p {
+    text-align: justify;
+    display: none;
+    line-height: 180%;
+}
+
+.hoverDiv {
+    height: 100%;
+    display: flex;
+    transition: .4s;    
+    border-top-left-radius: 15%;
+    border-bottom-right-radius: 15%;
+}
+
+.hoverDiv:hover {
+    background-color: gainsboro;
+    opacity: .5;
+}

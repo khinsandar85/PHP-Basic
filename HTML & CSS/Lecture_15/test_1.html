@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        @media screen and (min-width: 1000px) {
+            .header {
+                text-align: center;
+                line-height: 200%;
+            }
+            form {
+                width: 60%;
+                margin-left: 20%;
+            }
+            .row {
+                display: flex;
+                margin-bottom: 10px;
+            }
+            .row div:first-child {
+                width: 33%;
+            }
+            .row div:last-child {
+                width: 77%;
+            }
+            label {
+                text-transform: uppercase;
+            }
+            span {
+                color: #ccc;
+            }
+            input, select {
+                width: 100%;
+                height: 2rem;
+                border: 2px solid #ccc;
+                border-radius: 0.2rem;
+                background-color: #d9f0d9;
+            }
+            input[type="submit"],
+            input[type="reset"] {
+                width: auto;
+                padding: 0.5rem 2rem;
+                border: 2px solid rgb(142, 139, 139);
+                border-radius: 0.3rem;
+                background: #008000;
+                color: white;
+                font-variant: small-caps;
+                font-weight: bold;
+                height: 2.2rem;
+            }
+            input[type="reset"] {
+                background: #c66017;
+            }
+            input[type="radio"],
+            input[type="checkbox"] {
+                width: auto;
+                height: auto;
+            }
+            textarea {
+                width: 100%;
+                border: 1px solid #ccc;
+                border-radius: 0.2rem;
+                background-color: #d9f0d9;
+            }
+            .btnGp {
+                text-align: center;
+            }
+        }
+        @media screen and (max-width: 999px){
+            .header {
+                text-align: center;
+                line-height: 200%;
+            }
+            form {
+                width: 60%;
+                margin-left: 20%;
+            }
+            .row {
+                margin-bottom: 10px;
+            }
+            .row div {
+                width: 100%;
+                margin-bottom: 0.7rem;
+            }
+            label {
+                text-transform: uppercase;
+                font-weight: bold;
+            }
+            span {
+                color: #ccc;
+            }
+            input, select {
+                width: 100%;
+                height: 2rem;
+                border: 2px solid #ccc;
+                border-radius: 0.2rem;
+                background-color: #d9f0d9;
+            }
+            input[type="submit"],
+            input[type="reset"] {
+
+                width: auto;
+                padding: 0.5rem 2rem;
+                border: 2px solid rgb(142, 139, 139);
+                border-radius: 0.3rem;
+                background: #008000;
+                color: white;
+                font-variant: small-caps;
+                font-weight: bold;
+                height: 2.2rem;
+            }
+            input[type="reset"] {
+                background: #c66017;
+            }
+            input[type="radio"],
+            input[type="checkbox"] {
+                width: auto;
+                height: auto;
+            }
+            textarea {
+                width: 100%;
+                border: 1px solid #ccc;
+                border-radius: 0.2rem;
+                background-color: #d9f0d9;
+            }            
+            .btnGp {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1 class="header">Registration Form</h1>
+    <form action="test_1.html" method="post">
+        <div class="row">
+            <div>
+                <label for="name">Name</label>
+            </div>
+            <div>
+                <input type="text" name="userName" id="" placeholder="John Doe">
+            </div>
+        </div>
+        <div class="row">
+            <div>
+                <label for="age">Age</label>
+            </div>
+            <div>
+                <input type="number" name="userAge" min="1" max="130" value="18" id="">
+            </div>
+        </div>
+        <div class="row">
+            <div>
+                <label for="email">Email</label>
+            </div>
+            <div>
+                <input type="email" name="userEmail" placeholder="xyz@gmail.com" id="">
+            </div>
+        </div> 
+        <div class="row">
+            <div>
+                <label for="password">Password</label>
+            </div>
+            <div>
+                <input type="password" name="userPassword" id="">
+                <span>
+                    At least eight characters
+                </span>
+            </div>
+        </div>
+        <div class="row">
+            <div>
+                <label for="userConfirm">Confirm Password</label>
+            </div>
+            <div>
+                <input type="password" name="userConfirm" id="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="">
+                <label for="majorList">Major</label>
+            </div>
+            <div>
+                <input type="text" name="hob" list="majorList">
+                <datalist id="majorList">
+                    <option value="">Select Major</option>
+                    <option value="CS">Computer Science</option>
+                    <option value="CT">Computer Techonology</option>
+                </datalist>
+            </div>
+        </div>
+        <div class="row">
+            <div>
+                <label for="gender">Gender</label>
+            </div>
+            <div>
+                <fieldset>
+                    <legend>Gender</legend>
+                    <input type="radio" name="gender" value="male" id="" checked="checked">Male
+                    <input type="radio" name="gender" value="female" id="">Female
+                </fieldset>
+            </div>
+        </div>
+        <div class="row">
+            <div>
+                <label for="hob">Hobbies</label>
+            </div>
+            <div>
+                <input type="checkbox" name="reading" value="reading" id="">Reading
+                <input type="checkbox" name="reading" value="sport" id="">Sport
+                <input type="checkbox" name="reading" value="music" id="">Music
+            </div>
+        </div>
+        <div class="row">
+            <div>
+                <label for="city">City</label>
+            </div>
+            <div>
+                <select name="city" id="">
+                    <option value="">Select City</option>
+                    <option value="mdy">Mandalay</option>
+                    <option value="ygn">Yangon</option>
+                    <option value="npd">NayPyiDaw</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div>
+                <label for="address">Location Address</label>
+            </div>
+            <div>
+                <textarea name="" id="" rows="10"></textarea>
+            </div>
+        </div>
+        <div class="btnGp">
+            <input type="submit" name="btnRegister" value="Register" id="">
+            <input type="reset" name="btnReset" value="Clear">
+        </div>
+    </form>
+</body>
+</html>

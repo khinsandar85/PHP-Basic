@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice 5 - Odd / Even Number</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #d9efd9;
+        }
+
+        .container {
+            width: 100vw;
+            height: 95vh;
+        }
+
+        .input_box {
+            padding: 3%;
+            display: flex;
+        }
+
+        h3 {
+            font-size: 27px;
+            color: #048604;
+            margin-bottom: 20px;
+        }
+
+        .label_box {
+            height: 22px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #048604;
+            margin-left: 1%;
+        }
+
+        .label_box label:last-child {
+            margin-left: 14%;
+        }
+
+        .input_text input {
+            padding: 1.6%;
+            width: 220px;
+            border-radius: 5px;
+            background-color: #ffffff;
+            border: 1px solid #048604;
+        }
+
+        ::placeholder {
+            color: #048604;
+            font-weight: bold;
+        }
+
+
+        input[type="submit"] {
+            border: none;
+            width: 105px;
+            height: 44px;
+            color: #ffffff;
+            background-color: #048604;
+            font-weight: bold;
+            font-size: 18px;
+            padding: 0;
+            cursor: pointer;
+        }
+
+
+        #show_result {
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+            flex-wrap: wrap;
+            padding: 3%;
+        }
+
+        #show_result div {
+            width: 40px;
+            height: 40px;
+            color: white;
+            background-color:  #048604;
+            transform: rotate(45deg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 2%;
+            margin-bottom: 2%;
+            font-weight: bold;
+            box-shadow: 0px 0px 5px #048604;
+        }
+
+        #show_result div p {
+            transform: rotate(-45deg);
+        }     
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="input_box">
+            <div class="input_text">
+                <h3>Odd & Even Number</h3>
+                <div class="label_box">
+                    <label for="">Minimum ::</label>
+                    <label for="">Maximum ::</label>
+                </div>
+                <div>
+                    <input type="number" name="min_num" id="min_num" min="0" onfocus="clear_input()" required placeholder="Enter minimum number...">
+                    <input type="number" name="max_num" id="max_num" min="0" onfocus="clear_input()" required placeholder="Enter maximum number...">
+                    <input type="submit" onclick="calc_num(1)" value="Odd">
+                    <input type="submit" onclick="calc_num(0)" value="Even">
+                    <input type="submit" onclick="calc_num('reverse')" value="Reverse">
+                    <input type="submit" onclick="calc_num('export')" value="Square">
+                    <input type="submit" onclick="clear_all()" value="Reset">
+                </div>
+            </div>
+        </div>   
+        <div id="show_result"></div> 
+    </div>
+
+    <script>       
+
+        function clear_all() {
+            show_result.innerHTML ="";
+            min_num.value = "";
+            max_num.value = "";
+        }
+
+        function clear_input() {
+            show_result.innerHTML ="";
+        }
+        
+        function calc_num( number ) {
+            show_result.innerHTML ="";
+
+            if( !min_num.value || !max_num.value ) {
+                alert("Please enter number first! ");
+            }
+
+            else {
+                let min = Number(min_num.value);
+                let max = Number(max_num.value);
+
+                if( min >= max || min < 0 || max < 0 ) {
+                    alert("Please check your max and min number.");
+                }
+
+                else {
+
+                    if( number == 0 || number == 1) {
+
+                        for ( let a = min; a <= max; a++ ) {
+
+                            if( a%2 == number) {
+                                let div = document.createElement('div');
+                                let p = document.createElement('p');
+                                p.textContent = a;
+
+                                div.appendChild(p);
+                                show_result.appendChild(div);
+                            }
+                        }
+                    }
+
+                    else if ( number == "reverse") {
+
+                        for ( let a = max; a >= min; a-- ) {
+
+                            if( a%2 == 0) {
+                                let div = document.createElement('div');
+                                let p = document.createElement('p');
+                                p.textContent = a;
+
+                                div.appendChild(p);
+                                show_result.appendChild(div);
+                            }
+                        }
+                    }
+
+                    else {
+                        for ( let a = min; a <= max; a++ ) {
+
+                            let div = document.createElement('div');
+                            let p = document.createElement('p');
+                            p.textContent = a*a;
+
+                            div.appendChild(p);
+                            show_result.appendChild(div);
+
+                        }
+                    }
+                }
+            }
+        }
+
+    </script>
+</body>
+</html>

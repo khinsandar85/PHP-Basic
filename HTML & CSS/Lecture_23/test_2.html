@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation 2</title>
+    <style>
+        div {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            animation: change 3s 4 alternate;
+        }
+
+        @keyframes change {
+            0% {
+                background-color: red;
+                transform: scale(0.5);
+                transform: translateX(400px);
+            }
+            50% {
+                background-color: orange;
+            }
+            100% {
+                background-color: yellow;
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

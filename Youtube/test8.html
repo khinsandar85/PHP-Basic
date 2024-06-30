@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pratice - Arrow</title>
+    <style>
+        body {
+            background-color: rgb(211, 253, 253);
+        }
+        h1, h6 {
+            text-align: center;
+            margin: 5px auto;
+        }
+        .container {
+            margin: 3% 8%;
+            display: flex;
+            justify-content: space-between;
+        }
+        .card {
+            width: 350px;
+            background-color: rgb(250, 246, 246);
+            box-shadow: 3px 3px 3px gray;
+            border-radius: 15px;
+            padding: 15px;
+            position: relative;
+        }
+
+        .card img {
+            width: 340px;
+            border-radius: 15px;
+            margin-left: 1.5%;
+
+        }
+
+        .card .text h3 {
+            font-size: 1.5rem;
+            margin: 10px 0px 3px 0px;
+        }
+        .card .text p {
+            text-align: justify;
+        }
+        .price {
+            position: absolute;
+            background-color: red;
+            color: white;
+            font-weight: bold;
+            width: 40px;
+            text-align: center;
+            /* top: 0; */
+            top: 15px;
+            right: 28px;
+        }
+        .price p {
+            margin: 0px;
+            padding: 10px 0px;
+        }
+        .icon {
+            width: 0;
+            border-bottom: 20px solid transparent;
+            border-left: 20px solid red;
+            border-right: 20px solid red;
+            position: absolute;
+            top: 71px;
+            /* top: 57px; */
+            right: 28px;
+
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>~ Collections ~</h1>
+        <h6>Select as Your Imagine</h6>
+    </div>
+    <div class="container">
+        <div class="card">
+            <img src="./img/c_3.jpg" alt="">
+            <div class="text">
+                <h3>Collections</h3>
+                <p>
+                    Lorem, also ipsum dolor sit amet consectetur adipisicing elit. Sunt architecto iste a sed illo adobe poster rerum provident, quas consequuntur perspiciatis temporibus possimus natus placeat quaerat impedit odit ducimus corporis, delectus autem?
+                    Sunt architecto iste a sed illo rerum provident, quas consequuntur
+                </p>
+            </div>
+            <div class="price">
+                <p>40% Sales</p>
+            </div>
+            <div class="icon"></div>
+        </div>
+        <div class="card">
+            <img src="./img/c_2.jpg" alt="">
+            <div class="text">
+                <h3>Collections</h3>
+                <p>
+                    Lorem, also ipsum dolor sit amet consectetur adipisicing elit. Sunt architecto iste a sed illo adobe poster rerum provident, quas consequuntur perspiciatis temporibus possimus natus placeat quaerat impedit odit ducimus corporis, delectus autem?
+                    Sunt architecto iste a sed illo rerum provident, quas consequuntur
+                </p>
+            </div>            
+            <div class="price">
+                <p>30% Sales</p>
+            </div>
+            <div class="icon"></div>
+        </div>
+        <div class="card">
+            <img src="./img/c_1.webp" alt="">
+            <div class="text">
+                <h3>Collections</h3>
+                <p>
+                    Lorem, also ipsum dolor sit amet consectetur adipisicing elit. Sunt architecto iste a sed illo adobe poster rerum provident, quas consequuntur perspiciatis temporibus possimus natus placeat quaerat impedit odit ducimus corporis, delectus autem?
+                    Sunt architecto iste a sed illo rerum provident, quas consequuntur
+                </p>
+            </div>
+            <div class="price">
+                <p>2% Sales</p>
+            </div>
+            <div class="icon"></div>
+        </div>
+    </div>
+</body>
+</html>

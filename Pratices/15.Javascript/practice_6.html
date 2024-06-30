@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foods</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+        body {
+            background-color: whitesmoke;
+        }
+
+        .header_container {
+            display: flex;
+        }
+
+        h1 {
+            text-align: center;
+            padding :0.5rem 0rem;
+            margin: 1.5rem auto;
+            font-size: 4rem;
+            border-top: 0.3rem solid black;
+            border-bottom: 0.3rem solid black;
+            display: inline-block;
+            background: linear-gradient(135deg, blue, orange, green);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent ;
+            font-family: 'Lobster', cursive;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .food {
+            width: 20%;
+            margin: 1%;
+            background-color: white;
+            text-align: center;
+            padding: 1rem 0.7rem;
+            border-radius: 10px;
+            transition: .4s;
+            box-shadow: 2px 2px 5px rgb(173, 170, 170);
+            cursor: pointer;
+        }
+
+        .food:hover {
+            background-color: antiquewhite;
+            transform: scale(1.04);
+        }
+
+        .food img {
+            width: 80%;
+            height: 160px;
+            margin-left: 1%;
+            border-radius: 40%;
+            border-radius: 10px;
+            transition: .4s;
+        }
+
+        .food img:hover {
+            /* width: 90%; */
+            transform: scaleX(1.2);
+        }
+
+        .food p {
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .food button {
+            width: 50%;
+            padding: 0.5rem 0rem;
+            background: linear-gradient(135deg, green, yellow);
+            border-radius: 10px;
+            animation-name: chgColor;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            transition: .4s;
+        }
+
+        @keyframes chgColor {
+            from {
+                background: linear-gradient(135deg, green, yellow);
+
+            }
+            to {
+                background: linear-gradient(135deg, yellow, green);
+
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="header_container">
+        <h1>Myanmar Traditional Foods</h1>
+    </div>
+    <div class="container">
+        <div class="food">
+            <img src="./img/f_1.jpg" alt="">
+            <p>Latt Patt</p>
+            <p>Price : 1900</p>
+            <button>Add to Cart</button>
+        </div>
+        <div class="food">
+            <img src="./img/f_2.jpg" alt="">
+            <p>A Sone Ban</p>
+            <p>Price : 2200</p>
+            <button>Add to Cart</button>
+        </div>
+        <div class="food">
+            <img src="./img/f_3.jpg" alt="">
+            <p>Mont Hin Kar</p>
+            <p>Price : 1300</p>
+            <button>Add to Cart</button>
+        </div>
+        <div class="food">
+            <img src="./img/f_4.jpg" alt="">
+            <p>Special San Kar</p>
+            <p>Price : 1800</p>
+            <button>Add to Cart</button>
+        </div>
+        <div class="food">
+            <img src="./img/f_5.jpg" alt="">
+            <p>Ton Yan Soup</p>
+            <p>Price : 1000</p>
+            <button>Add to Cart</button>
+        </div>
+        <div class="food">
+            <img src="./img/f_6.jpg" alt="">
+            <p>Phar Lu Dar</p>
+            <p>Price : 1000</p>
+            <button>Add to Cart</button>
+        </div>
+        <div class="food">
+            <img src="./img/f_7.jpg" alt="">
+            <p>Too Huu</p>
+            <p>Price : 1200</p>
+            <button>Add to Cart</button>
+        </div>
+        <div class="food">
+            <img src="./img/f_8.jpg" alt="">
+            <p>Latt Patt</p>
+            <p>Price : 2500</p>
+            <button>Add to Cart</button>
+        </div>
+    </div>
+</body>
+</html>

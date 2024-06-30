@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice 4 - Number</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #9a1111;
+        }
+
+        .container {
+            width: 100vw;
+            height: 95vh;
+        }
+
+        .input_box {
+            padding: 3%;
+            display: flex;
+            justify-content: space-between;
+        }
+
+
+        h3 {
+            font-size: 27px;
+            color: #fe03c0;
+            margin-bottom: 20px;
+        }
+
+        .label_box {
+            height: 22px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #fff;
+            margin-left: 1%;
+        }
+
+        .label_box label:last-child {
+            margin-left: 25%;
+        }
+
+        .input_text input {
+            padding: 2%;
+            width: 220px;
+            border-radius: 5px;
+            background-color: #ffffff;
+            border: 1px solid #9a1111;
+        }
+
+        ::placeholder {
+            color: #9a1111;
+            font-weight: bold;
+        }
+
+
+        input[type="submit"] {
+            border: none;
+            width: 100px;
+            height: 44px;
+            color: #ffffff;
+            background-color: #fe03c0;
+            font-weight: bold;
+            font-size: 18px;
+            padding: 0;
+            cursor: pointer;
+        }
+
+
+        #show_result {
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+            flex-wrap: wrap;
+            padding: 3%;
+        }
+
+        #show_result p {
+            width: 40px;
+            height: 40px;
+            border: 2px solid #fe03c0;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0.5%;
+            background-color: white;
+            font-weight: bold;
+            box-shadow: 0px 0px 5px #fe03c0;
+        }
+        
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="input_box">
+            <div class="input_text">
+                <div class="label_box">
+                    <label for="">Minimum ::</label>
+                    <label for="">Maximum ::</label>
+                </div>
+                <div>
+                    <input type="number" name="min_num" id="min_num" min="0" onfocus="clear_input()" required placeholder="Enter minimum number...">
+                    <input type="number" name="max_num" id="max_num" min="0" onfocus="clear_input()" required placeholder="Enter maximum number...">
+                    <input type="submit" onclick="calc_count()" value="Show">
+                </div>
+            </div>
+        </div>   
+        <div id="show_result"></div> 
+    </div>
+
+    <script>       
+
+        function clear_input() {
+            show_result.innerHTML ="";
+        }
+        
+        function calc_count() {
+
+            if( !min_num.value || !max_num.value ) {
+                alert("Please enter number first! ");
+            }
+
+            else {
+                let min = Number(min_num.value);
+                let max = Number(max_num.value);
+
+                if( min >= max || min < 0 || max < 0 ) {
+                    alert("Please check your max and min number.");
+                }
+
+                else {
+
+                    for ( let a = min; a <= max; a++ ) {
+
+                        let p = document.createElement('p');
+                        p.textContent = a;
+                        show_result.appendChild(p);
+
+                    }
+                }
+            }
+        }
+
+    </script>
+</body>
+</html>

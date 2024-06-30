@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice 3</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            background-image: url('./img/form_2.webp');
+            width: 100vw;
+            height: 100vh;
+
+        }
+
+        .container div:first-child p {
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 28px;
+            font-weight: bold;
+            padding-top: 2%;
+            color: rgb(21, 2, 52);
+        }
+
+        .container div:last-child p {
+            margin-left: 16%;
+            font-weight: bold;
+        }
+
+        .form_div {
+            margin: 2% auto 1% auto;
+            width: 1015px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .form_title {
+            font-size: 20px;
+            padding-left: 3%;
+            padding-bottom: 4%;
+            color: orange;
+            text-shadow: 2px 2px 2px rgb(70, 67, 67);
+        }
+
+        .form_div div {
+            width: 500px;
+            padding: 3%;
+            background-color: #353535c1;
+        }
+
+        .form_div div form div {
+            width: 100%;
+            background-color:transparent;
+            border: 2px solid transparent;
+        }
+
+        .form_div div form div input[type="text"],
+        .form_div div form div input[type="email"],
+        .form_div div form div input[type="password"] {
+            display: block;
+            width: 100%;
+            padding: 3%;
+            border: none;
+            border-radius: 3px;
+            background-color: #eae5e5ef;
+            margin-bottom: 7px;
+        }
+
+        
+        .form_div div form div input[type="text"]:focus-visible,
+        .form_div div form div input[type="email"]:focus-visible,
+        .form_div div form div input[type="password"]:focus-visible {
+            border: none;
+            outline: none;
+        }
+
+        .form_div div form div input[type="submit"] {
+            border: none;
+            border-radius: 4px;
+            color: white;
+            font-weight: bold;
+            background-color: orange;
+            padding: 3%;
+            width: 100%;
+            text-transform: uppercase;
+            transition: .4s;
+        }
+
+        .form_div div form div input[type="submit"]:hover {
+            background-color: white;
+            color: orange;
+            border-left: 7px solid orange;
+        }
+
+        .form_div div form div input[type="radio"], 
+        .form_div div form div input[type="checkbox"] {
+            color: white;
+        } 
+
+        input::placeholder {
+            color: black;
+            font-weight: bold;
+        }
+
+        span {
+            color: #f7f1f1;
+            padding-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div>
+            <p>registration / login form</p>
+        </div>
+        <div class="form_div">
+            <div>
+                <h4 class="form_title">Register Form :</h4>
+                <form action="">
+                    <div>
+                        <input type="text" name="username" placeholder="Username">
+                    </div>
+                    <div>
+                        <input type="email" name="email" placeholder="Email">
+                        <span>Please enter a valid email address</span>
+                    </div>
+                    <div>
+                        <input type="password" name="password" placeholder="Password">
+                        <span>Minimum of 6 characters</span>
+                    </div>
+                    <div>
+                        <input type="password" name="confirm_password" placeholder="Confirm password">
+                    </div>
+                    <div>
+                        <input type="radio" name="gender" id=""> &nbsp;<span>Female</span> &nbsp; &nbsp;
+                        <input type="radio" name="gender" id=""> &nbsp;<span>Male</span>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="rule"> 
+                        <span>I have read and accept terms of use.</span>
+                    </div>
+                    <div>
+                        <input type="submit" value="submit">
+                    </div>
+                </form>
+            </div>
+            <div>
+                <h4 class="form_title">Login Form :</h4>
+                <form action="">
+                    <div>
+                        <input type="email" name="email" placeholder="Enter your email">
+                    </div>
+                    <div>
+                        <input type="password" name="password" placeholder="Password">
+                    </div>
+                    <div>
+                        <input type="checkbox" name="rule"> 
+                        <span>Remember me</span> 
+                    </div>
+                    <div>
+                        <input type="submit" value="Login ">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div>
+            <p>&copy; Registration / Login form All Rights Reserved Design by 
+                <a href="#">W3Layouts</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>

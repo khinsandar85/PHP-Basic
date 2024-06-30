@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <title>Test 2</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            /* box-sizing: border-box; */
+        }
+        body {
+            background-image: url('./img/p_2.webp');
+            background-size: 100%;
+            background-repeat: no-repeat;
+        }
+        ul {
+            text-align: right;
+            margin-right: 30px;
+        }
+        li {
+            display: inline-block;
+            margin-top: 50px;
+            height: 300px;
+        }
+        li a {
+            text-decoration: none;
+            background-color: red;
+            color: white;
+            padding: 0.4rem 1.3rem;
+            font-size: 1rem;
+            border-top-left-radius: 10px;
+            border-bottom-right-radius: 10px ;
+            box-sizing: 5px 5px 5px rgba(0, 0, 0, 0.4);
+        }
+        li a:hover {
+            content: '';
+            background-color: lightblue;
+        }
+        /* button {
+            display: inline-flex;
+            align-items: center;
+            column-gap: .5rem;
+            background-color: rgb(244, 65, 65);
+            color: white;
+            padding: .75rem 1.4rem;
+            border-radius: .25rem;
+            font-weight: bold;
+            position: relative;
+            z-index: 1;
+            transition: .4s;
+        }
+        button::after {
+            position: absolute;
+            content: '';
+            left: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background-color: blue;
+            z-index: -1;
+            transform-origin: center;
+            transform: scale(0);
+            border-radius: .25rem;
+            transition: .4s;
+        }
+        button:hover::after {
+            transform: scale(1);
+        } */
+        .container {
+            display: flex;
+            justify-content: center;
+            height: 50px;
+            background-color:rgba(0, 0, 0, 0.2);
+            padding: 2rem;
+            margin: 2% 0rem 20% 0rem;
+            border-radius: 1rem;
+        }
+        .container h1 {
+            width: 70%;
+            background-size: 100% 100%;
+            text-align: center;
+            font-size: 3rem;
+            color: orangered;
+            text-shadow: 3px 3px 3px black;
+        }
+        .items {
+            display: flex;
+            background-color: white;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .item {
+            width: 20%;
+            margin: 1rem auto;
+            padding: 10px;
+            background-color: beige;
+            border-radius: 12px;
+        }
+        .item img {
+            width: 100%;
+            height: 420px;
+        }
+        .items h1 {
+            width: 100%;
+            text-align: center;
+            padding: 1.5rem;
+            font-size: 3rem;
+            color: green;
+        }
+        .items h3 {
+            color: green;
+            padding: 1rem 0rem;
+        }
+        .items p {
+            color: darkolivegreen;
+            margin-bottom: 1rem;
+        }
+        footer {
+            background-color: brown;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+        }
+        footer p {
+            padding: 0.5rem 0rem;
+        }
+        @font-face {
+            font-family: 'logoFont';
+            src: url('./font/Golden\ Volcano.ttf');
+        }
+        .logo {
+            font-family: 'logoFont';
+            margin: 2% 8%;
+            font-size: 30px;
+            color: green;
+            position: absolute;
+            text-transform: uppercase;
+        }
+        .item .p_price {
+            font-weight: bold;
+            color: orangered;
+        }
+        .goLink a {
+            text-decoration: none;
+            color: white;
+            font-size: 20px;
+            margin-right: 15px;
+        }
+    </style>
+</head>
+<body>
+        <div class="logo">
+            <i class="fa-sharp fa-solid fa-seedling"></i> Plants
+        </div>
+        <ul>
+            <li>
+                <a href="home">Home</a>
+            </li>
+            <li>
+                <a href="service">Service</a>
+            </li>          
+            <li>
+                <a href="About">About</a>
+            </li>
+            <li>
+                <a href="Contact">Contact</a>
+            </li>
+        </ul>
+        <div class="container">
+            <h1>Welcome To Out Plant Shop</h1>
+        </div>
+        <div class="items">
+            <h1>
+                Indoor Plants
+            </h1>
+            <div class="item">
+                <img src="./img/p_3.jpeg" alt="plant one">
+                <h3>Fiddle Leaf Fig</h3>
+                <p>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci rem corrupti quasi perferendis facere molestiae laudantium quae, officia accusantium id ipsum velit voluptatibus, porro, maiores harum. Nulla, iure? Distinctio, minus.
+                </p>
+                <p class="p_price">
+                    Price - $50
+                </p>
+            </div>
+            <div class="item">
+                <img src="./img/p_4.webp" alt="plant one">
+                <h3>Cactus</h3>
+                <p>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci rem corrupti quasi perferendis facere molestiae laudantium quae, officia accusantium id ipsum velit voluptatibus, porro, maiores harum. Nulla, iure? Distinctio, minus.
+                </p>
+                <p class="p_price">
+                    Price - $7.5
+                </p>
+            </div>
+            <div class="item">
+                <img src="./img/p_5.jpg" alt="plant one">
+                <h3>Glamour</h3>
+                <p>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci rem corrupti quasi perferendis facere molestiae laudantium quae, officia accusantium id ipsum velit voluptatibus, porro, maiores harum. Nulla, iure? Distinctio, minus.
+                </p>
+                <p class="p_price">
+                    Price - $31.5
+                </p>
+            </div>
+            <div class="item">
+                <img src="./img/p_6.webp" alt="plant one">
+                <h3>Lively Root</h3>
+                <p>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci rem corrupti quasi perferendis facere molestiae laudantium quae, officia accusantium id ipsum velit voluptatibus, porro, maiores harum. Nulla, iure? Distinctio, minus.
+                </p>
+                <p class="p_price">
+                    Price - $62
+                </p>
+            </div>
+            <div class="item">
+                <img src="./img/p_5.jpg" alt="plant one">
+                <h3>Glamour</h3>
+                <p>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci rem corrupti quasi perferendis facere molestiae laudantium quae, officia accusantium id ipsum velit voluptatibus, porro, maiores harum. Nulla, iure? Distinctio, minus.
+                </p>
+                <p class="p_price">
+                    Price - $57
+                </p>
+            </div>
+            <div class="item">
+                <img src="./img/p_3.jpeg" alt="plant one">
+                <h3>Aglaonema</h3>
+                <p>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci rem corrupti quasi perferendis facere molestiae laudantium quae, officia accusantium id ipsum velit voluptatibus, porro, maiores harum. Nulla, iure? Distinctio, minus.
+                </p>
+                <p class="p_price">
+                    Price - $58.9
+                </p>
+            </div>
+            <div class="item">
+                <img src="./img/p_6.webp" alt="plant one">
+                <h3>Lively Root</h3>
+                <p>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci rem corrupti quasi perferendis facere molestiae laudantium quae, officia accusantium id ipsum velit voluptatibus, porro, maiores harum. Nulla, iure? Distinctio, minus.
+                </p>
+                <p class="p_price">
+                    Price - $45
+                </p>
+            </div>
+            <div class="item">
+                <img src="./img/p_4.webp" alt="plant one">
+                <h3>Rubber Plant</h3>
+                <p>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci rem corrupti quasi perferendis facere molestiae laudantium quae, officia accusantium id ipsum velit voluptatibus, porro, maiores harum. Nulla, iure? Distinctio, minus.
+                </p>
+                <p class="p_price">
+                    Price - $33.3
+                </p>
+            </div>
+            
+        </div>
+        <footer>
+            <div class="goLink">
+                <a href="https://www.facebook.com">
+                    <i class="fa-brands fa-square-facebook"></i>
+                </a>
+                <a href="https://www.youtube.com">
+                    <i class="fa-brands fa-square-youtube"></i>
+                </a>
+                <a href="https://www.instagram.com">
+                    <i class="fa-brands fa-square-instagram"></i>
+                </a>
+            </div>
+            <p>&copy; Copyright by ABC Plant Shop.</p>
+            <p>All right reserved.</p>
+            <p>2000 - 2022</p>
+        </footer>
+</body>
+</html>

@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Book Store</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: whitesmoke;
+        }
+
+        .nav_box {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            background-color: #b7530b;
+            padding: 20px 10%;
+            height: 70px;
+            z-index: 100;
+            position: fixed;
+            color: white;
+        }
+
+        .nav_box p {
+            font-size: 28px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .nav {
+            width: 60%;
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        .nav a {
+            text-decoration: none;
+            text-transform: capitalize;
+            margin-top: -2px;
+            color: white;
+            font-weight: bold;
+            padding: 5px 20px 10px 20px;
+            border-bottom: 1px solid;
+            transition: .4s;
+        }
+
+        .nav a:hover {
+            background-color: white;
+            border-radius: 5px;
+            color: #b7530b;
+        }
+
+        #active_link {
+            text-decoration: none;
+            border-radius: 5px;
+            border: 1px solid;
+            box-shadow: 0 0 5px ;
+        }
+
+        #search {
+            margin-left: 10%;
+            text-align: right;
+            display: flex;
+        }
+
+        #search i {
+            background-color: white;
+            padding: 0.5rem;
+            height: 2.3rem;
+            color: black;
+        }
+
+        #search input {
+            height: 2.3rem;
+            width: 13rem;
+            border: none;
+        }
+
+        #search input:active,
+        #search input:focus-visible {
+            border: none;
+            outline: none;
+        }
+
+        .outer {
+            display: flex;
+            
+        }
+
+        .container {
+            display: flex;
+            margin: auto;
+            flex-wrap: wrap;
+            margin-top: 9%;
+            width: 80%;
+        }
+
+        .review_box {
+            width: 30%;
+            margin: 1%;
+            background-color: white;
+            border-radius: 15px;
+            padding: 1%;
+            cursor: pointer;
+            transition: .4s;
+        }
+
+        .review_box:hover {
+            box-shadow: 1px 1px 3px gray;
+            transform: scale(1.05);
+        }
+
+        .book_img_box {
+            display: flex;
+            width: 100%;
+        }
+
+        .book_img_box img {
+            width: 310px;
+            height: 320px;
+            display: flex;
+            margin: auto;
+            border: 2px solid #ede3e3;
+        }
+
+        .review_text {
+            padding: 3%;
+            text-align: center;
+        }
+
+        .review_text .user_img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 2px solid blue;
+            padding: 1%;
+            background-color: white;
+            margin: 1% 5% 1% 1%;
+            position: absolute;
+            top: -40%;
+            transition: .4s;
+            left: 35%;
+        }
+
+        .review_box_data p:first-child {
+            color: #813906;
+            text-transform: capitalize;
+            font-size: 23px;
+            font-weight: bold;
+            margin: 15px 0px;
+        }
+
+        .review_box_data p:nth-child(2) {
+            margin: 10px;
+            color: blue;
+        }
+    </style>
+</head>
+<body onload="show()">
+    <div class="nav_box">
+        <div>
+            <p>Book </p>
+        </div>
+        <div class="nav">
+            <a href="practice_2.html">shop</a>
+            <a href="practice_4.html" id="active_link">store</a>
+            <a href="practice_3.html">review</a>
+        </div>
+        <div id="search">
+            <!-- <i class="fa fa-search"></i>
+            <input type="text" name="" placeholder="Search here ..." onkeyup="filterFood(this)" id=""> -->
+        </div>
+    </div>
+
+    <div class="outer">
+        <div class="container" id="container"></div>
+    </div>
+
+    <script>
+
+        let arr = [
+            {
+                "img" : "b_11.jpg", 
+                "name" : "Simplicity " , 
+                "price" : "73.89",
+                "data" : "Lorem liquproiipsum dolor sitamet consectetur adipisicing fouisqelit. Eaarchitectofuga, veniamt adnatus facworily does't hosliwoon listoexpedita nihilinsunt quidem dolorum.",
+                "rating" : "3",
+                "user_name" : "James Breve",
+                "user_img" : "user_1.jpg", 
+                "comment" : "It is a good story. I want to advice to choose this!",
+            },
+            {
+                "img" : "bb_2.jpg", 
+                "name" : "think outside box" , 
+                "price" : "55.99",
+                "data" : "Lorem liquproiipsum dolor sitamet consectetur adipisicing fouisqelit. Eaarchitectofuga, veniamt adnatus facworily does't hosliwoon listoexpedita nihilinsunt quidem dolorum.",
+                "rating" : "4",
+                "user_name" : "Lily Someol Erwy",
+                "user_img" : "user_2.jpg", 
+                "comment" : "It is a good book. Try This!",
+            },
+            {
+                "img" : "b_33.jpg", 
+                "name" : "power of pivoting" , 
+                "price" : "432.4",
+                "data" : "Lorem liquproiipsum dolor sitamet consectetur adipisicing fouisqelit. Eaarchitectofuga, veniamt adnatus facworily does't hosliwoon listoexpedita nihilinsunt quidem dolorum.",
+                "rating" : "3",
+                "user_name" : "Olice Mowfjie",
+                "user_img" : "user_3.jpg", 
+                "comment" : "Great.",
+            },
+            {
+                "img" : "b_44.png", 
+                "name" : "author name " , 
+                "price" : "59.l3",
+                "data" : "Lorem liquproiipsum dolor sitamet consectetur adipisicing fouisqelit. Eaarchitectofuga, veniamt adnatus facworily does't hosliwoon listoexpedita nihilinsunt quidem dolorum.",
+                "rating" : "5",
+                "user_name" : "Meria Dava",
+                "user_img" : "user_4.jpg", 
+                "comment" : "Wonderful! That is the best!",
+            },
+            {
+                "img" : "b_5.jpg", 
+                "name" : "killing hemingway" , 
+                "price" : "22.44",
+                "data" : "Lorem liquproiipsum dolor sitamet consectetur adipisicing fouisqelit. Eaarchitectofuga, veniamt adnatus facworily does't hosliwoon listoexpedita nihilinsunt quidem dolorum.",
+                "rating" : "5",
+                "user_name" : "Doloer Ipsum",
+                "user_img" : "user_5.jpg", 
+                "comment" : "Try to read & that give specialize knowledge. ",
+            },
+            {
+                "img" : "b_6.jpg", 
+                "name" : "head line" , 
+                "price" : "55.40",
+                "data" : "Lorem liquproiipsum dolor sitamet consectetur adipisicing fouisqelit. Eaarchitectofuga, veniamt adnatus facworily does't hosliwoon listoexpedita nihilinsunt quidem dolorum.",
+                "rating" : "4",
+                "user_name" : "Ricielion Joe",
+                "user_img" : "user_6.jpg", 
+                "comment" : "Excellent!",
+            },
+            {
+                "img" : "b_7.jpg", 
+                "name" : "Nalterland Topic" , 
+                "price" : "75.63",
+                "data" : "Lorem liquproiipsum dolor sitamet consectetur adipisicing fouisqelit. Eaarchitectofuga, veniamt adnatus facworily does't hosliwoon listoexpedita nihilinsunt quidem dolorum.",
+                "rating" : "4",
+                "user_name" : "Alice Midra",
+                "user_img" : "user_7.jpg", 
+                "comment" : "Best practice book for beginner. You should try this.",
+            },
+            {
+                "img" : "b_8.jpg", 
+                "name" : "The Reflected Mono" , 
+                "price" : "28.94",
+                "data" : "Lorem liquproiipsum dolor sitamet consectetur adipisicing fouisqelit. Eaarchitectofuga, veniamt adnatus facworily does't hosliwoon listoexpedita nihilinsunt quidem dolorum.",
+                "rating" : "3",
+                "user_name" : "Zieol Ovein",
+                "user_img" : "user_8.jpg", 
+                "comment" : "Almost all good.",
+            },
+            {
+                "img" : "b_9.jpg", 
+                "name" : "abandoned clunker" , 
+                "price" : "57.29",
+                "data" : "Lorem liquproiipsum dolor sitamet consectetur adipisicing fouisqelit. Eaarchitectofuga, veniamt adnatus facworily does't hosliwoon listoexpedita nihilinsunt quidem dolorum.",
+                "rating" : "5",
+                "user_name" : "Smile VIsoe",
+                "user_img" : "user_9.jpg", 
+                "comment" : "Great! Specialize for practice people.",
+            },
+        ];
+
+        let foods = arr;
+        let icon = `<i class="fa fa-star"></i>`;
+
+        let show = () => {
+            
+            for(i = 0; i<foods.length; i++) {
+                let story = icon;
+                let a = foods[i]["rating"] - 2;
+                
+                for (j=0; j<=a; j++) {
+                    story += icon;
+                }
+                
+                let div = `
+                    <div class="review_box">
+                        <div class="book_img_box">
+                            <img src="./img/${foods[i]["img"]}" alt="">
+                        </div>
+                        <div class="review_label">
+                            <div class="review_text">
+                                <div class="review_box_data">
+                                    <p>${foods[i]["name"]}</p>
+                                    <p> $ ${foods[i]["price"]}</p>
+                                    <div id="star_box" class="star_box">
+                    `
+                    +
+                    story
+                    +
+                    `    
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                container.innerHTML += div;
+                
+            }
+            
+            // loop_icon();
+        }
+
+        // let filterFood = (e) => {
+        //     let txt = e.value;
+        //     foods = arr.filter((item,index, array) => {
+        //         if (item.name.includes(txt) || 
+        //             item.rating.includes(txt) ||
+        //             item.user_name.includes(txt) 
+        //             ) 
+        //             return true;
+        //     })
+
+        //     foodContainer.innerHTML = "";
+
+        //     show();
+        // }
+    </script>
+</body>
+</html>

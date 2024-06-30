@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice - 7</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 100vw;
+            height: 100vh;
+            background-image: url('./img/form_6.jpg');
+            background-size: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: .9;
+        }
+
+        .title {
+            text-align: center;
+            display: block;
+            color: white;
+            margin-bottom: 3%;
+            font-size: 40px;
+            text-transform: uppercase;
+        }
+
+        .form_div {
+            display: block;
+        }
+
+        .form {            
+            width: 530px;
+            height: 600px;
+            background-color: #a59e9e6a;
+            padding: 6% 5%;
+        }
+
+        .form div {
+            display: flex;
+            justify-content: space-between;
+        }
+
+
+        .form div input,
+        .form div select {
+            width: 300px;
+            padding: 2%;
+            margin: -3% 0% 6% 0%;
+            background-color: #a59e9e6a;
+            border: none;
+            color: white;
+        }
+
+        .form div input:focus-visible {
+            border: none;
+            outline: none;
+        }
+
+        ::placeholder {
+            color: #ffffff;
+        }
+
+        label {
+            text-transform: uppercase;
+            color: white;
+        }
+
+        .form div:nth-child(5) div {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .form div:nth-child(5) div div {
+            width: 100%;
+            margin-left: 20px;
+        }
+
+        .form div:nth-child(5) div div input {
+            width: 140px;
+            padding: 5%;
+            margin: -3% 0% 6% 0%;
+        }
+
+        .form div:nth-child(6),
+        .form div:nth-child(7) {
+            display: flex;
+            flex-direction: row;
+            color: white;
+        }
+
+        .form div:nth-child(6),
+        .form div:nth-child(7){
+            width: 100%;
+            display: block;
+        }
+
+        .radio_div div:first-child {
+            text-transform: capitalize;
+            margin: 10px 0px;
+        }
+
+        .radio_div div {
+            width: 100%;
+            display: block;
+        }
+
+        .radio_div input[type="radio"] {
+            width: 10px;
+            border: 2px solid red;
+            margin: 10px 0px;
+        }
+
+        .btn {
+            margin-top: 30px;
+            width: 90px;
+        }
+
+        .btn input[type="submit"] {
+            padding: 8% 10%;
+            background-color: #e108e1;
+            border-radius: 3px;
+            border: 2px solid #e108e1;
+            color: white;
+            transition: .4s;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .btn input[type="submit"]:hover {
+            color: #e108e1;
+            background-color: white;
+            border: 2px solid white;
+        }
+
+        .footer {
+            color: white;
+            padding: 2%;
+        }
+
+        .footer a {
+            color: #e108e1;
+        }
+
+        .footer a:hover {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form_div">
+            <div class="title">
+                <p>Event Registration Form</p>
+            </div>
+            <div class="form">
+                <form action="">
+                    <div>
+                        <label for="name">Your Name</label>
+                        <input type="text" name="name" placeholder="Your Name">
+                    </div>
+                    <div>
+                        <label for="email">Your Email</label>
+                        <input type="text" name="email" placeholder="Your Email">
+                    </div>
+                    <div>
+                        <label for="phone">Phone Number</label>
+                        <input type="number" name="phone" placeholder="Phone Number">
+                    </div>
+                    <div>
+                        <label for="persons_num">no.of persons</label>
+                        <select name="persons_num">
+                            <option value="">Select numbers</option>
+                            <option value="">Over 10 members</option>
+                            <option value="">Over 50 members</option>
+                            <option value="">Over 100 members</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="date">date / time</label>
+                        <div>
+                            <div>
+                                <input type="date" name="date">
+                            </div>
+                            <div>
+                                <input type="time" name="time">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="radio_div">
+                        <div>
+                            <p>please choose your favorite food</စ>
+                        </div>
+                        <div>
+                            <input type="radio" name="veg"> Veg
+                        </div>
+                        <div>
+                            <input type="radio" name="non_veg"> Non-Veg
+                        </div>
+                    </div>
+                    <div class="radio_div">
+                        <div>
+                            <p>please choose your favorite drink</p>
+                        </div>
+                        <div>
+                            <input type="radio" name="wine"> Wine
+                        </div>
+                        <div>
+                            <input type="radio" name="whisky"> Whisky
+                        </div>
+                        <div>
+                            <input type="radio" name="beer"> Beer
+                        </div>
+                    </div>
+                    <div class="btn">
+                        <input type="submit" value="submit">
+                    </div>
+                </form>
+            </div>
+            <div class="footer">
+                <p>
+                    &copy; 2017 Event Registration Form. All rights reserved | Design by 
+                    <a href="#">W3Layouts</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date</title>
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+        }
+
+        .container {
+            margin: auto;
+            background-color: #ea992f;
+            color: white;
+            width: 650px;
+            text-align: center;
+            padding: 2rem;
+            border-radius: 10px;
+        }
+ 
+        h3 {
+            padding: 2rem 0 rem;
+            font-size: 2.5rem;
+        }
+
+        .ans {
+            color: #ea992f;
+            background-color: white;
+            padding: 10px;
+        }
+
+        select {
+            border: none;
+            width: 200px;
+            padding: 10px;
+            border-radius: 5px;
+            color: #be700a;
+            margin: 10px 0px;
+        }
+
+    </style>
+</head>
+<body onload="init()">
+    <div class="container">
+        <h1 class="cur_loc">
+            Current Location
+        </h1>
+        <div class="other_loc">
+            <select name="country" id="country" onchange="change_country(this)">
+
+            </select>
+        </div>
+        <h1 id="ans" class="ans"></h1>
+    </div>
+
+    <script>
+
+        let countries = [
+            {name : 'Singapore', offsetH: 8, offsetM: 0},
+            {name : 'Japan', offsetH: 9, offsetM: 0},
+            {name : 'Thailand', offsetH: 7, offsetM: 0},
+        ];
+
+        let change_country = (select) => {
+            let c_name = select.value;
+            let h,m;
+            for ( i=0; i<countries.length; i++ ) {
+                if(c_name == countries[i].name ) {
+                    h = countries[i].offsetH;
+                    m = countries[i].offsetM;
+                }
+            }
+            let date = convert_time(h,m);
+            document.querySelector('.ans').innerHTML = c_name + "Time : " + date.toDateString()+" " + date.getHours()+":" + date.getMinutes();
+
+        }
+
+        let init = () => {
+
+            let current_date = new Date();
+            document.querySelector('.cur_loc').innerHTML = "Myanmar Time : " +  current_date.toDateString()+" " + current_date.getHours()+":" + current_date.getMinutes();
+
+            let str = "";
+            for ( i=0; i<countries.length; i++ ) {
+                let c_name = countries[i].name;
+
+                str += "<option value='" + c_name + "'>" +c_name+ "</option>";
+
+            }
+            country.innerHTML = str;
+
+            let c_name = countries[0].name;
+            let h = countries[0].offsetH;
+            let m = countries[0].offsetM;
+            let date = convert_time(h,m);
+            document.querySelector('.ans').innerHTML = c_name + "Time : " + date.toDateString()+" " + date.getHours()+":" + date.getMinutes();
+
+        }
+
+        let convert_time = ( h, m ) => {
+            let current = new Date();
+            let current_ms = current.getTime();
+
+            let current_of = current.getTimezoneOffset()*60*1000;
+
+            let utc = current_ms+current_of;
+
+            //for other country
+            let ms = h*3600*1000 + m*60*1000; // to change second
+            let total_ms = utc + ms;
+
+            let date_for_city = new Date(total_ms);
+
+            return date_for_city;
+        }
+
+    </script>
+</body>
+</html>

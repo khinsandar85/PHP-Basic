@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">    
+    <title>Lecture 10 - Login Form with animated button</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .container {
+            display: flex;
+            min-height: 100vh;
+            background-color: rgb(67, 64, 64);
+        }
+        .row {
+            margin-bottom: 1.5rem;            
+            display: flex;
+            justify-content: center;
+            align-items: baseline;
+            color: rgb(196, 189, 189);
+            font-size: 1rem;
+        }
+
+        .row i {
+            margin-right: 1rem;
+        }
+
+        .header {
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            letter-spacing: 4px;
+        }
+
+        .input {
+            width: 75%;
+            height: 2rem;
+            color: rgb(196, 189, 189);
+            background-color: transparent;
+            border: none;
+            outline: none;
+            border-bottom: 1px solid white;
+            font-size: 1rem;
+        }
+
+        .btnrow {
+            margin: 3rem;
+            text-align: center;
+        }
+
+        .btnrow a {
+            text-decoration: none;
+            color: orange;
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            font-size: 1.3rem;
+            position: relative;
+            overflow: hidden; 
+            /* it good */
+        }
+
+
+
+        .btnrow a:hover {
+            background-color: white;
+        }
+
+        .btnrow a span:nth-child(1) {
+            position: absolute;
+            top: 0;
+            left: -100%;
+            height: 2px;
+            width: 100%;
+            /* background-color: yellow; */
+            background:linear-gradient(90deg, transparent, yellow);
+            animation:animation1 1s linear infinite;
+        }
+
+        @keyframes animation1 {
+            0% {
+                left: -100%;
+            }
+            50%, 100% {
+                left: 0px;
+            }
+        }
+        .btnrow a span:nth-child(2) {
+            position: absolute;
+            right: 0;
+            top: -100%;
+            height: 100%;
+            width: 2px;
+            background:linear-gradient(180deg, transparent, red);
+            animation:animation2 1s linear infinite;
+        }
+
+        @keyframes animation2 {
+            0% {
+                top: -100%;
+            }
+            50%, 100% {
+                top: 0px;
+            }
+        }
+
+        .btnrow a span:nth-child(3) {
+            position: absolute;
+            bottom: 0;
+            right: -100%;
+            height: 2px;
+            width: 100%;
+            background:linear-gradient(270deg, transparent, blue);
+            animation:animation3 1s linear infinite;
+        }
+
+        @keyframes animation3 {
+            0% {
+                right: -100%;
+            }
+            50%, 100% {
+                right: 0px;
+            }
+        }
+        .btnrow a span:nth-child(4) {
+            position: absolute;
+            left: 0;
+            bottom: -100%;
+            height: 100%;
+            width: 2px;
+            background:linear-gradient(360deg, transparent, green);
+            animation:animation4 1s linear infinite;
+        }
+
+        @keyframes animation4 {
+            0% {
+                bottom: -100%;
+            }
+            50%, 100% {
+                bottom: 0px;
+            }
+        }
+
+
+        @media screen and (min-width:1000px) {
+            #loginForm {
+                width: 35%;
+                background-color: black;
+                margin: auto;
+                padding: 1.5rem;
+                border-radius: 10px;
+                box-shadow: 10px 10px 10px;
+            }
+        }
+        @media screen and (max-width:999px) and (min-width: 800px) {
+            #loginForm {
+                width: 65%;
+                background-color: black;
+                margin: auto;
+                padding: 1.5rem;
+                border-radius: 10px;
+                box-shadow: 10px 10px 10px;
+            }
+        }
+        @media screen and (max-width: 799px) {
+            #loginForm {
+                width: 80%;
+                background-color: black;
+                margin: auto;
+                padding: 1.5rem;
+                border-radius: 10px;
+                box-shadow: 10px 10px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form action="" id="loginForm">
+            <h3 class="header">Login First!</h3>
+
+            <div class="row">
+                <i class="bi bi-person-fill"></i>
+                <input type="text" name="" placeholder="User Name" class="input" id="">
+            </div>
+            <div class="row">
+                <i class="bi bi-shield-lock-fill"></i>
+                <input type="password" name="" placeholder="Password" class="input" id="">
+            </div>
+            <div class="btnrow">
+                <a href="#">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <i class="bi bi-send-fill"></i>
+                    Login
+                </a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

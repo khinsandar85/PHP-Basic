@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Myanmar Traditional Foods</title>
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
+    <link rel="stylesheet" href="css/mystyle.css">
+</head>
+<body>
+    <h1 class="header">Myanmar Traditional Foods</h1>
+    <div class="container">
+        <div class="food item1">
+            <div class="hoverDiv" onmouseover="showText(this)" onmouseout="hide(this)">
+                <div class="text">
+                    <h1>
+                        Mock Hin Khar
+                    </h1>
+                    <p>
+                        Beef and poultry are more commonly used in landlocked cities like Mandalay. 
+                        The great Irrawaddy river flows through the country, which means freshwater fish.
+                    </p>
+            </div>
+            </div>
+        </div>
+        <div class="food item2">
+            <div class="hoverDiv" onmouseover="showText(this)" onmouseout="hide(this)">
+                <div class="text">
+                    <h1>
+                        Bean & Rice
+                    </h1>
+                    <p>
+                        Is a mainstay everywhere, and a primary source of protein, used in a variety of ways; 
+                        fresh, salted, whole or filleted, salted and dried, made into a salty paste.
+                        fermented sour and pressed.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="food item3">
+            <div class="hoverDiv" onmouseover="showText(this)" onmouseout="hide(this)">
+                <div class="text">
+                    <h1>
+                        Tea Leaf 
+                    </h1>
+                    <p>
+                        Characterized by the extensive use of fish products, while pork, beef and poultry are 
+                        more commonly used in landlocked cities like Mandalay. The great Irrawaddy river flows 
+                        through the country
+                    </p>
+                </div>
+            </div>
+        </div>  
+        <div class="food item2">
+            <div class="hoverDiv" onmouseover="showText(this)" onmouseout="hide(this)">
+                <div class="text">
+                    <h1>
+                        Bean & Rice
+                    </h1>
+                    <p>
+                        Is a mainstay everywhere, and a primary source of protein, used in a variety of ways; 
+                        fresh, salted, whole or filleted, salted and dried, made into a salty paste.
+                        fermented sour and pressed.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="food item3">
+            <div class="hoverDiv" onmouseover="showText(this)" onmouseout="hide(this)">
+                <div class="text">
+                    <h1>
+                        Tea Leaf 
+                    </h1>
+                    <p>
+                        Characterized by the extensive use of fish products, while pork, beef and poultry are 
+                        more commonly used in landlocked cities like Mandalay. The great Irrawaddy river flows 
+                        through the country
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="food item1">
+            <div class="hoverDiv" onmouseover="showText(this)" onmouseout="hide(this)">
+                <div class="text">
+                    <h1>
+                        Mock Hin Khar
+                    </h1>
+                    <p>
+                        Beef and poultry are more commonly used in landlocked cities like Mandalay. 
+                        The great Irrawaddy river flows through the country, which means freshwater fish.
+                    </p>
+            </  div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let showText = (e) => {
+            e.children[0].style.display="block";
+            e.children[0].children[0].style.display="inline-block";
+            e.children[0].children[1].style.display="inline-block";
+        }
+        let hide = (e) => {
+            e.children[0].style.display="none";
+            e.children[0].children[0].style.display="none";
+            e.children[0].children[1].style.display="none";
+        }
+    </script>
+</body>
+</html>

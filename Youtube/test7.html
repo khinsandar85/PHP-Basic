@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecture 6 - Pseudo Element</title>
+    <style>
+        .food_name {
+            background-color: rgb(137, 59, 3);
+            color: white;
+            display: inline-block;
+            padding: 0.54rem;
+            font-size: 1.3rem;
+            margin: 0.5rem 0rem;
+        }
+        /* .food_name::before {
+            content: "before";
+        } */
+        .food_name::after {
+            content: "";
+            border-left: 1.3rem solid rgb(137, 59, 3);
+            border-top: 1.3rem solid transparent;
+            border-bottom: 1.3rem solid transparent;
+            position: absolute;
+            margin-left: 0.5rem;
+            top: 1rem;
+        }
+        .info {
+            text-align: justify;
+            line-height: 130%;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .item {
+            width: 45%;
+            margin: auto;
+        }
+        .imgdiv img {
+            width: 80%;
+            margin-left: 10%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item">
+            <div class="food_name">
+                Coconut Noodel
+            </div>   
+            <div class="imgdiv">
+                <img src="./img/p_3.webp" alt="">
+            </div>
+            <p class="info">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique natus non consequatur perspiciatis consectetur minima? Voluptatem tempora minima voluptates nesciunt debitis laudantium totam iure, neque dolore sit porro quos dolorem?
+            </p>
+        </div>
+    </div>
+</body>
+</html>

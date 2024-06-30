@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array 3</title>
+</head>
+<body>
+    <script>
+        let prices = [100, 200, 300, 400, 500];
+
+        for( i= 0; i< prices.length; i++ ) {
+            document.write(prices[i] + " ");
+        }
+        document.write("<br>");
+        document.write("<br>");
+
+        for (let p of prices) {
+            document.write(p+ " : ");
+        }
+
+        document.write("<br>");
+        document.write("<br>");
+
+        for (let p in prices) { //for in get array room name
+            document.write(prices[i]+ " : ");
+        }
+
+    </script>
+</body>
+</html>

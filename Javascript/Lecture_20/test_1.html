@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // let stu_1 = {
+        //     rno : 1,
+        //     name: "Mg Mg",
+        //     major : "BS",
+        //     year : "Second year",
+        // };
+
+        // let stu_2 = {
+        //     rno : 2,
+        //     name: "Aye Aye",
+        //     major : "CS",
+        //     year : "Second year",
+        // };
+
+        // if ( "major" in stu_2) {
+        //     document.write(stu_2.major);
+        // }
+
+        // for (let key in stu_2 ) {
+        //     document.write(`${key} : ${stu_2[key]}`);
+        // }
+
+        function create_str(r,n,m,y) {
+            this.rno = r;
+            this["name"] = n;
+            this.major = m;
+            this["year"] = y;
+        }
+
+        let stu_1 = new create_str(1, "mg mg", "cs", "second yr");
+        let stu_2 = new create_str(1, "Su su", "it", "first yr");
+
+        for (let key in stu_2 ) {
+            document.write(`${key} : ${stu_2[key]}`);
+            document.write("<br>");
+        }
+        
+
+    </script>
+</body>
+</html>
